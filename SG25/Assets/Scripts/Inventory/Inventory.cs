@@ -24,6 +24,11 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Slot[] slots;
 
+    public Slot[] GetSlots() // 접근자 메서드 추가
+    {
+        return slots;
+    }
+
     void Awake()
     {
         ClearInventory();
@@ -70,6 +75,6 @@ public class Inventory : MonoBehaviour
     public void ClearInventory()
     {
         items.Clear();
-        FreshSlot(); 
+        FreshSlot();
     }
 }
