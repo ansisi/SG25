@@ -28,6 +28,8 @@ public class PlayerCtrl : MonoBehaviour
 
     public static PlayerCtrl instance;
 
+    private bool isCrouching = false;   //웅크리기 여부를 나타내는 변수
+
     private void Awake()
     {
         instance = this;
@@ -56,8 +58,16 @@ public class PlayerCtrl : MonoBehaviour
     private void Move()
     {
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-
-        dir *= moveSpeed;
+        //웅크리기
+        if (isCrouching)
+        {
+            dir *= moveSpeed * 0.5f ;
+        }
+        else
+        {
+            dir *= moveSpeed;
+        }
+        
         dir.y = _rigidbody.velocity.y;
 
         _rigidbody.velocity = dir;
@@ -86,6 +96,15 @@ public class PlayerCtrl : MonoBehaviour
         else if (context.phase == InputActionPhase.Canceled)
         {
             curMovementInput = Vector2.zero;
+        }
+    }
+    // 웅크리기 입력을 받는 메서드
+    public void OnCrouchInput(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            // 웅크리기 토글
+            isCrouching = !isCrouching;
         }
     }
 }
