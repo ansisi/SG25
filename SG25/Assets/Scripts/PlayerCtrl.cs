@@ -62,10 +62,18 @@ public class PlayerCtrl : MonoBehaviour
         if (isCrouching)
         {
             dir *= moveSpeed * 0.5f ;
+
+            //øı≈©∑»¿ª ∂ß Ω√æﬂ ≥∑√„
+            cameraContainer.localPosition = new Vector3(cameraContainer.localPosition.x, 0.5f, cameraContainer.localPosition.z);
+
+            
         }
         else
         {
             dir *= moveSpeed;
+
+            //º≠¿÷¿ª ∂ß Ω√æﬂ ø¯∑°¥Î∑Œ
+            cameraContainer.localPosition = new Vector3(cameraContainer.localPosition.x, 1.0f, cameraContainer.localPosition.z);
         }
         
         dir.y = _rigidbody.velocity.y;
