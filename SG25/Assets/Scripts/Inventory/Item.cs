@@ -19,15 +19,11 @@ public class Item : ScriptableObject
     public struct STAT
     {
         public string ItemName;
-        public int value;
+        public int price;
     }
 
     public List<STAT> stats = new List<STAT>();
 
-    public int price;
-
     public Sprite icon;
     public string description;
-
-
 }

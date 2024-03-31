@@ -24,11 +24,6 @@ public class Slot : MonoBehaviour
             if (_item != null)
             {
                 image.sprite = _item.icon;
-                image.color = new Color(1, 1, 1, 1);
-            }
-            else
-            {
-                image.color = new Color(1, 1, 1, 0);
             }
         }
     }

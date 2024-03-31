@@ -19,8 +19,12 @@ public class TimeManager : MonoBehaviour
     private int gameDay;
     private bool isTimeStopped = false;
 
+    private ObjectPicker objectPicker;
+
     void Start()
     {
+        objectPicker = FindObjectOfType<ObjectPicker>();
+
         resultUI.SetActive(false);
 
         gameHour = startHour;
@@ -79,5 +83,10 @@ public class TimeManager : MonoBehaviour
 
             isTimeStopped = false; 
         }
+    }
+
+    public void SetActiveInventory(bool isActive)
+    {
+        isTimeStopped = isActive;
     }
 }
