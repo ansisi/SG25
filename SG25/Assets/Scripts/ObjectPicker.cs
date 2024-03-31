@@ -35,7 +35,7 @@ public class ObjectPicker : MonoBehaviour
 
             if (timeManager != null)
             {
-                timeManager.SetActiveInventory(isPanelActive);
+                timeManager.TimeStop(isPanelActive);
             }
         }
 

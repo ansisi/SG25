@@ -8,7 +8,6 @@ public class PlayerCtrl : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     private Vector2 curMovementInput;
-    public float jumpForce;
     public LayerMask groundLayerMask;
 
     [Header("Look")]
@@ -16,19 +15,18 @@ public class PlayerCtrl : MonoBehaviour
     public float minXLook;
     public float maxXLook;
     private float camCurXRot;
-    public float lookSensitivity;       // 마우스의 민감도
+    public float lookSensitivity;
 
     private Vector2 mouseDelta;
 
-    // SerializedField와 반대로 public 상태인 것을 Inspector에서 숨기기 위한 용도
     [HideInInspector]
     public bool canLook = true;
 
     private Rigidbody _rigidbody;
-
     public static PlayerCtrl instance;
+    private TimeManager timeManager;
 
-    private bool isCrouching = false;   //웅크리기 여부를 나타내는 변수
+    private bool isCrouching = false;
 
     private void Awake()
     {
@@ -38,8 +36,8 @@ public class PlayerCtrl : MonoBehaviour
 
     void Start()
     {
-        // 게임 시작 시 마우스 커서 숨기기
         Cursor.lockState = CursorLockMode.Locked;
+        timeManager = FindObjectOfType<TimeManager>();
     }
 
     void FixedUpdate()
@@ -49,6 +47,16 @@ public class PlayerCtrl : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (timeManager != null && timeManager.isTimeStopped)
+        {
+            canLook = false;
+            curMovementInput = Vector2.zero;
+        }
+        else
+        {
+            canLook = true;
+        }
+
         if (canLook)
         {
             CameraLook();
@@ -58,7 +66,7 @@ public class PlayerCtrl : MonoBehaviour
     private void Move()
     {
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        //웅크리기
+
         if (isCrouching)
         {
             dir *= moveSpeed * 0.5f ;

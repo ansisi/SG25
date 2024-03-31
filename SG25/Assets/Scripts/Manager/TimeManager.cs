@@ -17,13 +17,15 @@ public class TimeManager : MonoBehaviour
 
     private float gameHour;
     private int gameDay;
-    private bool isTimeStopped = false;
+    public bool isTimeStopped = false;
 
     private ObjectPicker objectPicker;
+    public PlayerCtrl playerCtrl;
 
     void Start()
     {
         objectPicker = FindObjectOfType<ObjectPicker>();
+        playerCtrl = FindObjectOfType<PlayerCtrl>();
 
         resultUI.SetActive(false);
 
@@ -85,8 +87,21 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    public void SetActiveInventory(bool isActive)
+    public void TimeStop(bool isActive)
     {
         isTimeStopped = isActive;
+
+        if (isActive)
+        {
+            playerCtrl.canLook = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            playerCtrl.canLook = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }    
     }
 }
