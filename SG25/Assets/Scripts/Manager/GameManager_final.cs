@@ -1,5 +1,12 @@
 using UnityEngine;
 
+/*GameManager_fina클래스는 
+1.게암머니 초가화 및 관리
+2.게임머니 추가 및 감소
+3.아이템 구매 및 게임머니 차감
+4.게임머니 부족 시 구매제한
+게임머니 관리와 아이템 구매 시스템에 중점을 둔 코드입니다.*/
+
 public class GameManager_final : MonoBehaviour
 {
     public int startingMoney = 100;
@@ -46,15 +53,19 @@ public class GameManager_final : MonoBehaviour
     // 게임머니로 상품 구매 함수
     public void BuyItem(string itemName)
     {
-        if (storeManager != null)
+        Item item = Resources.Load<Item>("Items/" + itemName); // 아이템 리소스 로드
+        if (item != null)
         {
-            int itemPrice = storeManager.GetItemPrice(itemName);
+            // 아이템의 첫 번째 STAT 구조체의 price 필드를 가져옴
+            int itemPrice = item.stats.Count > 0 ? item.stats[0].price : 0;
+
             if (itemPrice > 0)
             {
                 if (currentMoney >= itemPrice)
                 {
-                    storeManager.SelectItem(itemName);
                     SpendMoney(itemPrice);
+                    Debug.Log(itemName + "을(를) 구매하였습니다.");
+                    // 여기에 아이템을 플레이어 인벤토리에 추가하는 코드를 추가할 수 있습니다.
                 }
                 else
                 {
@@ -68,7 +79,7 @@ public class GameManager_final : MonoBehaviour
         }
         else
         {
-            Debug.Log("StoreManager가 없습니다.");
+            Debug.Log(itemName + "을(를) 찾을 수 없습니다.");
         }
     }
 }
