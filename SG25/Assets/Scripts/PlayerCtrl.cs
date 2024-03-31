@@ -38,6 +38,12 @@ public class PlayerCtrl : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         timeManager = FindObjectOfType<TimeManager>();
+
+        //input system ¿õÅ©¸®±â
+        InputActionMap playerControls = new InputActionMap();
+        playerControls.AddAction("Crouch", binding: "<Keyboard>/ctrl");
+        playerControls.FindAction("Crouch").performed += ctx => OnCrouchInput(ctx);
+        playerControls.Enable();
     }
 
     void FixedUpdate()
