@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Sample
   m_EditorClassIdentifier: 
   itemType: 0
-  stats: []
-  price: 0
+  stats:
+  - ItemName: 
+    price: 0
   icon: {fileID: 21300000, guid: c071f44b8c8048c4aaea75ef81930131, type: 3}
   description: 

@@ -1353,6 +1353,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7780304577101558249, guid: f8231dd76956e8e42a7119c8a5caccd3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7780304577101558254, guid: f8231dd76956e8e42a7119c8a5caccd3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1376,6 +1380,10 @@ PrefabInstance:
     - target: {fileID: 7780304577101558254, guid: f8231dd76956e8e42a7119c8a5caccd3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780304577111439120, guid: f8231dd76956e8e42a7119c8a5caccd3, type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7780304577111439120, guid: f8231dd76956e8e42a7119c8a5caccd3, type: 3}
       propertyPath: m_Color.a
@@ -1530,8 +1538,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7780304577466397074, guid: f8231dd76956e8e42a7119c8a5caccd3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d190b1c84f5516147a7b062a5c4d09a9, type: 3}
+    - target: {fileID: 7780304577466397074, guid: f8231dd76956e8e42a7119c8a5caccd3, type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780304577466397084, guid: f8231dd76956e8e42a7119c8a5caccd3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7780304577483773203, guid: f8231dd76956e8e42a7119c8a5caccd3, type: 3}
       propertyPath: m_Color.a
@@ -2768,6 +2784,7 @@ MonoBehaviour:
   armLength: 2
   objectDistance: 1
   timeManager: {fileID: 135392755}
+  playerCtrl: {fileID: 0}
   PanelInventory: {fileID: 1258901749}
 --- !u!1 &2125238440
 GameObject:
