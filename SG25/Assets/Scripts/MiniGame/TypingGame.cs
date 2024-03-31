@@ -11,7 +11,7 @@ public class SentenceData : ScriptableObject
 
 public class TypingGame : MonoBehaviour
 {
-    public TMP_Text textDisPlay;
+    public TMP_Text textDisplay;
     public TMP_Text timerText;
     public TMP_InputField inputField;
 
@@ -82,25 +82,26 @@ public class TypingGame : MonoBehaviour
     void SelectRandomSentences()
     {
         string[] allSentences = sentenceData.sentences;
-        int numSentenvesToSelect = Mathf.Min(allSentences.Length, 5);
         List<string> selectedSentences = new List<string>();
-        List<string> remainingSentences = new List<string>(allSentences);
 
-        for (int i = 0; i < numSentenvesToSelect; i++)
+        // 문장을 랜덤으로 선택
+        for (int i = 0; i < allSentences.Length; i++)
         {
-            int randomIndex = Random.Range(0, remainingSentences.Count);
-            selectedSentences.Add(remainingSentences[randomIndex]);
-            remainingSentences.RemoveAt(randomIndex);
+            int randomIndex = Random.Range(i, allSentences.Length);
+            string temp = allSentences[randomIndex];
+            allSentences[randomIndex] = allSentences[i];
+            allSentences[i] = temp;
         }
 
-        sentenceData.sentences = selectedSentences.ToArray();
+        // 선택된 문장을 다시 저장
+        sentenceData.sentences = allSentences;
     }
 
     void DisplayNextSentence()
     {
         if (currentSentenceIndex < sentenceData.sentences.Length)
         {
-            textDisPlay.text = sentenceData.sentences[currentSentenceIndex];
+            textDisplay.text = sentenceData.sentences[currentSentenceIndex];
             inputField.text = "";
             currentTime = 0f;
             isTyping = true;
@@ -119,18 +120,21 @@ public class TypingGame : MonoBehaviour
             if (userInput == sentenceData.sentences[currentSentenceIndex])
             {
                 correctAnswerCount++;
-                NextSentence();
-            }
-            else if (correctAnswerCount >= 5)
-            {
-                EndGame();
+                if (correctAnswerCount >= 5)
+                {
+                    EndGame();
+                }
+                else
+                {
+                    NextSentence();
+                }
             }
             else
             {
                 EndGame();
             }
-
         }
+
     }
 
     void NextSentence()
