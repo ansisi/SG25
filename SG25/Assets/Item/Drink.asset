@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   stats:
-  - ItemName: 
-    price: 0
+  - ItemName: "\uC74C\uB8CC"
+    price: 3
   - ItemName: 
     price: 0
   - ItemName: 
