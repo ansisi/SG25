@@ -1,140 +1,169 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-
-/*StoreManager클래스는 
-1.상품 가격 설정 및 관리
-2.상품 선택, 총 가격 계산, 결제
-3.거스름돈 계산 및 반환
-4.상품 선택 초기화
-5.마우스 클릭 또는 Numpad를 통해 상품 선택 및 금액을 입력하는
-상품 관리와 결재 시스템에 집중한 코드 입니다.*/
-
+using UnityEngine;
+using TMPro;
 
 public class StoreManager : MonoBehaviour
 {
-    // 상품 가격을 저장하는 딕셔너리
-    [SerializeField] private Dictionary<string, int> itemPrices = new Dictionary<string, int>();
-
-    // 선택한 상품 목록
-    [SerializeField] private List<string> selectedItems = new List<string>();
-
-    // 결제 금액
-    private int totalCost;
-
-    // 거스름돈
+    private int totalMoney;
     private int change;
+    public int currentMoney;
+    private int totalSales;
+    private int inputChangeMoney;
+    private int userInputMoney;
+    private int receivedMoney;
 
-    // 상품 가격을 설정하는 함수
-    public void SetItemPrice(string itemName, int price)
+    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI receivedMoneyText;
+    public TextMeshProUGUI totalMoneyText;
+    public TextMeshProUGUI changeText;
+    public TextMeshProUGUI inputText;
+    public TextMeshProUGUI inputChangeText;
+
+    private List<Item> selectedItems = new List<Item>();
+
+    private void Start()
     {
-        if (!itemPrices.ContainsKey(itemName))
+        if (GameManager.Instance != null)
         {
-            itemPrices.Add(itemName, price);
+            currentMoney = GameManager.Instance.money;
+            UpdateMoneyUI();
+            UpdateTotalMoneyUI();
         }
         else
         {
-            itemPrices[itemName] = price;
+            Debug.LogError("GameManager 인스턴스를 찾을 수 없습니다!");
         }
     }
 
-    // 상품 가격을 반환하는 함수
-    public int GetItemPrice(string itemName)
+    public void SelectItem(Item item)
     {
-        if (itemPrices.ContainsKey(itemName))
-        {
-            return itemPrices[itemName];
-        }
-        return -1; // 해당 상품이 없을 경우 -1을 반환하거나 다른 방식으로 처리할 수 있습니다.
+        selectedItems.Add(item);
+        UpdateTotalMoneyUI();
     }
 
-    // 상품을 선택하고 가격을 계산하는 함수
-    public void SelectItem(string itemName)
-    {
-        if (itemPrices.ContainsKey(itemName))
-        {
-            selectedItems.Add(itemName);
-            totalCost += itemPrices[itemName];
-            Debug.Log(itemName + " 선택됨. 현재 총 가격: " + totalCost);
-        }
-        else
-        {
-            Debug.Log(itemName + "은(는) 판매하지 않는 상품입니다.");
-        }
-    }
 
-    // 결제 후 총 가격을 반환하는 함수
-    public int CalculateTotalCost()
-    {
-        return totalCost;
-    }
-
-    // 거스름돈을 계산하는 함수
-    private void CalculateChange(int paidAmount)
-    {
-        change = paidAmount - totalCost;
-    }
-
-    // 결제 후 거스름돈을 반환하는 함수
-    public int GetChange()
-    {
-        return change;
-    }
-
-    // 선택한 상품 목록과 총 가격을 초기화하는 함수
-    public void ClearSelection()
-    {
-        selectedItems.Clear();
-        totalCost = 0;
-        change = 0;
-    }
-
-    // 물건을 선택하는 기능
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            CalculatePaidAmount();
+        }
+
+        for (int i = 0; i <= 9; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Keypad0 + i) || Input.GetKeyDown(KeyCode.Alpha0 + i))
+            {
+                userInputMoney = userInputMoney * 10 + i;
+                inputText.text = userInputMoney.ToString();
+            }
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
             if (Physics.Raycast(ray, out hit))
             {
-                GameObject obj = hit.transform.gameObject;
-                if (obj.CompareTag("Product"))
+                if (hit.collider.CompareTag("Product"))
                 {
-                    string itemName = obj.name;
-                    SelectItem(itemName);
+                    Consumable consumable = hit.collider.GetComponent<Consumable>();
+                    if (consumable != null)
+                    {
+                        Item item = consumable.item;
+                        if (item != null)
+                        {
+                            SelectItem(item);
+                            Destroy(hit.collider.gameObject);
+                        }
+                    }
                 }
+
+                else
+                {
+                    MoneyConsumable moneyConsumable = hit.collider.GetComponent<MoneyConsumable>();
+                    if (moneyConsumable != null)
+                    {
+                        receivedMoneyText.text = "받은 돈 " + moneyConsumable.money.value.ToString();
+                        Destroy(hit.collider.gameObject);
+
+                        int receivedMoney = int.Parse(receivedMoneyText.text);
+                        int totalMoney = 0;
+                        foreach (Item item in selectedItems)
+                        {
+                            totalMoney += item.price;
+                        }
+                        int change = receivedMoney - totalMoney;
+
+                        changeText.text = "거스름돈 " + change.ToString();
+                    }
+                }
+
             }
         }
     }
 
-    // Numpad로 입력한 금액을 계산하여 반환하는 함수
-    private int CalculatePaidAmount()
+    private void CalculatePaidAmount()
     {
-        int paidAmount = 0;
-        for (int i = 0; i <= 9; i++)
+        int totalMoney = 0;
+        foreach (Item item in selectedItems)
         {
-            if (Input.GetKeyDown(KeyCode.Keypad0 + i))
+            totalMoney += item.price;
+        }
+        int receivedMoney = int.Parse(receivedMoneyText.text);
+        int change = receivedMoney - totalMoney;
+
+        if (change >= 0)
+        {
+            int changeAmount = userInputMoney;
+
+            currentMoney += receivedMoney - userInputMoney;
+            totalSales += receivedMoney - userInputMoney;
+            UpdateMoneyUI();
+            UpdateTotalMoneyUI();
+            selectedItems.Clear();
+            receivedMoneyText.text = "0";
+            changeText.text = change.ToString();
+
+            if (changeAmount != change)
             {
-                paidAmount = paidAmount * 10 + i;
+                inputChangeText.color = Color.red;
             }
+            else
+            {
+                inputChangeText.color = Color.green;
+            }
+
+            inputChangeText.text = changeAmount.ToString();
+
+            inputText.text = "";
+            receivedMoneyText.text = "";
+            changeText.text = "";
+            totalMoneyText.text = "";
+
+            Invoke("ClearInputChangeText", 2f);
         }
-        return paidAmount;
     }
 
-    // 결제 기능
-    void FixedUpdate()
+    private void ClearInputChangeText()
     {
-        // Enter 키를 누르면 결제가 이루어지고 거스름돈이 계산됩니다.
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            Debug.Log("결제 완료. 총 가격: " + totalCost);
-            int paidAmount = CalculatePaidAmount(); // 유저가 입력한 금액을 받아옴
-            CalculateChange(paidAmount); // 거스름돈 계산
-            Debug.Log("거스름돈: " + change);
-            ClearSelection(); // 선택한 상품 목록과 총 가격 초기화
+        inputChangeText.text = "";
+    }
 
-            // 결제 완료 후 거스름돈을 알려주는 메시지를 출력합니다.
-            Debug.Log("거스름돈은 " + change + "원입니다.");
+    private void UpdateMoneyUI()
+    {
+        moneyText.text = currentMoney.ToString();
+    }
+
+    private void UpdateTotalMoneyUI()
+    {
+        int totalMoney = 0;
+        foreach (Item item in selectedItems)
+        {
+            totalMoney += item.price;
         }
+
+        totalMoneyText.text = "총 상품 금액 " + totalMoney.ToString();
     }
 }

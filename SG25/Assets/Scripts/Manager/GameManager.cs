@@ -1,43 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
-//게임 플레이 돈 코드 입니다. 계산 코드 아니에요
 
 public class GameManager : MonoBehaviour
 {
-    public int startingMoney = 100;
-    private int currentMoney;
+    public static GameManager Instance;
 
-    // 게임 시작 시 호출되는 함수
-    void Start()
-    {
-        currentMoney = startingMoney;
-        Debug.Log("게임머니 초기화: " + currentMoney);
-    }
 
-    // 현재 게임머니 반환
-    public int GetCurrentMoney()
-    {
-        return currentMoney;
-    }
+    public int money = 100;
 
-    // 게임머니 추가
-    public void AddMoney(int amount)
+    private void Awake()
     {
-        currentMoney += amount;
-        Debug.Log("게임머니 추가: " + amount + ", 현재 게임머니: " + currentMoney);
-    }
-
-    // 게임머니 감소
-    public void SpendMoney(int amount)
-    {
-        if (currentMoney >= amount)
+        if (Instance == null)
         {
-            currentMoney -= amount;
-            Debug.Log("게임머니 소비: " + amount + ", 현재 게임머니: " + currentMoney);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Debug.Log("게임머니가 부족합니다!");
+            Destroy(gameObject);
         }
     }
 }

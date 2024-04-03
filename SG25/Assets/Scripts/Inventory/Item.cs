@@ -15,15 +15,22 @@ public class Item : ScriptableObject
 
     public ItemType itemType;
 
-    [System.Serializable]
-    public struct STAT
-    {
-        public string ItemName;
-        public int price;
-    }
 
-    public List<STAT> stats = new List<STAT>();
+    public string ItemName;
+    public int price;
+
 
     public Sprite icon;
     public string description;
 }
+
+[CreateAssetMenu]
+public class Money : ScriptableObject
+{
+    public string MoneyName;
+    public int value;
+    public Sprite icon;
+    public string description;
+}
+
+

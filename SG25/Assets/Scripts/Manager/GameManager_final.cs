@@ -7,7 +7,7 @@ using UnityEngine;
 4.게임머니 부족 시 구매제한
 게임머니 관리와 아이템 구매 시스템에 중점을 둔 코드입니다.*/
 
-public class GameManager_final : MonoBehaviour
+/*public class GameManager_final : MonoBehaviour
 {
     public int startingMoney = 100;
     private int currentMoney;
@@ -83,3 +83,4 @@ public class GameManager_final : MonoBehaviour
         }
     }
 }
+*/
