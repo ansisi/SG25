@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 [CreateAssetMenu(fileName = "New SentenceData", menuName = "Sentence Data")]
@@ -14,8 +15,9 @@ public class TypingGame : MonoBehaviour
     public TMP_Text textDisplay;
     public TMP_Text timerText;
     public TMP_InputField inputField;
+    public TMP_Text textEnergy;
 
-    public GameObject typingGameUI;
+    //public GameObject typingGameUI;
     public SentenceData sentenceData;
 
     public float timeLimit = 5f;
@@ -24,18 +26,31 @@ public class TypingGame : MonoBehaviour
     private bool isTyping = false;
     private bool isGameOver = false;
     private int correctAnswerCount = 0;
+    private int currentEnergy;
 
-    bool isPanelActive = false;
+    //bool isPanelActive = false;
 
     private PlayerCtrl playerCtrl;
     private TimeManager timeManager;
+
+    private void Awake()
+    {
+        if (GameManager.Instance != null)
+        {
+            currentEnergy = GameManager.Instance.energy;
+        }
+        else
+        {
+            Debug.LogError("GameManager 인스턴스를 찾을 수 없습니다!");
+        }
+    }
 
     void Start()
     {
         playerCtrl = FindObjectOfType<PlayerCtrl>();
         timeManager = FindObjectOfType<TimeManager>();
 
-        typingGameUI.SetActive(false);
+        //typingGameUI.SetActive(false);
 
         SelectRandomSentences();
         DisplayNextSentence();
@@ -45,25 +60,11 @@ public class TypingGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            typingGameUI.SetActive(true);
-            inputField.ActivateInputField();
-
-            isPanelActive = !isPanelActive;
-
-            if (timeManager != null)
-            {
-                timeManager.TimeStop(isPanelActive);
-            }
-        }
-
         if (!isGameOver && isTyping)
         {
             currentTime += Time.deltaTime;
             if (currentTime >= timeLimit)
             {
-                typingGameUI.SetActive(false);
                 UpdateTimerText();
             }
             else
@@ -146,7 +147,9 @@ public class TypingGame : MonoBehaviour
     void EndGame()
     {
         isGameOver = true;
-        typingGameUI.SetActive(false);
+        GameManager.Instance.EnergyDecrease(10);
+
+        SceneManager.LoadScene(0);
     }
 
     void OnEndEdit(string userInput)

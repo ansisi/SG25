@@ -6,8 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-
     public int money = 100;
+    public int energy = 100;
+
+    public int currentEnergy;
+    public int currentMoney;
+
+    TypingGame typingGameInstance = new TypingGame();
 
     private void Awake()
     {
@@ -20,5 +25,15 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        currentEnergy = energy;
+        currentMoney = money;
     }
+
+    public void EnergyDecrease(int amount)
+    {
+        currentEnergy -= amount;
+    }
+
+
 }

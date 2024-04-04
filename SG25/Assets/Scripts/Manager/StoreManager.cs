@@ -13,6 +13,8 @@ public class StoreManager : MonoBehaviour
     private int userInputMoney;
     private int receivedMoney;
 
+    private bool itemsSelected = false;
+
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI receivedMoneyText;
     public TextMeshProUGUI totalMoneyText;
@@ -40,6 +42,8 @@ public class StoreManager : MonoBehaviour
     {
         selectedItems.Add(item);
         UpdateTotalMoneyUI();
+
+        itemsSelected = true;
     }
 
 
@@ -50,12 +54,15 @@ public class StoreManager : MonoBehaviour
             CalculatePaidAmount();
         }
 
-        for (int i = 0; i <= 9; i++)
+        if(itemsSelected)
         {
-            if (Input.GetKeyDown(KeyCode.Keypad0 + i) || Input.GetKeyDown(KeyCode.Alpha0 + i))
+            for (int i = 0; i <= 9; i++)
             {
-                userInputMoney = userInputMoney * 10 + i;
-                inputText.text = userInputMoney.ToString();
+                if (Input.GetKeyDown(KeyCode.Keypad0 + i) || Input.GetKeyDown(KeyCode.Alpha0 + i))
+                {
+                    userInputMoney = userInputMoney * 10 + i;
+                    inputText.text = userInputMoney.ToString();
+                }
             }
         }
 
@@ -85,10 +92,10 @@ public class StoreManager : MonoBehaviour
                     MoneyConsumable moneyConsumable = hit.collider.GetComponent<MoneyConsumable>();
                     if (moneyConsumable != null)
                     {
-                        receivedMoneyText.text = "¹ÞÀº µ· " + moneyConsumable.money.value.ToString();
+                        receivedMoneyText.text = moneyConsumable.money.value.ToString();
                         Destroy(hit.collider.gameObject);
 
-                        int receivedMoney = int.Parse(receivedMoneyText.text);
+                        //int receivedMoney = int.Parse(receivedMoneyText.text);
                         int totalMoney = 0;
                         foreach (Item item in selectedItems)
                         {
@@ -96,7 +103,7 @@ public class StoreManager : MonoBehaviour
                         }
                         int change = receivedMoney - totalMoney;
 
-                        changeText.text = "°Å½º¸§µ· " + change.ToString();
+                        changeText.text = change.ToString();
                     }
                 }
 
@@ -143,6 +150,8 @@ public class StoreManager : MonoBehaviour
             totalMoneyText.text = "";
 
             Invoke("ClearInputChangeText", 2f);
+
+            itemsSelected = false;
         }
     }
 
@@ -164,6 +173,6 @@ public class StoreManager : MonoBehaviour
             totalMoney += item.price;
         }
 
-        totalMoneyText.text = "ÃÑ »óÇ° ±Ý¾× " + totalMoney.ToString();
+        totalMoneyText.text = totalMoney.ToString();
     }
 }

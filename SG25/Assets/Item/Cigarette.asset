@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ef1adf0cf8fd64592bb974e3ee2ff5, type: 3}
   m_Name: Cigarette
   m_EditorClassIdentifier: 
-  itemType: 0
-  stats:
-  - ItemName: "\uB2F4\uBC30"
-    price: 4
+  itemType: 3
+  ItemName: "\uB9CC\uB450"
+  price: 1500
   icon: {fileID: 0}
   description: 

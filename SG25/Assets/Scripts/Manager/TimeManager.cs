@@ -9,6 +9,7 @@ public class TimeManager : MonoBehaviour
     public GameObject resultUI;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI dateText;
+    public TextMeshProUGUI energyText;
 
     public float startHour = 9f;
     public int startDay = 1;
@@ -24,6 +25,15 @@ public class TimeManager : MonoBehaviour
 
     void Start()
     {
+        if (GameManager.Instance != null)
+        {
+            energyText.text = GameManager.Instance.currentEnergy.ToString();
+        }
+        else
+        {
+            Debug.LogError("GameManager 인스턴스를 찾을 수 없습니다!");
+        }
+
         objectPicker = FindObjectOfType<ObjectPicker>();
         playerCtrl = FindObjectOfType<PlayerCtrl>();
 
