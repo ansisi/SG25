@@ -84,11 +84,18 @@ public class PlayerCtrl : MonoBehaviour
                 {
                     Destroy(hit.collider.gameObject);
                 }
+
+                // Raycast로 깨진 술병 오브젝트를 검출하고 BrokenBottle 태그를 가지고 있다면 삭제
+                if (hit.collider.CompareTag("BrokenBottle"))
+                {
+                    Destroy(hit.collider.gameObject);
+                }
             }
         }
-        }
+    }
 
-        private void Move()
+
+    private void Move()
     {
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
 
@@ -148,4 +155,7 @@ public class PlayerCtrl : MonoBehaviour
             isCrouching = !isCrouching;
         }
     }
+
+
+
 }

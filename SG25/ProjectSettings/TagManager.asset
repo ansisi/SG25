@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Item
   - Product
+  - Trash
+  - BrokenBottle
   layers:
   - Default
   - TransparentFX

@@ -2,43 +2,61 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
-    // 쓰레기 생성 알림 함수
-    public void NotifyTrashCreated()
-    {
-        SayRandomDialogue();
-    }
+    public float patienceTime = 10f; // 손님의 최대 인내 시간 (초)
+    public float angerRate = 0.5f; // 화가 나는 속도 (초당 증가량)
 
-    // 손님이 할 수 있는 대사들
-    public string[] customerDialogues = { "더러워요", "빨리 치워주세요", "냄새나잖아요!" };
+    private float anger; // 현재 화가 나는 정도
+    private bool isAngry; // 화가 났는지 여부
+    private float lastAngryTime; // 마지막 화가 난 시간
 
-    // 대사 출력 간격
-    public float dialogueInterval = 10f;
-    private float lastDialogueTime;
-
-    // 대사 출력 함수
-    public void SayRandomDialogue()
-    {
-        // 랜덤한 대사 선택
-        string randomDialogue = customerDialogues[Random.Range(0, customerDialogues.Length)];
-
-        // 대사 출력
-        Debug.Log("손님 대사: " + randomDialogue);
-
-        // 마지막 대사 출력 시간 갱신
-        lastDialogueTime = Time.time;
-    }
+    string[] angryLines = { "더러워!", "냄새나!", "빨리 치워!", "지저분해!" };
 
     void Start()
     {
-        lastDialogueTime = Time.time;
+        anger = 0f;
+        isAngry = false;
+        lastAngryTime = Time.time;
     }
 
     void Update()
     {
-        // 일정 간격마다 대사 출력
-        if (Time.time - lastDialogueTime >= dialogueInterval)
+        // 일정 시간이 지나면 화가 난다
+        if (!isAngry)
         {
-            SayRandomDialogue();
+            anger += Time.deltaTime * angerRate;
+            if (anger >= patienceTime)
+            {
+                isAngry = true;
+                Debug.Log("[Customer] Update: 손님이 화났습니다!");
+            }
         }
+
+        // 화가 났으면 대사를 출력한다
+        if (isAngry)
+        {
+            // 20초 간격으로 대사를 출력한다
+            if (Time.time - lastAngryTime >= 20f)
+            {
+                // 랜덤 대사 출력
+                int index = Random.Range(0, angryLines.Length);
+                Debug.Log("[Customer] Update: " + angryLines[index]);
+
+                lastAngryTime = Time.time;
+            }
+        }
+    }
+
+    public void Angry()
+    {
+        // 쓰레기가 3개 이상 쌓였을 때 호출
+        isAngry = true;
+        Debug.Log("[Customer] Update: 손님이 화났습니다!");
+    }
+
+    public void ResetAnger()
+    {
+        // 쓰레기를 치웠을 때 호출
+        isAngry = false;
+        anger = 0f;
     }
 }
