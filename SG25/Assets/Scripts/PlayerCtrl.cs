@@ -69,7 +69,26 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
-    private void Move()
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            // 마우스 왼쪽 버튼이 클릭되었을 때
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Raycast로 쓰레기 오브젝트를 검출하고 Trash 태그를 가지고 있다면 삭제
+                if (hit.collider.CompareTag("Trash"))
+                {
+                    Destroy(hit.collider.gameObject);
+                }
+            }
+        }
+        }
+
+        private void Move()
     {
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
 

@@ -54,3 +54,9 @@ public class TrashGenerator : MonoBehaviour
         Invoke("GenerateGarbage", spawnInterval);
     }
 }
+//// void SpawnItem()
+//{
+//    float randomX = Random.Range(-13f, 13f);
+//    Vector3 spawnPosition = new Vector3(randomX, 0f, randomX);
+//    Instantiate(NapzakPrefab, spawnPosition, Quaternion.identity);
+//}
