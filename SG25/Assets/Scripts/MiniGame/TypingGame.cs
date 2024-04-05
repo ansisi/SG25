@@ -4,20 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-[CreateAssetMenu(fileName = "New SentenceData", menuName = "Sentence Data")]
-public class SentenceData : ScriptableObject
-{
-    public string[] sentences;
-}
-
 public class TypingGame : MonoBehaviour
 {
     public TMP_Text textDisplay;
     public TMP_Text timerText;
     public TMP_InputField inputField;
-    public TMP_Text textEnergy;
 
-    //public GameObject typingGameUI;
     public SentenceData sentenceData;
 
     public float timeLimit = 5f;
@@ -26,32 +18,16 @@ public class TypingGame : MonoBehaviour
     private bool isTyping = false;
     private bool isGameOver = false;
     private int correctAnswerCount = 0;
-    private int currentEnergy;
 
-    //bool isPanelActive = false;
-
-    private PlayerCtrl playerCtrl;
-    private TimeManager timeManager;
+    private GameManager gameManager;
 
     private void Awake()
     {
-        if (GameManager.Instance != null)
-        {
-            currentEnergy = GameManager.Instance.energy;
-        }
-        else
-        {
-            Debug.LogError("GameManager 인스턴스를 찾을 수 없습니다!");
-        }
+        gameManager = GameManager.Instance;
     }
 
     void Start()
     {
-        playerCtrl = FindObjectOfType<PlayerCtrl>();
-        timeManager = FindObjectOfType<TimeManager>();
-
-        //typingGameUI.SetActive(false);
-
         SelectRandomSentences();
         DisplayNextSentence();
 
@@ -65,7 +41,7 @@ public class TypingGame : MonoBehaviour
             currentTime += Time.deltaTime;
             if (currentTime >= timeLimit)
             {
-                UpdateTimerText();
+                GameFail();
             }
             else
             {
@@ -85,7 +61,6 @@ public class TypingGame : MonoBehaviour
         string[] allSentences = sentenceData.sentences;
         List<string> selectedSentences = new List<string>();
 
-        // 문장을 랜덤으로 선택
         for (int i = 0; i < allSentences.Length; i++)
         {
             int randomIndex = Random.Range(i, allSentences.Length);
@@ -94,7 +69,6 @@ public class TypingGame : MonoBehaviour
             allSentences[i] = temp;
         }
 
-        // 선택된 문장을 다시 저장
         sentenceData.sentences = allSentences;
     }
 
@@ -123,7 +97,7 @@ public class TypingGame : MonoBehaviour
                 correctAnswerCount++;
                 if (correctAnswerCount >= 5)
                 {
-                    EndGame();
+                    Gamesuccess();
                 }
                 else
                 {
@@ -132,7 +106,7 @@ public class TypingGame : MonoBehaviour
             }
             else
             {
-                EndGame();
+                GameFail();
             }
         }
 
@@ -144,11 +118,25 @@ public class TypingGame : MonoBehaviour
         DisplayNextSentence();
     }
 
+    void Gamesuccess()
+    {
+        gameManager.EnergyIncrease(10);
+        gameManager.MoneyIncrease(10000);
+
+        EndGame();
+    }
+
+    void GameFail()
+    {
+        gameManager.EnergyDecrease(10);
+        gameManager.MoneyDecrease(10000);
+
+        EndGame();
+    }
+
     void EndGame()
     {
         isGameOver = true;
-        GameManager.Instance.EnergyDecrease(10);
-
         SceneManager.LoadScene(0);
     }
 

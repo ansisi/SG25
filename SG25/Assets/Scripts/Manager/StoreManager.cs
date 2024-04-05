@@ -42,7 +42,6 @@ public class StoreManager : MonoBehaviour
     {
         selectedItems.Add(item);
         UpdateTotalMoneyUI();
-
         itemsSelected = true;
     }
 
@@ -54,7 +53,7 @@ public class StoreManager : MonoBehaviour
             CalculatePaidAmount();
         }
 
-        if(itemsSelected)
+        if (itemsSelected)
         {
             for (int i = 0; i <= 9; i++)
             {
@@ -95,7 +94,7 @@ public class StoreManager : MonoBehaviour
                         receivedMoneyText.text = moneyConsumable.money.value.ToString();
                         Destroy(hit.collider.gameObject);
 
-                        //int receivedMoney = int.Parse(receivedMoneyText.text);
+                        int receivedMoney = int.Parse(receivedMoneyText.text);
                         int totalMoney = 0;
                         foreach (Item item in selectedItems)
                         {
@@ -150,8 +149,6 @@ public class StoreManager : MonoBehaviour
             totalMoneyText.text = "";
 
             Invoke("ClearInputChangeText", 2f);
-
-            itemsSelected = false;
         }
     }
 

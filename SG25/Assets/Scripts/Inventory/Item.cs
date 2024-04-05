@@ -23,14 +23,3 @@ public class Item : ScriptableObject
     public Sprite icon;
     public string description;
 }
-
-[CreateAssetMenu]
-public class Money : ScriptableObject
-{
-    public string MoneyName;
-    public int value;
-    public Sprite icon;
-    public string description;
-}
-
-

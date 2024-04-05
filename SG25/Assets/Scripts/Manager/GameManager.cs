@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int currentEnergy;
     public int currentMoney;
 
-    TypingGame typingGameInstance = new TypingGame();
+    TypingGame typingGameInstance;
 
     private void Awake()
     {
@@ -30,10 +31,31 @@ public class GameManager : MonoBehaviour
         currentMoney = money;
     }
 
+    public void EnergyIncrease(int amount)
+    {
+        currentEnergy += amount;
+    }
+
     public void EnergyDecrease(int amount)
     {
         currentEnergy -= amount;
     }
 
+    public void MoneyIncrease(int amount)
+    {
+        currentMoney += amount;
+    }
 
+    public void MoneyDecrease(int amount)
+    {
+        currentMoney -= amount;
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
 }
