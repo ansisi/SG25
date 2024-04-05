@@ -8,30 +8,33 @@ public class AiCtrl : MonoBehaviour
 
     private NavMeshAgent agent;
     public Transform[] waypoints;
+    private int currentWaypointIndex = 0;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        MoveToRandomWaypoint();
+        MoveToNextWaypoint();
     }
 
-    void MoveToRandomWaypoint()
+    void MoveToNextWaypoint()
     {
-        if (waypoints.Length == 0)
+        if (currentWaypointIndex < waypoints.Length)
         {
-            Debug.LogError("No waypoints assigned to the AI controller.");
-            return;
+            agent.SetDestination(waypoints[currentWaypointIndex].position);
+            currentWaypointIndex++;
         }
-
-        int randomIndex = Random.Range(0, waypoints.Length);
-        agent.SetDestination(waypoints[randomIndex].position);
+        else
+        {
+            Debug.Log("AI reached the checkout counter.");
+            agent.isStopped = true; // °è»ê´ë¿¡ µµÂøÇÏ¸é ÀÌµ¿À» ¸ØÃã
+        }
     }
 
     void Update()
     {
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
-            MoveToRandomWaypoint();
+            MoveToNextWaypoint();
         }
     }
 }
