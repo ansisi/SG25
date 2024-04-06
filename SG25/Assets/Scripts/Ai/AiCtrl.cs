@@ -9,10 +9,12 @@ public class AiCtrl : MonoBehaviour
     private NavMeshAgent agent;
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
+    public float movementSpeed = 3.5f; // AI 손님의 이동 속도
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = movementSpeed; // 속도 설정
         MoveToNextWaypoint();
     }
 
