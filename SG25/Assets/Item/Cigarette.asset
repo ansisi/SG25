@@ -15,5 +15,5 @@ MonoBehaviour:
   itemType: 3
   ItemName: "\uB9CC\uB450"
   price: 1500
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 840031c9df5fe6644a15e59a32c76b3e, type: 3}
   description: 

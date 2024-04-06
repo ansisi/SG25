@@ -15,5 +15,5 @@ MonoBehaviour:
   itemType: 1
   ItemName: "\uCE74\uD3EC\uCE69"
   price: 3450
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2a6832e705e1a0e43b9cb8a374c32287, type: 3}
   description: 
