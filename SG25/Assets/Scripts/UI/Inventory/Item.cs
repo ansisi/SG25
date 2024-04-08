@@ -16,7 +16,7 @@ public class Item : ScriptableObject
     public ItemType itemType;
 
 
-    public string ItemName;
+    public string itemName;
     public int price;
 
 
