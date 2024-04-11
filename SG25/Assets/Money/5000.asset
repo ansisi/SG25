@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 5000
   m_EditorClassIdentifier: Assembly-CSharp::Money
   MoneyName: "5000\uC6D0"
-  value: 5000
+  value: 10000
   icon: {fileID: 0}
   description: 

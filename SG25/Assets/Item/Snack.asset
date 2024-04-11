@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Snack
   m_EditorClassIdentifier: 
   itemType: 0
-  itemName: Snack
-  price: 0
+  itemName: "\uBABD\uC258"
+  price: 1500
   icon: {fileID: 21300000, guid: 7e7cbfcb6eec1a942a32e8b8e0a3bb86, type: 3}
   description: 

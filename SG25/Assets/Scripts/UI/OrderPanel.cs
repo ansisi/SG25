@@ -20,6 +20,7 @@ public class OrderPanel : MonoBehaviour
 
     public GameObject itemPrefab;
     public GameObject cartPanel;
+    public GameObject orderPanel;
 
     public TextMeshProUGUI cartItemCountText;
     public TextMeshProUGUI totalPriceText;
@@ -30,8 +31,12 @@ public class OrderPanel : MonoBehaviour
     private bool isOrderPanelOn = false;
     private bool isCartPanelOn = false;
 
+    public PlayerCtrl playerCtrl;
+
     void Start()
     {
+        orderPanel.SetActive(false);
+
         snackButton.onClick.AddListener(ShowSnackItems);
         drinkButton.onClick.AddListener(ShowDrinkItems);
         frozenButton.onClick.AddListener(ShowFrozenItems);
@@ -53,6 +58,8 @@ public class OrderPanel : MonoBehaviour
 
         ShowAllItems();
         UpdateCartItemCountText();
+
+        playerCtrl = FindObjectOfType<PlayerCtrl>();
     }
 
     public void ShowAllItems()
@@ -108,6 +115,13 @@ public class OrderPanel : MonoBehaviour
             {
                 OffOrderPanel();
             }
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            orderPanel.SetActive(false);
         }
     }
 

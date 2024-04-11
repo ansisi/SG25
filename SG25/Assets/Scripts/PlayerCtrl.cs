@@ -28,6 +28,9 @@ public class PlayerCtrl : MonoBehaviour
 
     private bool isCrouching = false;
 
+
+    public GameObject orderPanel;
+
     private void Awake()
     {
         instance = this;
@@ -36,7 +39,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         timeManager = FindObjectOfType<TimeManager>();
 
         //input system 웅크리기
@@ -71,6 +74,11 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            orderPanel.SetActive(true);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             // 마우스 왼쪽 버튼이 클릭되었을 때
