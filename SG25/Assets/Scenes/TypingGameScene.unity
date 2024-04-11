@@ -285,6 +285,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 100
   energy: 100
+  experience: 0
+  currentEnergy: 0
+  currentMoney: 0
+  currentExperience: 0
 --- !u!4 &624000816
 Transform:
   m_ObjectHideFlags: 0
@@ -1192,7 +1196,6 @@ MonoBehaviour:
   textDisplay: {fileID: 734584299}
   timerText: {fileID: 1388156856}
   inputField: {fileID: 1570627348}
-  textEnergy: {fileID: 1949184460}
   sentenceData: {fileID: 11400000, guid: 9425ee147ad347d43ad574c0d9160f8a, type: 2}
   timeLimit: 5
 --- !u!4 &1615359516
