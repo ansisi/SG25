@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    //게임 경험치 코드
+    // 게임 경험치 코드
     public int money = 100;
     public int energy = 100;
     public int experience = 0; // 경험치 변수 추가
@@ -17,7 +18,13 @@ public class GameManager : MonoBehaviour
     public int currentExperience; // 현재 경험치 변수 추가
 
     TypingGame typingGameInstance;
-    private int level;
+    public int level;
+
+    private DateTime startTime; // 플레이 시작 시간
+
+    public int levelUpThreshold = 5; // 레벨 업 한도
+    public int maxExperience = 200; // 최대 경험치 (일주일 이내)
+    public int maxExperienceHighLevel = 500; // 고레벨 최대 경험치
 
     private void Awake()
     {
@@ -34,6 +41,7 @@ public class GameManager : MonoBehaviour
         currentEnergy = energy;
         currentMoney = money;
         currentExperience = experience; // 경험치 초기화
+        startTime = DateTime.Now; // 플레이 시작 시간 저장
     }
 
     public void EnergyIncrease(int amount)
@@ -59,7 +67,26 @@ public class GameManager : MonoBehaviour
     // 경험치 증가 함수
     public void GainExperience(int amount)
     {
-        currentExperience += amount;
+        // 일주일 이내인지 확인
+        if (IsWithinFirstWeek())
+        {
+            // 최대 경험치를 초과하지 않도록 제한
+            currentExperience = Mathf.Min(currentExperience + amount, maxExperience);
+        }
+        else
+        {
+            // 현재 레벨이 n레벨 이상인지 확인
+            if (level >= levelUpThreshold)
+            {
+                // 고레벨 최대 경험치를 초과하지 않도록 제한
+                currentExperience = Mathf.Min(currentExperience + amount, maxExperienceHighLevel);
+            }
+            else
+            {
+                // 일반 최대 경험치를 초과하지 않도록 제한
+                currentExperience = Mathf.Min(currentExperience + amount, maxExperience);
+            }
+        }
     }
 
     // 경험치 감소 함수
@@ -75,7 +102,8 @@ public class GameManager : MonoBehaviour
         {
             currentExperience -= 100; // 경험치 감소
             level++; // 레벨 증가
-                     // 레벨 업 효과 적용 (예: 능력치 상승, 새로운 기능 해제 등)
+
+            // 레벨 업 효과 적용 (예: 능력치 상승, 새로운 기능 해제 등)
         }
     }
 
@@ -90,11 +118,24 @@ public class GameManager : MonoBehaviour
         {
             GainExperience(20); // n = 20으로 설정
         }
+
+        CheckForLevelUp();
+    }
+
+    public bool IsWithinFirstWeek()
+    {
+        // 플레이 시작 시간을 저장하는 변수가 필요합니다.
+        // 예시: DateTime startTime = DateTime.Now;
+
+        // 현재 시간과 플레이 시작 시간의 차이를 계산합니다.
+        TimeSpan timeDiff = DateTime.Now - startTime;
+
+        // 일주일 이내인지 확인합니다.
+        return timeDiff.TotalDays <= 7;
     }
 
     public void Update()
     {
-        CheckForLevelUp();// 매 프레임마다 레벨 업 확인
+        CheckForLevelUp(); // 매 프레임마다 레벨 업 확인
     }
 }
-
