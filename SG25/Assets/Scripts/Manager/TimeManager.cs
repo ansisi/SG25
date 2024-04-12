@@ -69,6 +69,8 @@ public class TimeManager : MonoBehaviour
             }
 
             gameHour = 9f;
+
+            PlayerCtrl.instance.ResultPanelOn();
         }
         else
         {
@@ -93,25 +95,14 @@ public class TimeManager : MonoBehaviour
         {
             resultUI.SetActive(false);
 
-            isTimeStopped = false; 
+            isTimeStopped = false;
+
+            PlayerCtrl.instance.ResultPanelOff();
         }
     }
 
     public void TimeStop(bool isActive)
     {
         isTimeStopped = isActive;
-
-        if (isActive)
-        {
-            playerCtrl.canLook = false;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            playerCtrl.canLook = true;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }    
     }
 }

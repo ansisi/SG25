@@ -22,25 +22,30 @@ public class PlayerCtrl : MonoBehaviour
     [HideInInspector]
     public bool canLook = true;
 
-    private Rigidbody _rigidbody;
+    private Rigidbody rb;
     public static PlayerCtrl instance;
     private TimeManager timeManager;
 
     private bool isCrouching = false;
 
-
     public GameObject orderPanel;
+    [SerializeField]
+    private GameObject resultPanel;
+
+    public bool isResultOn = false;
 
     private void Awake()
     {
         instance = this;
-        _rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        timeManager = FindObjectOfType<TimeManager>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        //timeManager = FindObjectOfType<TimeManager>();
 
         //input system 웅크리기
         InputActionMap playerControls = new InputActionMap();
@@ -54,23 +59,6 @@ public class PlayerCtrl : MonoBehaviour
         Move();
     }
 
-    private void LateUpdate()
-    {
-        if (timeManager != null && timeManager.isTimeStopped)
-        {
-            canLook = false;
-            curMovementInput = Vector2.zero;
-        }
-        else
-        {
-            canLook = true;
-        }
-
-        if (canLook)
-        {
-            CameraLook();
-        }
-    }
 
     void Update()
     {
@@ -79,24 +67,28 @@ public class PlayerCtrl : MonoBehaviour
             orderPanel.SetActive(true);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (!isResultOn)
         {
-            // 마우스 왼쪽 버튼이 클릭되었을 때
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            CameraLook();
+            if (Input.GetMouseButtonDown(0))
             {
-                // Raycast로 쓰레기 오브젝트를 검출하고 Trash 태그를 가지고 있다면 삭제
-                if (hit.collider.CompareTag("Trash"))
-                {
-                    Destroy(hit.collider.gameObject);
-                }
+                // 마우스 왼쪽 버튼이 클릭되었을 때
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
 
-                // Raycast로 깨진 술병 오브젝트를 검출하고 BrokenBottle 태그를 가지고 있다면 삭제
-                if (hit.collider.CompareTag("BrokenBottle"))
+                if (Physics.Raycast(ray, out hit))
                 {
-                    Destroy(hit.collider.gameObject);
+                    // Raycast로 쓰레기 오브젝트를 검출하고 Trash 태그를 가지고 있다면 삭제
+                    if (hit.collider.CompareTag("Trash"))
+                    {
+                        Destroy(hit.collider.gameObject);
+                    }
+
+                    // Raycast로 깨진 술병 오브젝트를 검출하고 BrokenBottle 태그를 가지고 있다면 삭제
+                    if (hit.collider.CompareTag("BrokenBottle"))
+                    {
+                        Destroy(hit.collider.gameObject);
+                    }
                 }
             }
         }
@@ -124,9 +116,9 @@ public class PlayerCtrl : MonoBehaviour
             cameraContainer.localPosition = new Vector3(cameraContainer.localPosition.x, 1.0f, cameraContainer.localPosition.z);
         }
         
-        dir.y = _rigidbody.velocity.y;
+        dir.y = rb.velocity.y;
 
-        _rigidbody.velocity = dir;
+        rb.velocity = dir;
     }
 
     void CameraLook()
@@ -164,6 +156,23 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
+    public void ResultPanelOn()
+    {
+        resultPanel.SetActive(true);
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true; // 결과 패널이 활성화될 때 커서 보이기
 
+        isResultOn = true;
+    }
+
+    public void ResultPanelOff()
+    {
+        resultPanel.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false; // 결과 패널이 비활성화될 때 커서 숨기기
+
+        isResultOn = false;
+    }
 }

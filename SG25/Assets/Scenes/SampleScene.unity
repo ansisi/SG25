@@ -8151,6 +8151,8 @@ MonoBehaviour:
   lookSensitivity: 0.2
   canLook: 1
   orderPanel: {fileID: 213400843}
+  resultPanel: {fileID: 1906775340}
+  isResultOn: 0
 --- !u!54 &2067746561
 Rigidbody:
   m_ObjectHideFlags: 0
