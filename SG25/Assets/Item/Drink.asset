@@ -15,5 +15,6 @@ MonoBehaviour:
   itemType: 0
   itemName: "\uD658\uD0C0"
   price: 3450
+  itemPrefab: {fileID: 5924015399099160314, guid: 794e461c39584fa40a97fefe4b917c5b, type: 3}
   icon: {fileID: 21300000, guid: 2a6832e705e1a0e43b9cb8a374c32287, type: 3}
   description: 

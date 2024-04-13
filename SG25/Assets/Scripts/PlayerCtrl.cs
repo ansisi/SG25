@@ -32,7 +32,7 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField]
     private GameObject resultPanel;
 
-    public bool isResultOn = false;
+    public bool isPanelOn = false;
 
     private void Awake()
     {
@@ -67,7 +67,7 @@ public class PlayerCtrl : MonoBehaviour
             orderPanel.SetActive(true);
         }
 
-        if (!isResultOn)
+        if (!isPanelOn)
         {
             CameraLook();
             if (Input.GetMouseButtonDown(0))
@@ -156,23 +156,23 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
-    public void ResultPanelOn()
+    public void PanelOn()
     {
         resultPanel.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true; // 결과 패널이 활성화될 때 커서 보이기
 
-        isResultOn = true;
+        isPanelOn = true;
     }
 
-    public void ResultPanelOff()
+    public void PanelOff()
     {
         resultPanel.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false; // 결과 패널이 비활성화될 때 커서 숨기기
 
-        isResultOn = false;
+        isPanelOn = false;
     }
 }

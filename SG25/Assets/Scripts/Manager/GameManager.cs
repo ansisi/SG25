@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    //게임 경험치 코드
+    public Dictionary<Item, int> cartItemCounts = new Dictionary<Item, int>();
+
+    // 게임 경험치 코드
     public int money = 100;
     public int energy = 100;
     public int experience = 0; // 경험치 변수 추가
 
     public int currentEnergy;
     public int currentMoney;
-    public int currentExperience; // 현재 경험치 변수 추가
+    private int currentExperience; // 현재 경험치 변수 추가
 
     TypingGame typingGameInstance;
     private int level;
@@ -94,7 +95,6 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        CheckForLevelUp();// 매 프레임마다 레벨 업 확인
+        CheckForLevelUp(); // 매 프레임마다 레벨 업 확인
     }
 }
-
