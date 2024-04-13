@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,17 +9,23 @@ public class GameManager : MonoBehaviour
 
     public Dictionary<Item, int> cartItemCounts = new Dictionary<Item, int>();
 
-    // °ÔÀÓ °æÇèÄ¡ ÄÚµå
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Úµï¿½
     public int money = 100;
     public int energy = 100;
-    public int experience = 0; // °æÇèÄ¡ º¯¼ö Ãß°¡
+    public int experience = 0; // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
     public int currentEnergy;
     public int currentMoney;
-    private int currentExperience; // ÇöÀç °æÇèÄ¡ º¯¼ö Ãß°¡
+    private int currentExperience; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
     TypingGame typingGameInstance;
-    private int level;
+    public int level;
+
+    private DateTime startTime; // ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+
+    public int levelUpThreshold = 5; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñµï¿½
+    public int maxExperience = 200; // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì³ï¿½)
+    public int maxExperienceHighLevel = 500; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 
     private void Awake()
     {
@@ -34,7 +41,8 @@ public class GameManager : MonoBehaviour
 
         currentEnergy = energy;
         currentMoney = money;
-        currentExperience = experience; // °æÇèÄ¡ ÃÊ±âÈ­
+        currentExperience = experience; // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Ê±ï¿½È­
+        startTime = DateTime.Now; // ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void EnergyIncrease(int amount)
@@ -57,44 +65,78 @@ public class GameManager : MonoBehaviour
         currentMoney -= amount;
     }
 
-    // °æÇèÄ¡ Áõ°¡ ÇÔ¼ö
+    // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void GainExperience(int amount)
     {
-        currentExperience += amount;
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+        if (IsWithinFirstWeek())
+        {
+            // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            currentExperience = Mathf.Min(currentExperience + amount, maxExperience);
+        }
+        else
+        {
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+            if (level >= levelUpThreshold)
+            {
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                currentExperience = Mathf.Min(currentExperience + amount, maxExperienceHighLevel);
+            }
+            else
+            {
+                // ï¿½Ï¹ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                currentExperience = Mathf.Min(currentExperience + amount, maxExperience);
+            }
+        }
     }
 
-    // °æÇèÄ¡ °¨¼Ò ÇÔ¼ö
+    // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void LoseExperience(int amount)
     {
         currentExperience -= amount;
     }
 
-    // °æÇèÄ¡ ·¹º§ ¾÷ ±â´É (¿¹½Ã)
+    // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½)
     public void CheckForLevelUp()
     {
-        if (currentExperience >= 100) // ·¹º§¾÷ Á¶°Ç
+        if (currentExperience >= 100) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
-            currentExperience -= 100; // °æÇèÄ¡ °¨¼Ò
-            level++; // ·¹º§ Áõ°¡
-                     // ·¹º§ ¾÷ È¿°ú Àû¿ë (¿¹: ´É·ÂÄ¡ »ó½Â, »õ·Î¿î ±â´É ÇØÁ¦ µî)
+            currentExperience -= 100; // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+            level++; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½: ï¿½É·ï¿½Ä¡ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
         }
     }
 
     public void StartCalculation()
     {
-        // °è»ê ½ÃÀÛ ½Ã ÄÚµå ½ÇÇà (¿¹: Å¸ÀÌÇÎ °ÔÀÓ ½ÃÀÛ)
+        // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½: Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
     }
 
     public void FinishCalculation(bool isCorrect)
     {
         if (isCorrect)
         {
-            GainExperience(20); // n = 20À¸·Î ¼³Á¤
+            GainExperience(20); // n = 20ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
+
+        CheckForLevelUp();
+    }
+
+    public bool IsWithinFirstWeek()
+    {
+        // ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Õ´Ï´ï¿½.
+        // ï¿½ï¿½ï¿½ï¿½: DateTime startTime = DateTime.Now;
+
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+        TimeSpan timeDiff = DateTime.Now - startTime;
+
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+        return timeDiff.TotalDays <= 7;
     }
 
     public void Update()
     {
-        CheckForLevelUp(); // ¸Å ÇÁ·¹ÀÓ¸¶´Ù ·¹º§ ¾÷ È®ÀÎ
+        CheckForLevelUp(); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È®ï¿½ï¿½
     }
 }
