@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public int currentEnergy;
     public int currentMoney;
-    private int currentExperience; // ���� ����ġ ���� �߰�
+    public int currentExperience; // ���� ����ġ ���� �߰�
 
     TypingGame typingGameInstance;
     public int level;
