@@ -18,7 +18,7 @@ public class Item : ScriptableObject
 
     public string itemName;
     public int price;
-
+    public GameObject itemPrefab;
 
     public Sprite icon;
     public string description;

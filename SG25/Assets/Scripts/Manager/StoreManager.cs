@@ -5,15 +5,18 @@ using TMPro;
 
 public class StoreManager : MonoBehaviour
 {
-    private int totalMoney;
-    private int change;
+    public static StoreManager Instance;
+
     public int currentMoney;
+    private int previousMoney;
+
     private int totalSales;
     private int inputChangeMoney;
     private int userInputMoney;
     private int receivedMoney;
 
-    private bool itemsSelected = false;
+    private bool itemSelected = false;
+    private bool moneySelected = false;
 
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI receivedMoneyText;
@@ -26,9 +29,11 @@ public class StoreManager : MonoBehaviour
 
     private void Start()
     {
+        // GameManager의 인스턴스가 있으면 currentMoney를 가져와 설정
         if (GameManager.Instance != null)
         {
-            currentMoney = GameManager.Instance.money;
+            currentMoney = GameManager.Instance.currentMoney;
+            previousMoney = currentMoney;
             UpdateMoneyUI();
             UpdateTotalMoneyUI();
         }
@@ -42,18 +47,107 @@ public class StoreManager : MonoBehaviour
     {
         selectedItems.Add(item);
         UpdateTotalMoneyUI();
-        itemsSelected = true;
+        itemSelected = true;
+        inputText.text = "";
     }
 
+    public void SelectMoney()
+    {
+        moneySelected = true;
+        inputText.text = "";
+    }
+
+    public void ClearNumber()
+    {
+        if (itemSelected && moneySelected)
+        {
+            userInputMoney = 0;
+            inputText.text = "";
+        }
+    }
+
+    public void CalculatePaidAmount()
+    {
+        if (!itemSelected || !moneySelected) return;
+
+        int totalMoney = 0;
+        foreach (Item item in selectedItems)
+        {
+            totalMoney += item.price;
+        }
+        int receivedMoney = int.Parse(receivedMoneyText.text);
+        int change = receivedMoney - totalMoney;
+
+        if (change >= 0)
+        {
+            int changeAmount = userInputMoney;
+
+            // GameManager의 currentMoney 갱신
+            GameManager.Instance.currentMoney += receivedMoney - userInputMoney;
+            // StoreManager의 currentMoney도 갱신
+            currentMoney = GameManager.Instance.currentMoney;
+
+            totalSales += receivedMoney - userInputMoney;
+            UpdateMoneyUI();
+            UpdateTotalMoneyUI();
+            selectedItems.Clear();
+            receivedMoneyText.text = "0";
+            changeText.text = change.ToString();
+
+            if (changeAmount != change)
+            {
+                inputChangeText.color = Color.red;
+            }
+            else
+            {
+                inputChangeText.color = Color.green;
+            }
+
+            inputChangeText.text = changeAmount.ToString();
+
+            inputText.text = "";
+            receivedMoneyText.text = "";
+            changeText.text = "";
+            totalMoneyText.text = "";
+
+            itemSelected = false;
+            moneySelected = false;
+
+            Invoke("ClearInputChangeText", 2f);
+        }
+    }
+
+    private void ClearInputChangeText()
+    {
+        inputChangeText.text = "";
+    }
+
+    public void UpdateMoneyUI()
+    {
+        moneyText.text = currentMoney.ToString();
+    }
+
+    private void UpdateTotalMoneyUI()
+    {
+        int totalMoney = 0;
+        foreach (Item item in selectedItems)
+        {
+            totalMoney += item.price;
+        }
+
+        totalMoneyText.text = totalMoney.ToString();
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (GameManager.Instance != null && GameManager.Instance.currentMoney != previousMoney)
         {
-            CalculatePaidAmount();
+            currentMoney = GameManager.Instance.currentMoney;
+            UpdateMoneyUI();
+            previousMoney = currentMoney; // 변경된 currentMoney로 업데이트
         }
 
-        if (itemsSelected)
+        if (itemSelected && moneySelected && userInputMoney < 1000000)
         {
             for (int i = 0; i <= 9; i++)
             {
@@ -63,6 +157,11 @@ public class StoreManager : MonoBehaviour
                     inputText.text = userInputMoney.ToString();
                 }
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            CalculatePaidAmount();
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -94,82 +193,10 @@ public class StoreManager : MonoBehaviour
                         receivedMoneyText.text = moneyConsumable.money.value.ToString();
                         Destroy(hit.collider.gameObject);
 
-                        int receivedMoney = int.Parse(receivedMoneyText.text);
-                        int totalMoney = 0;
-                        foreach (Item item in selectedItems)
-                        {
-                            totalMoney += item.price;
-                        }
-                        int change = receivedMoney - totalMoney;
-
-                        changeText.text = change.ToString();
+                        SelectMoney();
                     }
                 }
-
             }
         }
-    }
-
-    private void CalculatePaidAmount()
-    {
-        int totalMoney = 0;
-        foreach (Item item in selectedItems)
-        {
-            totalMoney += item.price;
-        }
-        int receivedMoney = int.Parse(receivedMoneyText.text);
-        int change = receivedMoney - totalMoney;
-
-        if (change >= 0)
-        {
-            int changeAmount = userInputMoney;
-
-            currentMoney += receivedMoney - userInputMoney;
-            totalSales += receivedMoney - userInputMoney;
-            UpdateMoneyUI();
-            UpdateTotalMoneyUI();
-            selectedItems.Clear();
-            receivedMoneyText.text = "0";
-            changeText.text = change.ToString();
-
-            if (changeAmount != change)
-            {
-                inputChangeText.color = Color.red;
-            }
-            else
-            {
-                inputChangeText.color = Color.green;
-            }
-
-            inputChangeText.text = changeAmount.ToString();
-
-            inputText.text = "";
-            receivedMoneyText.text = "";
-            changeText.text = "";
-            totalMoneyText.text = "";
-
-            Invoke("ClearInputChangeText", 2f);
-        }
-    }
-
-    private void ClearInputChangeText()
-    {
-        inputChangeText.text = "";
-    }
-
-    private void UpdateMoneyUI()
-    {
-        moneyText.text = currentMoney.ToString();
-    }
-
-    private void UpdateTotalMoneyUI()
-    {
-        int totalMoney = 0;
-        foreach (Item item in selectedItems)
-        {
-            totalMoney += item.price;
-        }
-
-        totalMoneyText.text = totalMoney.ToString();
     }
 }

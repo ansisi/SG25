@@ -16,7 +16,6 @@ public class OrderPanel : MonoBehaviour
     public Button frozenButton;
     public Button cigaretteButton;
     public Button cartButton;
-    public Button cartCloseButton;
 
     public GameObject itemPrefab;
     public GameObject cartPanel;
@@ -25,22 +24,19 @@ public class OrderPanel : MonoBehaviour
     public TextMeshProUGUI cartItemCountText;
     public TextMeshProUGUI totalPriceText;
 
-    private int cartItemCount = 0;
+    private Dictionary<Item, int> cartItemCounts => GameManager.Instance.cartItemCounts;
     private int totalPrice = 0;
-
-    private bool isOrderPanelOn = false;
-    private bool isCartPanelOn = false;
 
     public PlayerCtrl playerCtrl;
 
     void Start()
     {
-        orderPanel.SetActive(false);
+        cartPanel.SetActive(false);
 
-        snackButton.onClick.AddListener(ShowSnackItems);
-        drinkButton.onClick.AddListener(ShowDrinkItems);
-        frozenButton.onClick.AddListener(ShowFrozenItems);
-        cigaretteButton.onClick.AddListener(ShowCigaretteItems);
+        snackButton.onClick.AddListener(() => ShowItemsByType(Item.ItemType.Snack));
+        drinkButton.onClick.AddListener(() => ShowItemsByType(Item.ItemType.Drink));
+        frozenButton.onClick.AddListener(() => ShowItemsByType(Item.ItemType.Frozen));
+        cigaretteButton.onClick.AddListener(() => ShowItemsByType(Item.ItemType.Cigarette));
 
         cartButton.onClick.AddListener(CartButton);
 
@@ -56,10 +52,14 @@ public class OrderPanel : MonoBehaviour
             return;
         }
 
+        TMP_InputField itemCountInputField = itemPrefab.GetComponentInChildren<TMP_InputField>();
+        itemCountInputField.text = "1";
+
         ShowAllItems();
         UpdateCartItemCountText();
 
         playerCtrl = FindObjectOfType<PlayerCtrl>();
+        playerCtrl.PanelOn();
     }
 
     public void ShowAllItems()
@@ -68,85 +68,39 @@ public class OrderPanel : MonoBehaviour
         DisplayItems(filteredItems);
     }
 
-    public void ShowSnackItems()
+    public void ShowItemsByType(Item.ItemType type)
     {
-        filteredItems = FilterItemsByType(Item.ItemType.Snack);
-        DisplayItems(filteredItems);
-    }
-
-    public void ShowDrinkItems()
-    {
-        filteredItems = FilterItemsByType(Item.ItemType.Drink);
-        DisplayItems(filteredItems);
-    }
-
-    public void ShowFrozenItems()
-    {
-        filteredItems = FilterItemsByType(Item.ItemType.Frozen);
-        DisplayItems(filteredItems);
-    }
-
-    public void ShowCigaretteItems()
-    {
-        filteredItems = FilterItemsByType(Item.ItemType.Cigarette);
+        filteredItems = FilterItemsByType(type);
         DisplayItems(filteredItems);
     }
 
     private void CartButton()
     {
         cartPanel.SetActive(true);
-    }
-
-    private void CartClose()
-    {
-        cartPanel.SetActive(false);
+        CartPanel _cartPanel = cartPanel.GetComponent<CartPanel>();
+        if (_cartPanel != null)
+        {
+            _cartPanel.UpdateItems(cartItemCounts);
+        }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isOrderPanelOn && isCartPanelOn)
-            {
-                CartClose();
-            }
-
-            else if (isOrderPanelOn)
-            {
-                OffOrderPanel();
-            }
-        }
-
-
-
         if (Input.GetKeyDown(KeyCode.C))
         {
             orderPanel.SetActive(false);
+            playerCtrl.PanelOff();
         }
     }
-
-    public void OnOrderPanel()
-    {
-        isOrderPanelOn = true;
-    }
-
-    public void OffOrderPanel()
-    {
-        isOrderPanelOn = false;
-    }
-
 
     private List<Item> FilterItemsByType(Item.ItemType type)
     {
         List<Item> filteredList = new List<Item>();
         foreach (Item item in allItems)
         {
-            if (item != null)
+            if (item.itemType == type)
             {
-                if (item.itemType == type)
-                {
-                    filteredList.Add(item);
-                }
+                filteredList.Add(item);
             }
         }
         return filteredList;
@@ -210,14 +164,47 @@ public class OrderPanel : MonoBehaviour
 
     public void AddToCart(Item item)
     {
-        cartItemCount++;
-        totalPrice += item.price;
+        // 아이템 프리팹에서 인풋 필드를 찾습니다.
+        TMP_InputField itemCountInputField = itemPrefab.GetComponentInChildren<TMP_InputField>();
+        if (itemCountInputField == null)
+        {
+            Debug.LogError("Input field not found in item prefab.");
+            return;
+        }
+
+        string inputText = itemCountInputField.text;
+
+        // 입력 문자열이 비어 있는지 또는 숫자가 아닌 문자를 포함하는지 확인
+        if (string.IsNullOrEmpty(inputText) || !int.TryParse(inputText, out int itemCount) || itemCount < 1)
+        {
+            // 오류 처리 또는 메시지 표시
+            Debug.LogError("Invalid input for item count: " + inputText);
+            return;
+        }
+
+        if (cartItemCounts.ContainsKey(item))
+        {
+            cartItemCounts[item] += itemCount;
+        }
+        else
+        {
+            cartItemCounts[item] = itemCount;
+        }
+
         UpdateCartItemCountText();
     }
 
     private void UpdateCartItemCountText()
     {
-        cartItemCountText.text = cartItemCount.ToString();
+        int totalCartItemCount = 0;
+        totalPrice = 0;
+        foreach (var pair in cartItemCounts)
+        {
+            totalCartItemCount += pair.Value;
+            totalPrice += pair.Key.price * pair.Value;
+        }
+        cartItemCountText.text = totalCartItemCount.ToString();
         totalPriceText.text = "$" + totalPrice.ToString();
     }
 }
+

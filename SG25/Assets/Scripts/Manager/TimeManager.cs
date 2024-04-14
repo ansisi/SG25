@@ -70,7 +70,7 @@ public class TimeManager : MonoBehaviour
 
             gameHour = 9f;
 
-            PlayerCtrl.instance.ResultPanelOn();
+            PlayerCtrl.instance.PanelOn();
         }
         else
         {
@@ -97,7 +97,7 @@ public class TimeManager : MonoBehaviour
 
             isTimeStopped = false;
 
-            PlayerCtrl.instance.ResultPanelOff();
+            PlayerCtrl.instance.PanelOff();
         }
     }
 
