@@ -8,11 +8,14 @@ public class AiCtrl : MonoBehaviour
     private NavMeshAgent agent;
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
-    public float movementSpeed = 50f; // AI 손님의 이동 속도
+    public float movementSpeed = 50f;
 
-    public Transform itemHoldPoint; // 아이템을 들고 있는 위치
-    public Transform itemDropPoint; // 아이템을 놓을 위치
-    private GameObject heldItem; // 손님이 들고 있는 아이템
+    public Transform itemHoldPoint;
+    public Transform itemDropPoint;
+    private GameObject heldItem;
+
+    public LayerMask itemLayer;
+    public float itemRange = 2f;
 
     void Start()
     {
@@ -30,22 +33,22 @@ public class AiCtrl : MonoBehaviour
         }
         else
         {
-            agent.isStopped = true; // 계산대에 도착하면 이동을 멈춤
+            agent.isStopped = true;
 
-            // 계산대에 도착하면 아이템을 들고 계산대로 이동
             PickUpItem();
         }
     }
 
     void PickUpItem()
     {
-        // 아이템을 들어올림
-        heldItem = FindNearestItemWithTag("Item");
-        if (heldItem != null)
+        Collider[] colliders = Physics.OverlapSphere(transform.position, itemRange, itemLayer);
+        foreach (Collider collider in colliders)
         {
+            heldItem = collider.gameObject;
             heldItem.transform.SetParent(itemHoldPoint);
             heldItem.transform.localPosition = Vector3.zero;
             heldItem.transform.localRotation = Quaternion.identity;
+            return;
         }
     }
 
