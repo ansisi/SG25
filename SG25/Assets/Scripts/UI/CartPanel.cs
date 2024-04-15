@@ -12,7 +12,7 @@ public class CartPanel : MonoBehaviour
 
     private List<GameObject> itemPrefabs = new List<GameObject>();
 
-    private Dictionary<Item, int> cartItemCounts => GameManager.Instance.cartItemCounts;
+    private Dictionary<Item, int> CartItemCounts => GameManager.Instance.cartItemCounts;
     private Dictionary<Item, TextMeshProUGUI> itemTextDict = new Dictionary<Item, TextMeshProUGUI>();
     private int totalPrice = 0;
 
@@ -92,7 +92,7 @@ public class CartPanel : MonoBehaviour
 
     private void PlacePurchasedItems()
     {
-        foreach (KeyValuePair<Item, int> pair in cartItemCounts)
+        foreach (KeyValuePair<Item, int> pair in CartItemCounts)
         {
             GameObject item = pair.Key.itemPrefab;
             for (int i = 0; i < pair.Value; i++)
