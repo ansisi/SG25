@@ -175,4 +175,7 @@ public class PlayerCtrl : MonoBehaviour
 
         isPanelOn = false;
     }
+
+    
+
 }
