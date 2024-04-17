@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2800697044276850432}
   m_Layer: 0
   m_Name: cidercan_prefab
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

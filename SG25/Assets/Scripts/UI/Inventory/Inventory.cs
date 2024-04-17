@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
     private Transform slotParent;
     [SerializeField]
     private Slot[] slots;
-
+    [SerializeField] private InventoryItem selectedItem;
     public Slot[] GetSlots() // 접근자 메서드 추가
     {
         return slots;

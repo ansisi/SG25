@@ -64,7 +64,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            orderPanel.SetActive(true);
+                orderPanel.SetActive(true);
         }
 
         if (!isPanelOn)
@@ -158,7 +158,6 @@ public class PlayerCtrl : MonoBehaviour
 
     public void PanelOn()
     {
-        resultPanel.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true; // 결과 패널이 활성화될 때 커서 보이기
@@ -168,7 +167,6 @@ public class PlayerCtrl : MonoBehaviour
 
     public void PanelOff()
     {
-        resultPanel.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false; // 결과 패널이 비활성화될 때 커서 숨기기

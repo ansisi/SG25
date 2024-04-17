@@ -61,7 +61,14 @@ public class OrderPanel : MonoBehaviour
         playerCtrl = FindObjectOfType<PlayerCtrl>();
         playerCtrl.PanelOn();
     }
-
+    public void OnEnable()
+    {
+        playerCtrl.PanelOn();
+    }
+    public void OnDisable()
+    {
+        playerCtrl.PanelOff();
+    }
     public void ShowAllItems()
     {
         filteredItems = allItems;
@@ -88,8 +95,12 @@ public class OrderPanel : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            orderPanel.SetActive(false);
-            playerCtrl.PanelOff();
+            if(cartPanel.activeInHierarchy == false)
+            {
+                orderPanel.SetActive(false);
+                playerCtrl.PanelOff();
+            }    
+
         }
     }
 
@@ -123,11 +134,11 @@ public class OrderPanel : MonoBehaviour
             TextMeshProUGUI priceText = image.gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
             priceText.text = item.price.ToString();
 
-            Button addToCartButton = image.gameObject.transform.GetChild(2).GetComponent<Button>();
-            addToCartButton.onClick.AddListener(() => AddToCart(item));
-
             TMP_InputField itemCountInputField = image.gameObject.transform.GetChild(3).GetComponent<TMP_InputField>();
             itemCountInputField.text = "1";
+
+            Button addToCartButton = image.gameObject.transform.GetChild(2).GetComponent<Button>();
+            addToCartButton.onClick.AddListener(() => AddToCart(item, itemCountInputField));
 
             Button increaseButton = image.gameObject.transform.GetChild(4).GetComponent<Button>();
             increaseButton.onClick.AddListener(() => IncreaseItemCount(itemCountInputField));
@@ -162,17 +173,10 @@ public class OrderPanel : MonoBehaviour
         }
     }
 
-    public void AddToCart(Item item)
+    public void AddToCart(Item item, TMP_InputField input)
     {
-        // 아이템 프리팹에서 인풋 필드를 찾습니다.
-        TMP_InputField itemCountInputField = itemPrefab.GetComponentInChildren<TMP_InputField>();
-        if (itemCountInputField == null)
-        {
-            Debug.LogError("Input field not found in item prefab.");
-            return;
-        }
-
-        string inputText = itemCountInputField.text;
+        // 아이템 프리팹에서 인풋 필드를 찾습니다
+        string inputText = input.text;
 
         // 입력 문자열이 비어 있는지 또는 숫자가 아닌 문자를 포함하는지 확인
         if (string.IsNullOrEmpty(inputText) || !int.TryParse(inputText, out int itemCount) || itemCount < 1)

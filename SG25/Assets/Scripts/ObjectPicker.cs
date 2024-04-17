@@ -41,17 +41,53 @@ public class ObjectPicker : MonoBehaviour
         {
             if (selectedObject == null)
             {
-                GameObject pickedObject = GetObjectUnderMouse();
+                GameObject underMouseObject = GetObjectUnderMouse();
+                CubeClick cube;
+                GameObject pickedObject;
 
-                if (pickedObject != null && pickedObject.CompareTag("Item"))
+                if(underMouseObject != null)
                 {
-                    selectedObject = pickedObject;
-                    offset = selectedObject.transform.position - Camera.main.transform.position;
+                    if (underMouseObject.TryGetComponent<CubeClick>(out cube) == true)
+                    {
+                        if (cube.hasItem == true)
+                        {
+                            pickedObject = cube.GiveItem();
+                            selectedObject = pickedObject;
+                            selectedObject.GetComponent<Collider>().enabled = false;
+                            offset = selectedObject.transform.position - Camera.main.transform.position;
+                        }
+
+                    }
+                    else if (underMouseObject.CompareTag("Item") && underMouseObject != null)
+                    {
+                        selectedObject = underMouseObject;
+                        selectedObject.GetComponent<Collider>().enabled = false;
+                        offset = selectedObject.transform.position - Camera.main.transform.position;
+                    }
+                    else
+                    {
+
+                    }
                 }
             }
-            else
+            else if(selectedObject != null)
             {
-                selectedObject = null;
+                GameObject shelfObject = GetObjectUnderMouse();
+                CubeClick cube;
+
+                if (selectedObject != null && shelfObject.TryGetComponent<CubeClick>(out cube) == true)
+                {
+                    if (cube.hasItem == false)
+                    {
+                        cube.GetItem(selectedObject);
+                        selectedObject = null;
+                    }
+                }
+                else
+                {       // 선반이 아닐경우
+                    // selectedObject.GetComponent<Collider>().enabled = true;
+                }
+
             }
         }
 
