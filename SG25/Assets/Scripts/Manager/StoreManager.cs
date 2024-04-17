@@ -158,7 +158,61 @@ public class StoreManager : MonoBehaviour
     {
         if (GameManager.Instance != null && GameManager.Instance.currentMoney != previousMoney)
         {
-            ;
+            currentMoney = GameManager.Instance.currentMoney;
+            UpdateMoneyUI();
+            previousMoney = currentMoney;
+        }
+
+        if (itemSelected && moneySelected && userInputMoney < 1000000)
+        {
+            for (int i = 0; i <= 9; i++)
+            {
+                if (Input.GetKeyDown(KeyCode.Keypad0 + i) || Input.GetKeyDown(KeyCode.Alpha0 + i))
+                {
+                    userInputMoney = userInputMoney * 10 + i;
+                    inputText.text = userInputMoney.ToString();
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            CalculatePaidAmount();
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Product"))
+                {
+                    Consumable consumable = hit.collider.GetComponent<Consumable>();
+                    if (consumable != null)
+                    {
+                        Item item = consumable.item;
+                        if (item != null)
+                        {
+                            SelectItem(item);
+                            Destroy(hit.collider.gameObject);
+                        }
+                    }
+                }
+
+                else
+                {
+                    MoneyConsumable moneyConsumable = hit.collider.GetComponent<MoneyConsumable>();
+                    if (moneyConsumable != null)
+                    {
+                        receivedMoneyText.text = moneyConsumable.money.value.ToString();
+                        Destroy(hit.collider.gameObject);
+
+                        SelectMoney();
+                    }
+                }
+            }
         }
     }
 }
