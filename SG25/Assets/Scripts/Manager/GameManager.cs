@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
     public int maxExperience = 200; // 초기 최대 경험치
     public int maxExperienceHighLevel = 500; // 상위 레벨 최대 경험치
 
+   
+
+    
+
     private void Awake()
     {
         if (Instance == null)
@@ -138,4 +142,6 @@ public class GameManager : MonoBehaviour
     {
         CheckForLevelUp(); // 매 프레임 레벨업 체크
     }
+
+   
 }
