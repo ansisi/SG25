@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     private int maxHealth = 3; // 최대 체력 칸 수
     private int currentHealth; // 현재 체력 칸 수
 
+
+
     void Start()
     {
         currentHealth = maxHealth; // 시작할 때 최대 체력으로 초기화
@@ -35,7 +37,8 @@ public class Health : MonoBehaviour
         // 체력이 0보다 작으면 게임 오버 처리 등을 수행합니다.
         if (currentHealth <= 0)
         {
-            // 게임 오버 처리 등을 수행합니다.
+            // 게임 오버 처리를 수행합니다.
+            EndGame();
         }
 
         // 체력 칸 이미지를 업데이트합니다.
@@ -58,5 +61,15 @@ public class Health : MonoBehaviour
                 healthIcons[i].enabled = false;
             }
         }
+    }
+
+   
+
+    void EndGame()
+    {
+        // 게임 종료 처리를 수행합니다.
+        Debug.Log("게임 종료!");
+
+        // 게임 오버 또는 클리어 시 추가적인 처리를 하려면 이 부분에 작성하세요.
     }
 }

@@ -6,6 +6,7 @@ public class Drink : MonoBehaviour
 {
     public float speed = 5f; // 음료 이동 속도
 
+
     void Update()
     {
         // 음료를 아래쪽으로 이동시킵니다.
