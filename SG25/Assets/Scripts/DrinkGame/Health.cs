@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Scene 관련 기능을 사용하기 위해 추가
 
 public class Health : MonoBehaviour
 {
@@ -70,6 +71,7 @@ public class Health : MonoBehaviour
         // 게임 종료 처리를 수행합니다.
         Debug.Log("게임 종료!");
 
-        // 게임 오버 또는 클리어 시 추가적인 처리를 하려면 이 부분에 작성하세요.
+        // 게임 오버 시 AiMapScene으로 이동합니다.
+        SceneManager.LoadScene("SampleScene");
     }
 }
