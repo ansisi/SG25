@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7388761084819289056}
   m_Layer: 0
-  m_Name: trash3_Prefab
+  m_Name: Trash3_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

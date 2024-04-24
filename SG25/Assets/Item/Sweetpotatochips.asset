@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65ef1adf0cf8fd64592bb974e3ee2ff5, type: 3}
-  m_Name: Fanta
+  m_Name: Sweetpotatochips
   m_EditorClassIdentifier: 
   itemType: 0
-  itemName: "\uD658\uD0C0"
-  price: 800
-  itemPrefab: {fileID: 8039926493650138586, guid: bc8a54cd2fc93504ca547edcaf41eeee, type: 3}
-  icon: {fileID: 21300000, guid: 32a010617f46e7240a89d9c986dd729c, type: 3}
+  itemName: "\uACE0\uAD6C\uB9C8\uACFC\uC790"
+  price: 6
+  itemPrefab: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  icon: {fileID: 21300000, guid: da9ef9f5c4d15b3439f09b4dd3b28b05, type: 3}
   description: 

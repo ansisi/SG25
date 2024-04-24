@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65ef1adf0cf8fd64592bb974e3ee2ff5, type: 3}
-  m_Name: Fanta
+  m_Name: OhCarrot
   m_EditorClassIdentifier: 
   itemType: 0
-  itemName: "\uD658\uD0C0"
-  price: 800
-  itemPrefab: {fileID: 8039926493650138586, guid: bc8a54cd2fc93504ca547edcaf41eeee, type: 3}
-  icon: {fileID: 21300000, guid: 32a010617f46e7240a89d9c986dd729c, type: 3}
+  itemName: "\uC624!\uB2F9\uADFC"
+  price: 3450
+  itemPrefab: {fileID: 7688875015801317300, guid: caf066e22a0b1a84f864b2cefc56f6f6, type: 3}
+  icon: {fileID: 21300000, guid: 42ff49aa64702664aa5b343492d52677, type: 3}
   description: 
