@@ -19,11 +19,11 @@ public class StoreManager : MonoBehaviour
     private bool moneySelected = false;
 
     public TextMeshProUGUI moneyText;
-    public TextMeshProUGUI receivedMoneyText;
-    public TextMeshProUGUI totalMoneyText;
-    public TextMeshProUGUI changeText;
-    public TextMeshProUGUI inputText;
-    public TextMeshProUGUI inputChangeText;
+    public TextMeshPro receivedMoneyText;
+    public TextMeshPro totalMoneyText;
+    public TextMeshPro changeText;
+    public TextMeshPro inputText;
+    public TextMeshPro inputChangeText;
 
     private List<Item> selectedItems = new List<Item>();
 
