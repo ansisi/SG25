@@ -72,6 +72,6 @@ public class Health : MonoBehaviour
         Debug.Log("게임 종료!");
 
         // 게임 오버 시 AiMapScene으로 이동합니다.
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("AiMapScene");
     }
 }
