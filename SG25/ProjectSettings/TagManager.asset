@@ -9,6 +9,7 @@ TagManager:
   - Trash
   - BrokenBottle
   - Drink
+  - Teleport
   layers:
   - Default
   - TransparentFX

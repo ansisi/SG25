@@ -29,13 +29,14 @@ public class AiCtrl : MonoBehaviour
         if (currentWaypointIndex < waypoints.Length)
         {
             agent.SetDestination(waypoints[currentWaypointIndex].position);
+            Debug.Log("다음 웨이포인트로 이동 중: " + waypoints[currentWaypointIndex].name);
             currentWaypointIndex++;
         }
         else
         {
             agent.isStopped = true;
-
-            PickUpItem();
+            //PickUpItem();
+            return;
         }
     }
 
@@ -94,7 +95,7 @@ public class AiCtrl : MonoBehaviour
 
     void Update()
     {
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (!agent.pathPending && agent.remainingDistance < 0.1f)
         {
             DropItem();
             MoveToNextWaypoint();

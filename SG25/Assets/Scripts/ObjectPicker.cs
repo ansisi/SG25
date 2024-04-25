@@ -15,6 +15,10 @@ public class ObjectPicker : MonoBehaviour
     public GameObject PanelInventory;
     bool isPanelActive = false;
 
+    private Vector3 initialPosition;
+
+    private bool isTeleported = false;
+
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();
@@ -63,6 +67,18 @@ public class ObjectPicker : MonoBehaviour
                         selectedObject = underMouseObject;
                         selectedObject.GetComponent<Collider>().enabled = false;
                         offset = selectedObject.transform.position - Camera.main.transform.position;
+                    }
+                    else if (underMouseObject.CompareTag("Teleport"))
+                    {
+                        if (!isTeleported)
+                        {
+                            transform.position = new Vector3(-72, 15, -6);
+                        }
+                        else if (isTeleported)
+                        {
+                            transform.position = new Vector3(-29, 15, -47);
+                        }
+                        isTeleported = !isTeleported;
                     }
                     else
                     {
