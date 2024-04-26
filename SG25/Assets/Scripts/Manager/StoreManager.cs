@@ -82,6 +82,7 @@ public class StoreManager : MonoBehaviour
         if (change >= 0)
         {
             int changeAmount = userInputMoney;
+            GameManager.Instance.GainExperience(20);
 
             // 거스름돈 제대로 안 줬을 때 패널티 적용
             if (changeAmount != change)

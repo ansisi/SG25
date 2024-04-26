@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4806088466433178280}
-  m_Layer: 0
+  - component: {fileID: 1865729511946207412}
+  m_Layer: 6
   m_Name: Olympic con
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 4243620985920247390}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865729511946207412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691464823570541643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4545eafb755c23042ab9dbcb88e884b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1001 &4426730230838079925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,6 +97,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5cacfbba91ba1da449459e380cb432c9, type: 3}
       propertyPath: m_Name
       value: Olympic con_model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5cacfbba91ba1da449459e380cb432c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013638940889411661, guid: 5cacfbba91ba1da449459e380cb432c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

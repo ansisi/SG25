@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,16 +11,23 @@ public class AiCtrl : MonoBehaviour
 
     public Transform itemHoldPoint;
     public Transform itemDropPoint;
-    private GameObject heldItem;
 
     public LayerMask itemLayer;
-    public float itemRange = 2f;
+    public float itemSearchRange = 2f;
+    public float itemPickRange = 2f;
+
+    private List<GameObject> searchItems = new List<GameObject>();
+    private List<GameObject> selectedObjects = new List<GameObject>();
+    public MoneyConsumable[] moneyPrefabs;
+
+    private List<GameObject> holdItems = new List<GameObject>();
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = movementSpeed; // 속도 설정
-        MoveToNextWaypoint();
+        agent.speed = movementSpeed;
+
+        SearchItem();
     }
 
     void MoveToNextWaypoint()
@@ -31,65 +37,101 @@ public class AiCtrl : MonoBehaviour
             agent.SetDestination(waypoints[currentWaypointIndex].position);
             Debug.Log("다음 웨이포인트로 이동 중: " + waypoints[currentWaypointIndex].name);
             currentWaypointIndex++;
+
+            foreach (GameObject obj in selectedObjects)
+            {
+                if ((obj != null))
+                {
+                    if (itemPickRange <= 4)
+                    {
+                        agent.SetDestination(obj.transform.position);
+                    }
+                }
+            }
         }
         else
         {
             agent.isStopped = true;
-            //PickUpItem();
+            DropItem();
             return;
         }
     }
-
-    void PickUpItem()
+    void SearchItem()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, itemRange, itemLayer);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, itemSearchRange, itemLayer);
+        searchItems.Clear();
+
         foreach (Collider collider in colliders)
         {
-            heldItem = collider.gameObject;
-            heldItem.transform.SetParent(itemHoldPoint);
-            heldItem.transform.localPosition = Vector3.zero;
-            heldItem.transform.localRotation = Quaternion.identity;
-            return;
+            searchItems.Add(collider.gameObject);
         }
+
+        int itemsCount = Mathf.Min(Random.Range(0, 30), searchItems.Count);
+
+        for (int i = 0; i < itemsCount; i++)
+        {
+            int randomIndex = Random.Range(0, searchItems.Count);
+
+            selectedObjects.Add(searchItems[randomIndex]);
+            searchItems.RemoveAt(randomIndex);
+        }
+        Debug.Log(selectedObjects.Count);
+        MoveToNextWaypoint();
     }
 
     void DropItem()
     {
-        // 아이템을 계산대에 놓음
-        if (heldItem != null)
-        {
-            heldItem.transform.SetParent(null);
-            heldItem.transform.position = itemDropPoint.position;
-            heldItem.transform.rotation = itemDropPoint.rotation;
+        int totalValue = 0;
 
-            // 아이템의 태그를 "Product"로 변경
-            heldItem.tag = "Product";
-        }
-    }
-
-    GameObject FindNearestItemWithTag(string tag)
-    {
-        // 일정 범위 내에서 태그가 걸린 아이템을 검색하여 반환
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 2f);
-        foreach (Collider collider in colliders)
+        foreach (GameObject itemObj in holdItems)
         {
-            if (collider.CompareTag(tag))
+            Consumable consumable = itemObj.GetComponent<Consumable>();
+            if (consumable.item != null)
             {
-                return collider.gameObject;
+                totalValue += consumable.item.price;
             }
         }
-        return null;
-    }
 
-    void OnTriggerEnter(Collider other)
-    {
-        // 아이템과 트리거되면 해당 아이템을 손님의 팔로 이동
-        if (other.CompareTag("Item"))
+        Debug.Log("총 가치: " + totalValue);
+
+        foreach (MoneyConsumable moneyConsumable in moneyPrefabs)
         {
-            heldItem = other.gameObject;
-            heldItem.transform.SetParent(itemHoldPoint);
-            heldItem.transform.localPosition = Vector3.zero;
-            heldItem.transform.localRotation = Quaternion.identity;
+            int moneyValue = moneyConsumable.money.value;
+
+            if (totalValue >= moneyValue)
+            {
+                int moneyToGive = Random.Range(moneyValue, totalValue + 1);
+
+                if (moneyToGive < moneyValue)
+                {
+                    moneyToGive = moneyValue;
+                }
+
+                GameObject moneyObject = Instantiate(moneyConsumable.money.moneyPrefab, itemHoldPoint.position, itemHoldPoint.rotation);
+                MoneyConsumable moneyComponent = moneyObject.GetComponent<MoneyConsumable>();
+
+
+                if (moneyComponent != null)
+                {
+                    moneyComponent.money.value = moneyValue;
+
+                    moneyObject.transform.SetParent(itemHoldPoint);
+                    moneyObject.transform.localPosition = Vector3.zero;
+                    moneyObject.transform.localRotation = Quaternion.identity;
+                }
+                totalValue -= moneyValue;
+                Debug.Log("주는 돈의 가치: " + moneyToGive);
+            }
+            foreach (GameObject itemObj in holdItems)
+            {
+                itemObj.transform.SetParent(itemDropPoint);
+                itemObj.transform.position = itemDropPoint.position;
+                itemObj.transform.rotation = itemDropPoint.rotation;
+                itemObj.tag = "Product";
+            }
+
+            holdItems.Clear();
+            agent.isStopped = true;
         }
     }
 
@@ -97,8 +139,29 @@ public class AiCtrl : MonoBehaviour
     {
         if (!agent.pathPending && agent.remainingDistance < 0.1f)
         {
-            DropItem();
             MoveToNextWaypoint();
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (selectedObjects.Contains(other.gameObject))
+        {
+            if (other.CompareTag("Item"))
+            {
+                GameObject obj = other.gameObject;
+                float distance = Vector3.Distance(transform.position, obj.transform.position);
+                if (distance <= itemPickRange)
+                {
+                    obj.transform.SetParent(itemHoldPoint);
+                    obj.transform.localPosition = Vector3.zero;
+                    obj.transform.localRotation = Quaternion.identity;
+
+                    holdItems.Add(obj);
+                    selectedObjects.Remove(obj);
+                    MoveToNextWaypoint();
+                }
+            }
         }
     }
 }

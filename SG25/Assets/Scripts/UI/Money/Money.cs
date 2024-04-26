@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Money : ScriptableObject
 {
-    public string MoneyName;
+    public string moneyName;
     public int value;
     public Sprite icon;
-    public string description;
+    public GameObject moneyPrefab;
 }

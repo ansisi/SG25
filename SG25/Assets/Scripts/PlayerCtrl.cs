@@ -24,7 +24,6 @@ public class PlayerCtrl : MonoBehaviour
 
     private Rigidbody rb;
     public static PlayerCtrl instance;
-    private TimeManager timeManager;
 
     private bool isCrouching = false;
 
@@ -45,7 +44,7 @@ public class PlayerCtrl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        //timeManager = FindObjectOfType<TimeManager>();
+        cameraContainer.localPosition = Vector3.zero;
 
         //input system ¿õÅ©¸®±â
         InputActionMap playerControls = new InputActionMap();

@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7039866209373091174}
-  m_Layer: 0
+  - component: {fileID: 7410610140933122500}
+  m_Layer: 6
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 5357810577324786130}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7410610140933122500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8781670331659908197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4545eafb755c23042ab9dbcb88e884b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1001 &5607119147734083129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,6 +97,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2c4e83bdb35203f4b8331a2f9e4a9e13, type: 3}
       propertyPath: m_Name
       value: Sprite_model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2c4e83bdb35203f4b8331a2f9e4a9e13, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987609284618053032, guid: 2c4e83bdb35203f4b8331a2f9e4a9e13, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034315768455119201, guid: 2c4e83bdb35203f4b8331a2f9e4a9e13, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

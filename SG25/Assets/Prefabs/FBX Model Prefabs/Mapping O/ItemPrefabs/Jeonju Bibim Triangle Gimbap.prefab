@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 198853587146435569}
-  m_Layer: 0
+  - component: {fileID: -5418384559629036143}
+  m_Layer: 6
   m_Name: Jeonju Bibim Triangle Gimbap
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 1993976210866614916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5418384559629036143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295258868733795775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4545eafb755c23042ab9dbcb88e884b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1001 &2028519452965197167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,6 +97,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6b31978e0a3b8343bf93b59d36bfcb8, type: 3}
       propertyPath: m_Name
       value: Jeonju Bibim Triangle Gimbap_model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6b31978e0a3b8343bf93b59d36bfcb8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

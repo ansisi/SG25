@@ -15,11 +15,5 @@ public class Item : ScriptableObject
     public int price;
     public GameObject itemPrefab;
     public Sprite icon;
-    public string description;
-
-    // 콘솔창에 아이템 정보 출력 메서드
-    public void PrintItemInfo()
-    {
-        Debug.Log("아이템 정보: " + itemName + " (" + description + ")");
-    }
+    public int index;
 }
