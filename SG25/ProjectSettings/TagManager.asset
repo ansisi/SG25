@@ -10,11 +10,12 @@ TagManager:
   - BrokenBottle
   - Drink
   - Teleport
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - Item
