@@ -782,7 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2f91edd5ee36540bc2eb828fa08cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drinkPrefab: {fileID: 2938428001087775517, guid: 477ff7f40056815438a4b6c611a63985, type: 3}
+  drinkPrefab: {fileID: 161623555152460167, guid: 7af3cbaf72cdc57419d1c173f961cc9d, type: 3}
   spawnInterval: 2
   spawnRange: 2
 --- !u!4 &1705385007
