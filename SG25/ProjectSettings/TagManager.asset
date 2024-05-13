@@ -10,12 +10,13 @@ TagManager:
   - BrokenBottle
   - Drink
   - Teleport
-  - Enemy
+  - Slot
+  - Shelf
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - 
   - Water
   - UI
   - Item

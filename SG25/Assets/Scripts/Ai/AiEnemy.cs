@@ -1,9 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine;
 using System.Collections;
 
-public class AIScript : MonoBehaviour
+public class AiEnemy : MonoBehaviour
 {
     private NavMeshAgent agent;
 
@@ -14,11 +13,11 @@ public class AIScript : MonoBehaviour
 
     private void Update()
     {
-        // AI°¡ µ¹¾Æ´Ù´Ò °æ·Î¸¦ ¼³Á¤ÇÕ´Ï´Ù.
-        // ¿¹¸¦ µé¾î, ¸ÅÀå ³»ºÎÀÇ ¸ðµç ³×ºñ°ÔÀÌ¼Ç Æ÷ÀÎÆ®¸¦ ¼ø¼­´ë·Î ¹æ¹®ÇÏµµ·Ï ¼³Á¤ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+        // AIï¿½ï¿½ ï¿½ï¿½ï¿½Æ´Ù´ï¿½ ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½×ºï¿½ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æ¹®ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
         if (agent.destination == null)
         {
-            // »õ·Î¿î ¸ñÀûÁö¸¦ ¼³Á¤ÇÕ´Ï´Ù.
+            // ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
             NavMeshWaypoint[] waypoints = FindObjectsOfType<NavMeshWaypoint>();
             if (waypoints.Length > 0)
             {

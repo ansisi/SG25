@@ -58,7 +58,7 @@ public class OrderPanel : MonoBehaviour
         ShowAllItems();
         UpdateCartItemCountText();
 
-        playerCtrl = FindObjectOfType<PlayerCtrl>();
+        playerCtrl = FindFirstObjectByType<PlayerCtrl>();
         playerCtrl.PanelOn();
     }
     public void OnEnable()

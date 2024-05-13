@@ -34,8 +34,8 @@ public class TimeManager : MonoBehaviour
             Debug.LogError("GameManager 인스턴스를 찾을 수 없습니다!");
         }
 
-        objectPicker = FindObjectOfType<ObjectPicker>();
-        playerCtrl = FindObjectOfType<PlayerCtrl>();
+        objectPicker = FindFirstObjectByType<ObjectPicker>();
+        playerCtrl = FindFirstObjectByType<PlayerCtrl>();
 
         resultUI.SetActive(false);
 

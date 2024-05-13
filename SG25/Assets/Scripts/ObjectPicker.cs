@@ -21,9 +21,9 @@ public class ObjectPicker : MonoBehaviour
 
     void Start()
     {
-        inventory = FindObjectOfType<Inventory>();
-        timeManager = FindObjectOfType<TimeManager>();
-        playerCtrl = FindObjectOfType<PlayerCtrl>();
+        inventory = FindFirstObjectByType<Inventory>();
+        timeManager = FindFirstObjectByType<TimeManager>();
+        playerCtrl = FindFirstObjectByType<PlayerCtrl>();
 
         PanelInventory.SetActive(false);
     }
