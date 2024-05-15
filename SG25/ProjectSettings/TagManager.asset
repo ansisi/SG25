@@ -12,15 +12,17 @@ TagManager:
   - Teleport
   - Slot
   - Shelf
+  - Enemy
+  - Waypoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - Item
-  - 
+  - Waypoint
+  - Shelf
   - 
   - 
   - 
