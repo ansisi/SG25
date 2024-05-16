@@ -1,8 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using static Shelf;
 
+    [System.Serializable]
+    public class ShelfItem
+    {
+        public Item item;
+        public int index;
+        public int count;
+        public GameObject itemPrefab;
+
+        public ShelfItem(Item item, int index, int count, GameObject itemPrefab)
+        {
+            this.item = item;
+            this.index = index;
+            this.count = count;
+            this.itemPrefab = itemPrefab;
+        }
+    }
 public class CubeClick : MonoBehaviour
 {
+
+
     public GameObject myItem; // 생성할 프리팹 오브젝트
+
+    private List<ShelfItem> items = new List<ShelfItem>();
+
+    [SerializeField]
+    private ShelfItem getItem;
 
     public bool hasItem = false; // 이 슬롯이 아이템을 가지고 있는가
 
@@ -21,6 +47,8 @@ public class CubeClick : MonoBehaviour
         // 콘솔에 생성된 오브젝트의 이름을 출력합니다.
         Debug.Log("Object instantiated: " + myItem.name);
 
+        items.Add(getItem);
+
         // 슬롯에 아이템이 있다고 바꿉니다.
         hasItem = true;
     }
@@ -35,6 +63,8 @@ public class CubeClick : MonoBehaviour
 
             // 이 슬롯에 아이템을 다시 받을 수 있게 활성화 합니다.
             this.GetComponent<Collider>().enabled = !hasItem;
+
+            items.Remove(getItem);
 
             return myItem;
         }
