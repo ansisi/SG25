@@ -25,7 +25,7 @@ public class AiCtrl : MonoBehaviour
 
     private List<Transform> checkedShelves = new List<Transform>();
     private List<Transform> heldItems = new List<Transform>();
-    private List<GameObject> holdItems = new List<GameObject>();
+    private List<Transform> dropItems = new List<Transform>();
 
     void Start()
     {
@@ -53,6 +53,7 @@ public class AiCtrl : MonoBehaviour
     {
         agentCollider.enabled = true;
         isColliderEnabled = true;
+        transform.rotation = Quaternion.Euler(0, 90, 0);
         //animator.SetBool("isWalking", true);
         GetItems();
 
@@ -60,6 +61,7 @@ public class AiCtrl : MonoBehaviour
 
         agentCollider.enabled = false;
         isColliderEnabled = false;
+        transform.rotation = Quaternion.identity;
         //animator.SetBool("isWalking", false);
 
         currentWaypointIndex++;
@@ -143,9 +145,17 @@ public class AiCtrl : MonoBehaviour
         //animator.SetBool("isPicking", false);
     }
 
-    void DropItem()
+    void DropItem(Transform item)
     {
+        if (waypoints.Length == 0)
+        {
+            item.SetParent(itemDropPoint);
+            item.localPosition = Vector3.zero;
+            item.localRotation = Quaternion.identity;
 
+            dropItems.Add(item);
+            item.tag = "Product";
+        }
     }
 
     void OnTriggerEnter(Collider other)

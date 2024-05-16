@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5674665570443389417}
   - component: {fileID: 538760226647837729}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: melorbar
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -100,11 +100,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bb75af53567bfe7449fce0a654bab13c, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5148817236446094103, guid: bb75af53567bfe7449fce0a654bab13c, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

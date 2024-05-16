@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4384713368648577554}
   - component: {fileID: 2180060424024305992}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Sweet red bean bread
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7029948723529949830, guid: 2cf9c57b87e95d64b925d44fea0de156, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2cf9c57b87e95d64b925d44fea0de156, type: 3}
       propertyPath: m_Name
@@ -104,7 +104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2cf9c57b87e95d64b925d44fea0de156, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2985683879788201657}
   - component: {fileID: -4181357565283655535}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: mandu
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 17e84f5dde5b11340b9009167ee359d5, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

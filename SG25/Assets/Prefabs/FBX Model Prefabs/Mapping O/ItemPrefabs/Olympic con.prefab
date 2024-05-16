@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4806088466433178280}
   - component: {fileID: 1865729511946207412}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Olympic con
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -100,11 +100,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5cacfbba91ba1da449459e380cb432c9, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9013638940889411661, guid: 5cacfbba91ba1da449459e380cb432c9, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

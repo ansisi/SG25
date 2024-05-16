@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4690720466187727666}
   - component: {fileID: -2059994781472596985}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: chalk green
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: d64321ed0157eb24d984da6a61178038, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9b0a809a067fa8a4b98e846376dfb4bb, type: 2}
     - target: {fileID: 919132149155446097, guid: d64321ed0157eb24d984da6a61178038, type: 3}
@@ -104,7 +104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d64321ed0157eb24d984da6a61178038, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

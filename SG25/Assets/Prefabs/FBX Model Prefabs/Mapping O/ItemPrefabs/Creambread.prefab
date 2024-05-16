@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6782161295933431803}
   - component: {fileID: 1022068074161280536}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Creambread
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7029948723529949830, guid: 92c6bcd8606901d4999c7b0a4e4e00d0, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -4292154010595695564, guid: 92c6bcd8606901d4999c7b0a4e4e00d0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -112,7 +112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 92c6bcd8606901d4999c7b0a4e4e00d0, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

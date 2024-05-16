@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198853587146435569}
   - component: {fileID: -5418384559629036143}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Jeonju Bibim Triangle Gimbap
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6b31978e0a3b8343bf93b59d36bfcb8, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

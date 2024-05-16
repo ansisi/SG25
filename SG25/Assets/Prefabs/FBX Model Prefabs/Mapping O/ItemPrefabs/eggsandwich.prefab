@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3190883649373528962}
   - component: {fileID: 7469745533978467150}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: eggsandwich
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 39c21133a1cf4bc40a19163022089672, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

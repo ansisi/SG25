@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8607327014374857539}
   - component: {fileID: 5412428028055922755}
   - component: {fileID: -5458993668818997197}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Smallpie
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6da115d95c59daa40aaf4ec73260ff31, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
