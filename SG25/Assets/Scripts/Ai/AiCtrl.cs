@@ -57,7 +57,7 @@ public class AiCtrl : MonoBehaviour
         //animator.SetBool("isWalking", true);
         GetItems();
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
 
         agentCollider.enabled = false;
         isColliderEnabled = false;
@@ -140,7 +140,7 @@ public class AiCtrl : MonoBehaviour
 
         heldItems.Add(item);
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
 
         //animator.SetBool("isPicking", false);
     }
@@ -164,8 +164,12 @@ public class AiCtrl : MonoBehaviour
 
         if (other.CompareTag("Waypoint"))
         {
-            if (agent.remainingDistance < agent.stoppingDistance && !agent.pathPending)
+            Debug.Log("Waypoint reached: " + other.gameObject.name);
+            Debug.Log("Remaining Distance: " + agent.remainingDistance + ", Stopping Distance: " + agent.stoppingDistance);
+
+            if (agent.remainingDistance < agent.stoppingDistance + 0.5f && !agent.pathPending)
             {
+                Debug.Log("코루틴 시작");
                 StartCoroutine(WaitForOneSecond());
             }
         }
