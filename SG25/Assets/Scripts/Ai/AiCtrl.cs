@@ -57,7 +57,7 @@ public class AiCtrl : MonoBehaviour
         //animator.SetBool("isWalking", true);
         GetItems();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         agentCollider.enabled = false;
         isColliderEnabled = false;
@@ -140,7 +140,7 @@ public class AiCtrl : MonoBehaviour
 
         heldItems.Add(item);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         //animator.SetBool("isPicking", false);
     }

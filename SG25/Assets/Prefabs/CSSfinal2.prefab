@@ -32,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: 0.609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7812888171954853610}
   m_Father: {fileID: 2160334445668392821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &808456150236708633
@@ -121,6 +122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &254524315464884200
 GameObject:
@@ -154,7 +160,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: 0.609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3157267959643025758}
   m_Father: {fileID: 6604138356034587986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1171455969963168128
@@ -243,6 +250,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &329973718496319537
 GameObject:
@@ -276,7 +288,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 218536438658776509}
   m_Father: {fileID: 2943234733278753575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4275600794530650767
@@ -365,6 +378,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &355189111779702621
 GameObject:
@@ -472,7 +490,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: 0.609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4582099527376665789}
   m_Father: {fileID: 2943234733278753575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3159343109751243749
@@ -561,6 +580,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &699796530907620329
 GameObject:
@@ -594,7 +618,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: 0.6089999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5374431570907269076}
   m_Father: {fileID: 2943234733278753575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5789461002019503634
@@ -683,6 +708,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &924520290720366518
 GameObject:
@@ -716,7 +746,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6105168780442325340}
   m_Father: {fileID: 6604138356034587986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4258539184572476553
@@ -805,6 +836,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &970536027554155512
 GameObject:
@@ -838,7 +874,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6961834442536614337}
   m_Father: {fileID: 2160334445668392821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1188644627736230465
@@ -927,6 +964,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &1287972443553717297
 GameObject:
@@ -960,7 +1002,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6731354773000459475}
   m_Father: {fileID: 322621788192127708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6398466934546155450
@@ -1049,6 +1092,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &1298261289244594024
 GameObject:
@@ -1082,7 +1130,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2557161286369778975}
   m_Father: {fileID: 322621788192127708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1542080751935304781
@@ -1171,6 +1220,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &1318107460357646559
 GameObject:
@@ -1204,7 +1258,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1767689011115670051}
   m_Father: {fileID: 322621788192127708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7358130493014046398
@@ -1293,6 +1348,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &1348101915714429846
 GameObject:
@@ -1326,7 +1386,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: 0.609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6691239335186707891}
   m_Father: {fileID: 322621788192127708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9218232145155560243
@@ -1415,6 +1476,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &1498399353765666806
 GameObject:
@@ -1448,7 +1514,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4259878340441324600}
   m_Father: {fileID: 2943234733278753575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6391911594071399029
@@ -1537,6 +1604,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &1956791752429354552
 GameObject:
@@ -1570,7 +1642,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6257584344312757018}
   m_Father: {fileID: 2160334445668392821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6649150996759930068
@@ -1659,6 +1732,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &2554408062245444367
 GameObject:
@@ -1692,7 +1770,8 @@ Transform:
   m_LocalPosition: {x: -0.18600002, y: 0.044999987, z: -0.008000173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8282877015693380613}
   m_Father: {fileID: 6604138356034587986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7895375271611580324
@@ -1781,6 +1860,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &2556229269303745047
 GameObject:
@@ -1814,7 +1898,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4695568554134527356}
   m_Father: {fileID: 4845558419965044320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5905148317893274576
@@ -1903,6 +1988,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &2797720747937802193
 GameObject:
@@ -1936,7 +2026,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: 0.6089999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4822175618491763089}
   m_Father: {fileID: 322621788192127708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1017725677709238817
@@ -2025,6 +2116,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &2807513427097662463
 GameObject:
@@ -2058,7 +2154,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: 0.6089999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6701289565215345828}
   m_Father: {fileID: 4194211766323558318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6569522614328239827
@@ -2147,6 +2244,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &3001066141700706699
 GameObject:
@@ -2180,7 +2282,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6743806532713098361}
   m_Father: {fileID: 6604138356034587986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9081719040707403930
@@ -2269,6 +2372,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &3635498716224611337
 GameObject:
@@ -2302,7 +2410,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 9203204142581486197}
   m_Father: {fileID: 4194211766323558318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &731666092275863438
@@ -2391,6 +2500,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &3726360601986267939
 GameObject:
@@ -2424,7 +2538,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6569908656130036929}
   m_Father: {fileID: 2943234733278753575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8481955320385484570
@@ -2513,6 +2628,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &3934074906843115783
 GameObject:
@@ -2546,7 +2666,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8184854803707313911}
   m_Father: {fileID: 4194211766323558318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8874288766851951031
@@ -2635,6 +2756,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &4638626320567752604
 GameObject:
@@ -2668,7 +2794,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1240464852523797677}
   m_Father: {fileID: 4845558419965044320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5332879983525529596
@@ -2757,6 +2884,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &5167427814139593959
 GameObject:
@@ -2790,7 +2922,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 474514107364733780}
   m_Father: {fileID: 4845558419965044320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &241232782936891328
@@ -2879,6 +3012,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &5668392736089138101
 GameObject:
@@ -2949,7 +3087,8 @@ Transform:
   m_LocalPosition: {x: -0.18600002, y: 0.044999987, z: -0.008000173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3516748611729711982}
   m_Father: {fileID: 322621788192127708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8054655372777414400
@@ -3038,6 +3177,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &6384899753928605619
 GameObject:
@@ -3071,7 +3215,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: 0.609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5490752647370098202}
   m_Father: {fileID: 4845558419965044320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8086991346987524955
@@ -3160,6 +3305,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &6414080193165926610
 GameObject:
@@ -3193,7 +3343,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: 0.6089999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1108131859589794104}
   m_Father: {fileID: 4845558419965044320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4801372113602797129
@@ -3282,6 +3433,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &6452513851473459292
 GameObject:
@@ -3315,7 +3471,8 @@ Transform:
   m_LocalPosition: {x: -0.18600002, y: 0.044999987, z: -0.008000173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2959898267662861000}
   m_Father: {fileID: 4194211766323558318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3488313680211765894
@@ -3404,6 +3561,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &6571705423978149859
 GameObject:
@@ -3437,7 +3599,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3471500691665897204}
   m_Father: {fileID: 4194211766323558318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6822264180584886201
@@ -3526,6 +3689,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &7169728512359969994
 GameObject:
@@ -3559,7 +3727,8 @@ Transform:
   m_LocalPosition: {x: -0.18600002, y: 0.044999987, z: -0.008000173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3132774416746213288}
   m_Father: {fileID: 4845558419965044320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2783500151338862681
@@ -3648,6 +3817,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &7392717423365505572
 GameObject:
@@ -3681,7 +3855,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: 0.6089999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 609591799104029260}
   m_Father: {fileID: 6604138356034587986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6422445609237900963
@@ -3770,6 +3945,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &7695213355706404806
 GameObject:
@@ -3803,7 +3983,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8553946889064435812}
   m_Father: {fileID: 6604138356034587986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1685582244729409483
@@ -3892,6 +4073,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &7947970100423052355
 GameObject:
@@ -3962,7 +4148,8 @@ Transform:
   m_LocalPosition: {x: -0.186, y: 0.045, z: 0.6089999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2327623843226390414}
   m_Father: {fileID: 2160334445668392821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6985125855938580676
@@ -4051,6 +4238,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &8488201270097868056
 GameObject:
@@ -4084,7 +4276,8 @@ Transform:
   m_LocalPosition: {x: -0.18600002, y: 0.044999987, z: -0.008000173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1152848262452456714}
   m_Father: {fileID: 2160334445668392821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6309133872364011272
@@ -4173,6 +4366,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &8671750954510934951
 GameObject:
@@ -4243,7 +4441,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: -0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3346378414471282417}
   m_Father: {fileID: 2160334445668392821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8087883129437843065
@@ -4332,6 +4531,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &8909810726695574662
 GameObject:
@@ -4402,7 +4606,8 @@ Transform:
   m_LocalPosition: {x: 0.051, y: 0.045, z: 0.609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4315079213063219759}
   m_Father: {fileID: 4194211766323558318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8909648708401618415
@@ -4491,6 +4696,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
 --- !u!1 &9123666178000864486
 GameObject:
@@ -4524,7 +4734,8 @@ Transform:
   m_LocalPosition: {x: -0.18600002, y: 0.044999987, z: -0.008000173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 108332517324594056}
   m_Father: {fileID: 2943234733278753575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4398735077836741260
@@ -4613,7 +4824,260 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myItem: {fileID: 0}
+  getItem:
+    item: {fileID: 0}
+    index: 0
+    count: 0
+    itemPrefab: {fileID: 0}
   hasItem: 0
+--- !u!1001 &544986408952525797
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1848977900331405296}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &1767689011115670051 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 544986408952525797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1022103519557518699
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 810752180227149116}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &1240464852523797677 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 1022103519557518699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1186937663891587326
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7692302960620933496}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &1108131859589794104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 1186937663891587326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1218088358988309708
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2549224436056650035}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &1152848262452456714 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 1218088358988309708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1542282705261976226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4878,10 +5342,1994 @@ BoxCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 1
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.3499999, y: 2.3, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!1001 &1688160503760194442
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4399708025614808134}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &609591799104029260 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 1688160503760194442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1841384676062411410
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6071368116686437019}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &474514107364733780 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 1841384676062411410}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2022217602261251195
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6879897476016215097}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &218536438658776509 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 2022217602261251195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2204765265532506702
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 56551936076704819}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &108332517324594056 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 2204765265532506702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2346052924199384443
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 101171641228858994}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &4582099527376665789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 2346052924199384443}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2595790056841836030
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1698080670944993345}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &4259878340441324600 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 2595790056841836030}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2664446685524059113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4786826630254624145}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &4315079213063219759 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 2664446685524059113}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3401632747744792370
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3300156364986567888}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &3471500691665897204 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 3401632747744792370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3447005995217300136
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8828643841904919682}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &3516748611729711982 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 3447005995217300136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3560237318737934135
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4242621368780804342}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &3346378414471282417 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 3560237318737934135}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3774544465960117870
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5124711066818006211}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &3132774416746213288 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 3774544465960117870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3803544909312456856
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8960503057398644282}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &3157267959643025758 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 3803544909312456856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3894367108829022990
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6455473932150290834}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &2959898267662861000 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 3894367108829022990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4351855127399584985
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 565327602841816423}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &2557161286369778975 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 4351855127399584985}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4563650587850425928
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 646228659332052243}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &2327623843226390414 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 4563650587850425928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4788076314449698069
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6907272719685613068}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &6731354773000459475 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 4788076314449698069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4796027689502533055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 300263978884767349}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &6743806532713098361 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 4796027689502533055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4883088588646022261
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7152428716608276251}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &6691239335186707891 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 4883088588646022261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4893155294011426146
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5287781092678300557}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &6701289565215345828 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 4893155294011426146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4914896791591968007
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4342954862310108509}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &6569908656130036929 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 4914896791591968007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5318573334439424732
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2834965263208206609}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &6257584344312757018 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 5318573334439424732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5449869169660991642
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8898659293991470097}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &6105168780442325340 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 5449869169660991642}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5992932087624699868
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6717825333961676107}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &5490752647370098202 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 5992932087624699868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6164839117239373330
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 507145829492933613}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &5374431570907269076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 6164839117239373330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6770025863282851927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1981651912154903728}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &4822175618491763089 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 6770025863282851927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6787552676923053242
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3299207519196547197}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &4695568554134527356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 6787552676923053242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6962671549507165107
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2932784089070007602}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &9203204142581486197 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 6962671549507165107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7614884200152340898
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7701488436083783258}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &8553946889064435812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 7614884200152340898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7920293839217624515
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1256359572130369632}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &8282877015693380613 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 7920293839217624515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7966387934803883825
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3399628395606081852}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &8184854803707313911 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 7966387934803883825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8319500840236130092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4524248601266571457}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &7812888171954853610 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 8319500840236130092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9188853969241747463
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8397353759713341939}
+    m_Modifications:
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320503380994047248, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+      propertyPath: m_Name
+      value: Sweetpotatochips
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+--- !u!4 &6961834442536614337 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2240604081061022150, guid: 1e09bf0784fbfc1428b4337438df71e2, type: 3}
+  m_PrefabInstance: {fileID: 9188853969241747463}
+  m_PrefabAsset: {fileID: 0}
