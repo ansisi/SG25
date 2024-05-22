@@ -933,18 +933,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1446528085}
     m_Modifications:
     - target: {fileID: 1364010761430711625, guid: f65bfc16a903eca449f945670cefa751, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364010761430711625, guid: f65bfc16a903eca449f945670cefa751, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364010761430711625, guid: f65bfc16a903eca449f945670cefa751, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1364010761430711625, guid: f65bfc16a903eca449f945670cefa751, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.61
       objectReference: {fileID: 0}
@@ -984,21 +972,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1364010761430711625, guid: f65bfc16a903eca449f945670cefa751, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1848200032085567475, guid: f65bfc16a903eca449f945670cefa751, type: 3}
       propertyPath: m_Name
       value: CSSfinal2 (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848200032085567475, guid: f65bfc16a903eca449f945670cefa751, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5015401190838296689, guid: f65bfc16a903eca449f945670cefa751, type: 3}
-      propertyPath: m_LayerOverridePriority
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8117,9 +8093,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemHoldPoint: {fileID: 3192057651993718076}
   itemDropPoint: {fileID: 689879396}
-  itemLayer:
-    serializedVersion: 2
-    m_Bits: 0
   agentCollider: {fileID: 993213247175955337}
   moneyPrefabs:
   - {fileID: -2293454698724192546, guid: 3d73589ad006d5246967d0f51d5af5d5, type: 3}

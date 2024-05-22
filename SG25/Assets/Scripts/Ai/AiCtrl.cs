@@ -8,7 +8,6 @@ public class AiCtrl : MonoBehaviour
     public Transform itemHoldPoint;
     public Transform itemDropPoint;
 
-    public LayerMask itemLayer;
     public Collider agentCollider;
 
     public MoneyConsumable[] moneyPrefabs;
@@ -24,7 +23,7 @@ public class AiCtrl : MonoBehaviour
     private bool isColliderEnabled = false;
 
     private List<Transform> checkedShelves = new List<Transform>();
-    private List<Transform> heldItems = new List<Transform>();
+    private List<Item> heldItems = new List<Item>();
     private List<Transform> dropItems = new List<Transform>();
 
     void Start()
@@ -68,11 +67,9 @@ public class AiCtrl : MonoBehaviour
         MoveToNextWaypoint();
     }
 
-
-
-    private List<Transform> SearchItems(Transform shelf, int itemCount)
+    private List<Item> SearchItems(Transform shelf, int itemCount)
     {
-        List<Transform> targetItems = new List<Transform>();
+        List<Item> targetItems = new List<Item>();
         Transform[] slots = shelf.GetComponentsInChildren<Transform>();
 
         List<Transform> itemSlots = new List<Transform>();
@@ -80,9 +77,12 @@ public class AiCtrl : MonoBehaviour
         {
             if (slot.CompareTag("Slot") && slot.childCount > 0)
             {
+                Debug.Log("슬롯 찾앗어요~");
                 itemSlots.Add(slot);
             }
         }
+
+        Debug.Log("Slots found: " + itemSlots.Count); // Debugging the number of slots found
 
         if (itemSlots.Count > 0)
         {
@@ -96,8 +96,25 @@ public class AiCtrl : MonoBehaviour
                 }
                 indices.Add(randomIndex);
                 Transform slotWithItem = itemSlots[randomIndex];
-                Transform item = slotWithItem.GetChild(0);
-                targetItems.Add(item);
+
+                Debug.Log("Slot with item: " + slotWithItem.name); // Debugging the slot being processed
+
+                // Checking children of the slot
+                foreach (Transform child in slotWithItem)
+                {
+                    Debug.Log("Child found: " + child.name); // Debugging the children of the slot
+                    Consumable consumable = child.GetComponent<Consumable>();
+                    if (consumable != null)
+                    {
+                        Debug.Log("Item found: " + consumable.item.itemName); // Debugging the item found
+                        targetItems.Add(consumable.item);
+                        break; // Exit the loop once an item is found
+                    }
+                    else
+                    {
+                        Debug.Log("No Consumable component found on child: " + child.name);
+                    }
+                }
             }
         }
         else
@@ -114,10 +131,10 @@ public class AiCtrl : MonoBehaviour
 
         if (currentShelfInRange != null)
         {
-            List<Transform> targetItems = SearchItems(currentShelfInRange, itemCount);
+            List<Item> targetItems = SearchItems(currentShelfInRange, itemCount);
             if (targetItems.Count > 0)
             {
-                foreach (Transform item in targetItems)
+                foreach (Item item in targetItems)
                 {
                     StartCoroutine(MoveItemToHoldPoint(item));
                 }
@@ -125,37 +142,29 @@ public class AiCtrl : MonoBehaviour
             else
             {
                 MoveToNextWaypoint();
-
             }
         }
     }
 
-    private IEnumerator MoveItemToHoldPoint(Transform item)
+    private IEnumerator MoveItemToHoldPoint(Item item)
     {
-        //animator.SetBool("isPicking", true);
-
-        item.SetParent(itemHoldPoint);
-        item.localPosition = Vector3.zero;
-        item.localRotation = Quaternion.identity;
+        GameObject itemobj = Instantiate(item.itemPrefab, itemHoldPoint);
+        itemobj.transform.localPosition = Vector3.zero;
+        itemobj.transform.localRotation = Quaternion.identity;
 
         heldItems.Add(item);
 
         yield return new WaitForSeconds(2f);
-
-        //animator.SetBool("isPicking", false);
     }
 
-    void DropItem(Transform item)
+    void DropItem(Item item)
     {
-        if (waypoints.Length == 0)
-        {
-            item.SetParent(itemDropPoint);
-            item.localPosition = Vector3.zero;
-            item.localRotation = Quaternion.identity;
+        GameObject itemobj = Instantiate(item.itemPrefab, itemDropPoint);
+        itemobj.transform.localPosition = Vector3.zero;
+        itemobj.transform.localRotation = Quaternion.identity;
 
-            dropItems.Add(item);
-            item.tag = "Product";
-        }
+        dropItems.Add(itemobj.transform);
+        itemobj.tag = "Product";
     }
 
     void OnTriggerEnter(Collider other)
@@ -164,9 +173,6 @@ public class AiCtrl : MonoBehaviour
 
         if (other.CompareTag("Waypoint"))
         {
-            Debug.Log("Waypoint reached: " + other.gameObject.name);
-            Debug.Log("Remaining Distance: " + agent.remainingDistance + ", Stopping Distance: " + agent.stoppingDistance);
-
             if (agent.remainingDistance < agent.stoppingDistance + 0.5f && !agent.pathPending)
             {
                 Debug.Log("코루틴 시작");
@@ -183,5 +189,4 @@ public class AiCtrl : MonoBehaviour
             }
         }
     }
-
 }
