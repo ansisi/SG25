@@ -72,11 +72,11 @@ public class ObjectPicker : MonoBehaviour
                     {
                         if (!isTeleported)
                         {
-                            transform.position = new Vector3(-72, 15, -6);
+                            transform.position = new Vector3(-3, 0, -12);
                         }
                         else if (isTeleported)
                         {
-                            transform.position = new Vector3(-29, 15, -47);
+                            transform.position = new Vector3(1, 0, -12);
                         }
                         isTeleported = !isTeleported;
                     }
