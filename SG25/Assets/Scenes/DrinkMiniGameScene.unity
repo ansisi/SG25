@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 331155658}
   - component: {fileID: 331155657}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,5 +1057,5 @@ SceneRoots:
   - {fileID: 470947579}
   - {fileID: 1681167910}
   - {fileID: 1603459590}
-  - {fileID: 331155658}
   - {fileID: 488180126}
+  - {fileID: 331155658}
