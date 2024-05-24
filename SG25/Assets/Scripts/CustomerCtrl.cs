@@ -20,7 +20,7 @@ public class CustomerCtrl : MonoBehaviour
         patrolPoints.Add(new Vector3(500, 0, 100)); // 예시 순찰 지점
 
         // **순찰 코루틴 실행 (필요하지 않은 경우 제거 가능)**
-        StartCoroutine(Patrol()); // 순찰 코루틴 실행 (필요하지 않은 경우 제거 가능)
+        //StartCoroutine(Patrol()); // 순찰 코루틴 실행 (필요하지 않은 경우 제거 가능)
     }
 
     // **반복 가능한 코드 사용 (필요하지 않은 경우 제거 가능)**
