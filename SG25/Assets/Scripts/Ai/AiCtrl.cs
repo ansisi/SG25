@@ -22,6 +22,8 @@ public class AiCtrl : MonoBehaviour
     private List<Transform> checkedShelves = new List<Transform>();
     private List<Item> heldItems = new List<Item>();
 
+    public List<Consumable> holdItem = new List<Consumable>();      //
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -171,32 +173,23 @@ public class AiCtrl : MonoBehaviour
         int totalPrice = CalculateTotalPrice(); // 손에 들고 있는 아이템의 총 가격을 먼저 계산합니다.
         Debug.Log("총 가격: " + totalPrice);
 
-        while (heldItems.Count > 0)
+        for(int i = 0; i < holdItem.Count; i++)
         {
-            Debug.Log("heldItems.Count: " + heldItems.Count);
-            if (itemDropPoint.childCount < 5)
-            {
-                Item item = heldItems[0];
-                Debug.Log("아이템 드롭 중: " + item.name);
-
-                // 아이템의 부모를 변경하여 드롭 포인트로 이동시킵니다.
-                Transform itemTransform = itemHoldPoint.GetChild(0); // itemHoldPoint의 첫 번째 자식을 가져옵니다.
-                itemTransform.SetParent(itemDropPoint);
-                itemTransform.localPosition = Vector3.zero;
-                itemTransform.localRotation = Quaternion.identity;
-                itemTransform.tag = "Product";
-
-                heldItems.RemoveAt(0); // heldItems 리스트에서 아이템을 제거합니다.
-                Debug.Log("아이템 드롭 완료: " + item.name + " (" + heldItems.Count + " 아이템 남음)");
-
-                yield return new WaitForSeconds(1f); // 일정 시간 동안 아이템을 드롭 포인트에 두도록 대기합니다.
-            }
-            else
-            {
-                Debug.Log("itemDropPoint에 아이템이 5개 이상 있음, 대기 중...");
-                yield return new WaitForSeconds(0.5f); // 0.5초 간격으로 재확인
-            }
+            //holdItem[i].gameObject.transform.position = 
         }
+
+        for(int i = 0; i < heldItems.Count; i++)
+        {
+            Transform itemTransform = itemHoldPoint.GetChild(0); // itemHoldPoint의 첫 번째 자식을 가져옵니다.
+            itemTransform.SetParent(itemDropPoint);
+            itemTransform.localPosition = Vector3.zero;
+            itemTransform.localRotation = Quaternion.identity;
+            itemTransform.tag = "Product";
+
+            yield return new WaitForSeconds(0.5f); // 0.5초 간격으로 재확인
+        }
+
+        heldItems.Clear();
 
         Debug.Log("모든 아이템 드롭 완료. 돈을 지급합니다.");
         GiveMoney(totalPrice); // 아이템을 모두 드롭한 후에 돈을 주는 함수를 호출합니다.
