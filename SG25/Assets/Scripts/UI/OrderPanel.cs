@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class OrderPanel : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class OrderPanel : MonoBehaviour
         cartPanel.SetActive(false);
 
         snackButton.onClick.AddListener(() => ShowItemsByType(Item.ItemType.Snack));
-        drinkButton.onClick.AddListener(() => ShowItemsByType(Item.ItemType.Drink));
+        drinkButton.onClick.AddListener(OnDrinkButtonClick);
         frozenButton.onClick.AddListener(() => ShowItemsByType(Item.ItemType.Frozen));
         cigaretteButton.onClick.AddListener(() => ShowItemsByType(Item.ItemType.Cigarette));
 
@@ -81,6 +82,12 @@ public class OrderPanel : MonoBehaviour
         DisplayItems(filteredItems);
     }
 
+    private void OnDrinkButtonClick()
+    {
+        SaveState();
+        SceneManager.LoadScene("DrinkMiniGameScene");
+    }
+
     private void CartButton()
     {
         cartPanel.SetActive(true);
@@ -90,7 +97,10 @@ public class OrderPanel : MonoBehaviour
             _cartPanel.UpdateItems(cartItemCounts);
         }
     }
-
+    private void DrinkButton()
+    {
+        SceneManager.LoadScene("DrinkMiniGameScene");
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
@@ -209,6 +219,18 @@ public class OrderPanel : MonoBehaviour
         }
         cartItemCountText.text = totalCartItemCount.ToString();
         totalPriceText.text = "$" + totalPrice.ToString();
+    }
+
+    private void SaveState()
+    {
+        // OrderPanel의 상태를 저장하는 로직 추가 (예: PlayerPrefs 사용)
+        // 필요에 따라 적절한 데이터 저장 방식을 사용
+    }
+
+    private void LoadState()
+    {
+        // OrderPanel의 상태를 복원하는 로직 추가 (예: PlayerPrefs 사용)
+        // 필요에 따라 적절한 데이터 복원 방식을 사용
     }
 }
 

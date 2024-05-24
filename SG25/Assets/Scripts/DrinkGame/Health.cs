@@ -64,14 +64,14 @@ public class Health : MonoBehaviour
         }
     }
 
-   
+
 
     void EndGame()
     {
         // 게임 종료 처리를 수행합니다.
         Debug.Log("게임 종료!");
 
-        // 게임 오버 시 AiMapScene으로 이동합니다.
-        SceneManager.LoadScene("AiMapScene");
+        // 게임 오버 시 SampleScene으로 이동하고 OrderPanel 상태 복원
+        SceneManager.LoadScene("SampleScene");
     }
 }

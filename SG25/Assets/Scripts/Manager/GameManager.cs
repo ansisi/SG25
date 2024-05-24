@@ -143,5 +143,30 @@ public class GameManager : MonoBehaviour
         CheckForLevelUp(); // 매 프레임 레벨업 체크
     }
 
-   
+    // OrderPanel 상태를 PlayerPrefs 또는 다른 저장소에 저장하는 함수
+    public void SaveOrderPanelState()
+    {
+        // 장바구니 아이템 수량 저장
+        foreach (var pair in cartItemCounts)
+        {
+            PlayerPrefs.SetInt(pair.Key.itemName, pair.Value);
+        }
+
+        // 필요하다면 기타 상태 정보도 저장
+        PlayerPrefs.Save();
+    }
+
+    // OrderPanel 상태를 PlayerPrefs 또는 다른 저장소에서 불러오는 함수
+    public void LoadOrderPanelState()
+    {
+        foreach (var item in cartItemCounts.Keys)
+        {
+            if (PlayerPrefs.HasKey(item.itemName))
+            {
+                cartItemCounts[item] = PlayerPrefs.GetInt(item.itemName);
+            }
+        }
+
+        // 필요하다면 기타 상태 정보도 불러오기
+    }
 }
