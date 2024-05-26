@@ -37,7 +37,14 @@ public class HealthManager : MonoBehaviour
 
         UpdateHealthText();
     }
+    public void IncreaseHealth(int amount)
+    {
+        health += amount;
+        if (health > 100)
+            health = 100; // 체력이 최대 체력을 넘지 않도록 함
 
+        UpdateHealthText();
+    }
     private void UpdateHealthText()
     {
         if (healthText != null)
