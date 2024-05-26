@@ -10,9 +10,18 @@ public class TrashGenerator : MonoBehaviour
     private float nextTime; // 다음 쓰레기 생성 시간
     private int maxTrashCount = 5; // 최대 허용 쓰레기 개수
 
+    private HealthManager healthManager;
+
     void Start()
     {
         nextTime = Time.time + Random.Range(minInterval, maxInterval);
+
+        healthManager = HealthManager.Instance;
+
+        if (healthManager == null)
+        {
+            Debug.LogError("HealthManager 인스턴스를 찾을 수 없습니다.");
+        }
     }
 
     void Update()
@@ -50,7 +59,15 @@ public class TrashGenerator : MonoBehaviour
             Random.Range(-mapHeight / 2, mapHeight / 2)
         );
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        // 충돌한 오브젝트가 쓰레기인지 확인
+        if (other.CompareTag("Trash"))
+        {
+            // 쓰레기를 치웠으므로 체력을 5 증가시킴
+            healthManager.IncreaseHealth(5);
+        }
+    }
 
 
 }
