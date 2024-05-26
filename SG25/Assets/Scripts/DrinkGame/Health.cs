@@ -18,10 +18,12 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth; // 시작할 때 최대 체력으로 초기화
         UpdateHealthBar();
 
-        healthManager = FindObjectOfType<HealthManager>();
+        // HealthManager 싱글톤 인스턴스를 참조
+        healthManager = HealthManager.Instance;
+
         if (healthManager == null)
         {
-            Debug.LogError("HealthManager를 찾을 수 없습니다.");
+            Debug.LogError("HealthManager 인스턴스를 찾을 수 없습니다.");
         }
     }
 
