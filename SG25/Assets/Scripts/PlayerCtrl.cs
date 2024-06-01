@@ -33,6 +33,8 @@ public class PlayerCtrl : MonoBehaviour
 
     public bool isPanelOn = false;
 
+    private HealthManager healthManager; // HealthManager 인스턴스
+
     private void Awake()
     {
         instance = this;
@@ -45,6 +47,14 @@ public class PlayerCtrl : MonoBehaviour
         Cursor.visible = false;
 
         cameraContainer.localPosition = Vector3.zero;
+
+        // HealthManager 인스턴스 가져오기
+        healthManager = HealthManager.Instance;
+
+        if (healthManager == null)
+        {
+            Debug.LogError("HealthManager 인스턴스를 찾을 수 없습니다.");
+        }
 
         //input system 웅크리기
         InputActionMap playerControls = new InputActionMap();
@@ -80,8 +90,13 @@ public class PlayerCtrl : MonoBehaviour
                     if (hit.collider.CompareTag("Trash"))
                     {
                         Destroy(hit.collider.gameObject);
-                    }
 
+                        // 쓰레기를 치웠으므로 체력을 5 증가시킴
+                        if (healthManager != null)
+                        {
+                            healthManager.IncreaseHealth(5);
+                        }
+                    }
                 }
             }
         }

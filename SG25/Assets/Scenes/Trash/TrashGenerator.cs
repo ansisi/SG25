@@ -26,7 +26,6 @@ public class TrashGenerator : MonoBehaviour
 
     void Update()
     {
-
         // 현재 시간이 다음 생성 시간보다 크거나 같으면
         if (Time.time >= nextTime)
         {
@@ -59,15 +58,7 @@ public class TrashGenerator : MonoBehaviour
             Random.Range(-mapHeight / 2, mapHeight / 2)
         );
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        // 충돌한 오브젝트가 쓰레기인지 확인
-        if (other.CompareTag("Trash"))
-        {
-            // 쓰레기를 치웠으므로 체력을 5 증가시킴
-            healthManager.IncreaseHealth(5);
-        }
-    }
 
+    // OnTriggerEnter 메서드는 여기서는 필요하지 않음, PlayerController에서 처리할 예정
 
 }

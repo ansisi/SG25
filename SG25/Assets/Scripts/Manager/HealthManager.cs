@@ -8,7 +8,7 @@ public class HealthManager : MonoBehaviour
     public static HealthManager Instance;
 
     public TextMeshProUGUI healthText; // 체력 표시 텍스트
-    private int health = 100; // 초기 체력 값
+    private int health; // 초기 체력 값
 
     private void Awake()
     {
@@ -26,6 +26,7 @@ public class HealthManager : MonoBehaviour
     }
     void Start()
     {
+        health = 100;
         UpdateHealthText();
     }
 
@@ -40,8 +41,7 @@ public class HealthManager : MonoBehaviour
     public void IncreaseHealth(int amount)
     {
         health += amount;
-        if (health > 100)
-            health = 100; // 체력이 최대 체력을 넘지 않도록 함
+        
 
         UpdateHealthText();
     }
