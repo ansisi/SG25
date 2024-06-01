@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement; 
 
 public class PlayerCtrl : MonoBehaviour
 {
@@ -73,6 +74,10 @@ public class PlayerCtrl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             orderPanel.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            LoadMiniGameScene();
         }
 
         if (!isPanelOn)
@@ -182,7 +187,10 @@ public class PlayerCtrl : MonoBehaviour
 
         isPanelOn = false;
     }
+    private void LoadMiniGameScene()
+    {
+        SceneManager.LoadScene("DrinkMiniGameScene"); // "MiniGameScene"을 미니게임 씬의 이름으로 변경
+    }
 
-    
 
 }
