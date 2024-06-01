@@ -22,6 +22,7 @@ public class HealthManager : MonoBehaviour
         else
         {
             Destroy(gameObject); // 이미 인스턴스가 있으면 새로운 객체를 파괴
+            return;
         }
     }
     void Start()

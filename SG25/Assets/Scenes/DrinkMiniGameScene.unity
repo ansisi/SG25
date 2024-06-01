@@ -691,7 +691,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &640478867
+--- !u!1 &1382171724
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -699,38 +699,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 640478869}
-  - component: {fileID: 640478868}
+  - component: {fileID: 1382171726}
+  - component: {fileID: 1382171725}
   m_Layer: 0
-  m_Name: HealthManager
+  m_Name: GMR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &640478868
+--- !u!114 &1382171725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640478867}
+  m_GameObject: {fileID: 1382171724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa613fd0b44b09145930fbf7074e13e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2499ad27f22b773499e9881e2e3add36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
---- !u!4 &640478869
+  money: 100
+  energy: 100
+  experience: 0
+  currentEnergy: 0
+  currentMoney: 0
+  currentExperience: 0
+  level: 0
+  levelUpThreshold: 5
+  maxExperience: 200
+  maxExperienceHighLevel: 500
+--- !u!4 &1382171726
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640478867}
+  m_GameObject: {fileID: 1382171724}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1671357, y: 0.56072533, z: -0.83381706}
+  m_LocalPosition: {x: 497.8375, y: 810.6602, z: -127.61601}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1105,4 +1114,4 @@ SceneRoots:
   - {fileID: 1603459590}
   - {fileID: 488180126}
   - {fileID: 331155658}
-  - {fileID: 640478869}
+  - {fileID: 1382171726}

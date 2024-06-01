@@ -61,13 +61,26 @@ public class Health : MonoBehaviour
     {
         Debug.Log("게임 종료!");
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        // 게임 오버 시 SampleScene으로 이동
+        SceneManager.LoadScene("AiTestScene");
+    }
+
+    // 씬이 로드된 후 호출되는 이벤트 핸들러
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         // HealthManager가 존재하는지 확인한 후 체력을 감소
         if (healthManager != null)
         {
             healthManager.DecreaseHealth(10); // 체력을 -10 감소
         }
 
-        // 게임 오버 시 SampleScene으로 이동
-        SceneManager.LoadScene("AiTestScene");
+        // 이벤트 핸들러 등록 해제
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        Debug.Log("Scene loaded: " + scene.name);
     }
+
+
 }
