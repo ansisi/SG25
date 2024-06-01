@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 
+
 public class Experience : MonoBehaviour
 {
     public GameManager GameManagerInstance; // GameManager 인스턴스 참조
