@@ -2,10 +2,205 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
+
+public enum CustomerState
+{
+    Idle,
+    WalkingToShelf,
+    PickingItem,
+    WalkingToCounter,
+    PlacingItem 
+}
+
+public class Timer
+{
+    private float timeRemaining;
+
+    public void Set(float time)
+    {
+        timeRemaining = time;
+    }
+
+    public void Update(float deltaTime)
+    {
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= deltaTime;
+        }
+    }
+
+    public bool IsFinished()
+    {
+        return timeRemaining <= 0;
+    }
+}
 
 public class AiCtrl : MonoBehaviour
 {
-    public Transform itemHoldPoint;
+    public CustomerState currentState;
+    private Timer timer;
+    private NavMeshAgent agent;
+    public Item item;
+    public bool isMoveDone = false;
+
+    public Transform target;
+    public Transform counter;
+    public Transform arm;
+
+    public List<Shelf> targetPos = new List<Shelf>();
+    public List<Consumable> myItem = new List<Consumable>();
+
+    private static int nextPriority = 0;
+    private static readonly object priorityLock = new object();
+
+    public int itemsToPick = 5;
+    private int itemsPicked = 0;
+
+    void Start()
+     {
+        timer = new Timer();
+        agent = GetComponent<NavMeshAgent>();
+        AssignPriority();
+        currentState = CustomerState.Idle;
+     }
+
+    void AssignPriority()
+    {
+        lock (priorityLock)
+        {
+            agent.avoidancePriority = nextPriority;
+            nextPriority = (nextPriority + 1) % 100;
+        }
+    }
+
+    void MoveToTarget()
+    {
+        isMoveDone = true;
+
+        if(target != null)
+        {
+            agent.SetDestination(target.position);
+        }
+    }
+
+    void Update()
+    {
+        timer.Update(Time.deltaTime);
+
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        {
+            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            {
+                isMoveDone = true;
+            }
+        }
+
+        switch (currentState)
+        {
+            case CustomerState.Idle:
+                Idle();
+                break;
+            case CustomerState.WalkingToShelf:
+                WalkingToShelf();
+                break;
+            case CustomerState.PickingItem:
+                PickingItem();
+                break;
+            case CustomerState.WalkingToCounter:
+                WalkingToCounter();
+                break;
+            case CustomerState.PlacingItem:
+                PlacingItem();
+                break;
+        }
+    }
+
+    void ChangeState(CustomerState nextState, float waitTime = 0.0f)
+    {
+        currentState = nextState;
+        timer.Set(waitTime);
+    }
+
+    void Idle()
+    {
+        if (timer.IsFinished())
+        {
+            target = targetPos[Random.Range(0, targetPos.Count)].transform;
+            MoveToTarget();
+            ChangeState(CustomerState.WalkingToShelf, 2.0f);
+        }
+    }
+
+    void WalkingToShelf()
+    {
+        if (timer.IsFinished() && isMoveDone)
+        {
+            ChangeState(CustomerState.PickingItem, 2.0f);
+        }
+    }
+
+    void PickingItem()
+    {
+        if (timer.IsFinished())
+        {
+            if (itemsPicked < itemsToPick)
+            {
+                GameObject itemObj = Instantiate(item.itemPrefab);
+
+                Consumable consumable = itemObj.GetComponent<Consumable>();
+
+                consumable.item = item;
+
+                myItem.Add(consumable);
+                itemObj.transform.parent = arm.transform;
+                itemObj.transform.localEulerAngles = Vector3.zero;
+                itemObj.transform.localPosition = new Vector3(0, itemsPicked * 2f, 0);
+
+                itemsPicked++;
+                timer.Set(0.5f);
+            }
+            else
+            {
+                target = counter;
+                MoveToTarget();
+                ChangeState(CustomerState.WalkingToCounter, 2.0f);
+            }
+        }
+    }
+
+    void WalkingToCounter()
+    {
+        if (timer.IsFinished() && isMoveDone)
+        {
+            ChangeState(CustomerState.PlacingItem, 2.0f);
+        }
+    }
+
+    void PlacingItem()
+    {
+        if (timer.IsFinished())
+        {
+            if (myItem.Count != 0)
+            {
+                myItem[0].transform.position = counter.transform.position;
+                myItem[0].transform.parent = counter.transform;
+                myItem.RemoveAt(0);
+
+                timer.Set(0.1f);
+            }
+            else
+            {
+                ChangeState(CustomerState.Idle, 2.0f);
+            }
+
+        }
+    }
+
+
+
+
+    /*public Transform itemHoldPoint;
     public Transform itemDropPoint;
 
     public Collider agentCollider;
@@ -22,7 +217,9 @@ public class AiCtrl : MonoBehaviour
     private List<Transform> checkedShelves = new List<Transform>();
     private List<Item> heldItems = new List<Item>();
 
-    public List<Consumable> holdItem = new List<Consumable>();      //
+    public List<Consumable> holdItem = new List<Consumable>();      
+
+
 
     void Start()
     {
@@ -259,5 +456,5 @@ public class AiCtrl : MonoBehaviour
 
         // 모든 돈 지급 후 디버그 메시지
         Debug.Log("돈 지급 완료. GiveMoney 작업 완료");
-    }
+    }*/
 }
