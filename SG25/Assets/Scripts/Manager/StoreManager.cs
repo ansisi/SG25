@@ -7,6 +7,9 @@ public class StoreManager : MonoBehaviour
 {
     public static StoreManager Instance;
 
+
+    public int totalPrice = 0;  // 바코드 태깅(마우스 클릭시) 계산된 총 금액 저장 변수
+
     public int currentMoney;
     private int previousMoney;
 
@@ -190,18 +193,19 @@ public class StoreManager : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Product"))
                 {
-                    Consumable consumable = hit.collider.GetComponent<Consumable>();
-                    if (consumable != null)
-                    {
-                        Item item = consumable.item;
-                        if (item != null)
-                        {
-                            SelectItem(item);
-                            Destroy(hit.collider.gameObject);
-                        }
-                    }
-                }
+                    //Consumable consumable = hit.collider.GetComponent<Consumable>();
+                    //if (consumable != null)
+                    //{
+                    //    Item item = consumable.item;
+                    //    if (item != null)
+                    //    {
+                    //        SelectItem(item);
+                    //        Destroy(hit.collider.gameObject);
+                    //    }
+                    //}
 
+                    totalPrice += hit.transform.GetComponent<Item>().price;
+                }
                 else
                 {
                     MoneyConsumable moneyConsumable = hit.collider.GetComponent<MoneyConsumable>();
