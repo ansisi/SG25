@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public void NextScene()
+    public void StartScene()
     {
-        SceneManager.LoadScene("SampleScene"); // "SampleScene" 씬으로 전환
+        SceneManager.LoadScene(1);
     }
 }

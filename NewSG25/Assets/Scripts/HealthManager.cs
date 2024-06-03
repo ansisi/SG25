@@ -50,7 +50,7 @@ public class HealthManager : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = "Health: " + health;
+            healthText.text = health.ToString();
         }
         else
         {
