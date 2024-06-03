@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65ef1adf0cf8fd64592bb974e3ee2ff5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b5b6a234c359f34e8cd6451821ae321, type: 3}
   m_Name: Barleysnack
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: "\uBCF4\uB9AC\uACFC\uC790"
   price: 1500
-  itemPrefab: {fileID: 2901998739226664349, guid: bc1ebba75b366bf459a1cb5ce1954e0e, type: 3}
-  icon: {fileID: 21300000, guid: c2a930407c7a51e42a082c482b80774d, type: 3}
+  itemPrefab: {fileID: 2901998739226664349, guid: 7eed65fa9e3df0c4e980eec8d742ba1f, type: 3}
+  icon: {fileID: 21300000, guid: 41a1a0f7e7a3f15419a81c98f090039a, type: 3}
   index: 0
