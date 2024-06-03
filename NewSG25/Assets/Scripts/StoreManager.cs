@@ -5,6 +5,7 @@ using TMPro;
 
 public class StoreManager : MonoBehaviour
 {
+    /*
     public static StoreManager Instance;
 
 
@@ -220,5 +221,7 @@ public class StoreManager : MonoBehaviour
             }
         }
     }
+
+    */
 }
 
