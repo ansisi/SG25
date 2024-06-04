@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
+  m_Name: Milk_1L
+  m_EditorClassIdentifier: 
+  itemIndex: 1
+  ItemName: Milk_300ml
+  cost: 500
+  IconImage: {fileID: 2800000, guid: 9d0d776bde4858f44b38c7f34ce0b201, type: 3}
+  ObjectModel: {fileID: 5333056871420149104, guid: 8970ddd2549a7e747abfa4f553e3c342, type: 3}

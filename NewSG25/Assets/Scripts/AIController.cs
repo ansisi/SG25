@@ -152,14 +152,17 @@ public class AIController : MonoBehaviour
     void PickingItem()
     {
         if (timer.IsFinished())
-        {
-            Debug.Log("타이머 끝남");
-
+        {           
             Shelf shelf = target.GetComponent<Shelf>();
             
             if (shelf != null)
             {
                 GameObject itemPicked = shelf.RandomGetItem();
+
+                if(itemPicked == null)
+                {
+                    timer.Set(1.0f);
+                }
 
                 if (itemPicked != null )
                 {
@@ -167,9 +170,7 @@ public class AIController : MonoBehaviour
 
                     if (cntPicked < cntToPick)
                     {
-                        cntPicked++;
-                        
-                        //다음 상자 생성까지 대기 시간 설정
+                        cntPicked++;                       
                         timer.Set(itemDelay);
                     }
                     else
@@ -180,15 +181,9 @@ public class AIController : MonoBehaviour
                     }
 
                 }
-                //else
-                //{
-                //    Debug.Log("PickingItem : No items to pick from Shelf (items[]");
-                //}
+               
             }
-            //else
-            //{
-            //    Debug.Log("PickingItem: Target is not a shelf.");
-            //}
+         
         }
     }
 
@@ -208,26 +203,22 @@ public class AIController : MonoBehaviour
         if (timer.IsFinished())
         {
             if (myItem != null && myItem.Count != 0)
-            {
-                // 아이템의 가격을 하나씩 합산
-                //totalAmount += myItem[0].GetComponent<Item>().price;
+            {                
 
                 offSet += new Vector3 (1 * myItem.Count - 2.5f, 0f, 0f);
                 myItem[myItem.Count-1].transform.position = counter.transform.position + offSet;
 
                 myItem[myItem.Count - 1].transform.parent = counter.transform;
-                //myItem[0].transform.SetParent(counter.transform);
-
+              
                 myItem[myItem.Count - 1].transform.rotation = Quaternion.Euler(0f,0f,0f);
 
                 myItem.RemoveAt(myItem.Count - 1);
                 timer.Set(0.1f);
-                //timer.Set(itemDelay);
+               
             }
             else
             {
-                cntPicked = 0;
-                //myItem.Clear();
+                cntPicked = 0;              
                 ChangeState(CustomerState.WaitingCalcPrice, waitTime);
             }
         }
@@ -243,8 +234,6 @@ public class AIController : MonoBehaviour
 
     void GivingMoney()
     {
-        // AI가 금액을 지불하는 애니메이션 진행
-
         //if (애니메이션 종료시 확인 Bool)
         {
             ChangeState(CustomerState.GivingMoney, waitTime);
@@ -255,8 +244,7 @@ public class AIController : MonoBehaviour
     {
         target = exitPoint;
         MoveToTarget();
-
-        // AI가 스토어를 나가는 애니메이션 진행 후 바깥으로 나가면 Detstoy
+       
         if (timer.IsFinished() && isMoveDone)
         {
             Destroy(gameObject);
@@ -274,11 +262,9 @@ public class AIController : MonoBehaviour
     }
 
     public void GoToHand(Transform handPos, GameObject item)
-    {
-        // 손에 가져올때 아이템 위치 조정
+    {       
         Vector3 offSet = Vector3.zero;
 
-        // myItem의 목록을 접근하여 오프셋을 계산하여 포지션에 추가
         if (myItem.Count > 0)
         {
             for (int i = 0; i < myItem.Count; i++)
@@ -292,7 +278,7 @@ public class AIController : MonoBehaviour
         temp.transform.parent = handPos;
 
         myItem.Add(temp);
-        //Debug.Log("아이템 추가 완료 : " + myItem[myItem.Count - 1].name);
+       
     }
 
 }

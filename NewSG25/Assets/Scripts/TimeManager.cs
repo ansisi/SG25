@@ -23,15 +23,7 @@ public class TimeManager : MonoBehaviour
     public PlayerCtrl playerCtrl;
 
     void Start()
-    {
-        if (GameManager.Instance != null)
-        {
-            energyText.text = GameManager.Instance.currentEnergy.ToString();
-        }
-        else
-        {
-            Debug.LogError("GameManager 인스턴스를 찾을 수 없습니다!");
-        }
+    {       
 
         playerCtrl = FindFirstObjectByType<PlayerCtrl>();
 

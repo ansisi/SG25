@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6743220197619179702}
   - component: {fileID: 4023076900715482937}
   - component: {fileID: 4255163598387553912}
-  - component: {fileID: 7380434890155743646}
   - component: {fileID: 4321578558178493996}
   - component: {fileID: 5751530063440496467}
   m_Layer: 0
@@ -87,29 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7380434890155743646
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990095521066432500}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4321578558178493996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4923805c011c24c9be6add76fff1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDelay: 0.1
+  waitTime: 0.5
+  isFinishedCalcPrice: 0
+  totalAmount: 0
   currentState: 0
   agent: {fileID: 0}
   isMoveDone: 0
@@ -132,8 +112,7 @@ MonoBehaviour:
   targetPos:
   - {fileID: 0}
   myItem: []
-  boxesToPick: 5
-  range: 2
+  cntToPick: 5
 --- !u!195 &5751530063440496467
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -144,7 +123,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 15
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
