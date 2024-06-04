@@ -61,7 +61,7 @@ public class AIController : MonoBehaviour
     public List<GameObject> targetPos = new List<GameObject>();
     public List<GameObject> myItem = new List<GameObject>();
 
-    public int cntToPick = 5;
+    public int cntToPick = 2;
     private int cntPicked = 0;
 
     private static int nextPriority = 0;
@@ -157,7 +157,7 @@ public class AIController : MonoBehaviour
             
             if (shelf != null)
             {
-                GameObject itemPicked = shelf.RandomGetItem();
+                GameObject itemPicked = shelf.RandomPickItem();
 
                 if(itemPicked == null)
                 {
@@ -203,23 +203,19 @@ public class AIController : MonoBehaviour
         if (timer.IsFinished())
         {
             if (myItem != null && myItem.Count != 0)
-            {                
-
+            {
                 offSet += new Vector3 (1 * myItem.Count - 2.5f, 0f, 0f);
                 myItem[myItem.Count-1].transform.position = counter.transform.position + offSet;
-
-                myItem[myItem.Count - 1].transform.parent = counter.transform;
-              
+                myItem[myItem.Count - 1].transform.parent = null;              
                 myItem[myItem.Count - 1].transform.rotation = Quaternion.Euler(0f,0f,0f);
-
+                myItem[myItem.Count - 1].AddComponent<Rigidbody>();
                 myItem.RemoveAt(myItem.Count - 1);
                 timer.Set(0.1f);
-               
             }
             else
             {
                 cntPicked = 0;              
-                ChangeState(CustomerState.WaitingCalcPrice, waitTime);
+                ChangeState(CustomerState.Idle, waitTime);
             }
         }
     }

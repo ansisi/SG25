@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
   m_Name: Milk_500ml
   m_EditorClassIdentifier: 
-  itemIndex: 1
+  itemIndex: 2
   ItemName: Milk_300ml
   cost: 500
   IconImage: {fileID: 2800000, guid: 9d0d776bde4858f44b38c7f34ce0b201, type: 3}
-  ObjectModel: {fileID: 5333056871420149104, guid: 8970ddd2549a7e747abfa4f553e3c342, type: 3}
+  ObjectModel: {fileID: 6076957678102948696, guid: a073b5a4f300ebe4e8604c68c4386812, type: 3}

@@ -46,7 +46,7 @@ public class ShopManager : MonoBehaviour
 
     public void SetShelfItem(int ShelfNumber ,int ItemNumber, int ItemIndex)
     {
-        SelfList[ShelfNumber].itemModel[ItemNumber] = FindItemModel(ItemIndex);
+        SelfList[ShelfNumber].itemModels[ItemNumber] = FindItemModel(ItemIndex);
     }
 
     public itemModel GetRamdomModel()
