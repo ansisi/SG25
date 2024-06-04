@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8957858332329698614}
   - component: {fileID: 7807957531446179371}
-  - component: {fileID: 5359438083089992632}
   m_Layer: 3
   m_Name: Barleysnack
   m_TagString: Item
@@ -53,21 +52,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1889772, y: 0.5656579, z: 0.43218312}
-  m_Center: {x: -0.001997754, y: 0.07530928, z: 0.0053557754}
---- !u!114 &5359438083089992632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2901998739226664349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d491a02b128515d4cb95658aeac30da8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 94104338dd764794b9098a4e06e5e4aa, type: 2}
+  m_Size: {x: 0.5345377, y: 0.7050947, z: 0.18665338}
+  m_Center: {x: -0.0019977093, y: 0.09349662, z: -0.0022222996}
 --- !u!1001 &3750279163996515781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76,6 +62,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8957858332329698614}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 7b2efe8dc4b294d40a5c32089edc7292, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b2efe8dc4b294d40a5c32089edc7292, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8999729
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b2efe8dc4b294d40a5c32089edc7292, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b2efe8dc4b294d40a5c32089edc7292, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -115,6 +113,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7b2efe8dc4b294d40a5c32089edc7292, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b2efe8dc4b294d40a5c32089edc7292, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7b2efe8dc4b294d40a5c32089edc7292, type: 3}
       propertyPath: m_Name
