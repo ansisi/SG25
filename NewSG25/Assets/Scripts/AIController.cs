@@ -37,9 +37,6 @@ public class Timer
         return timeRemaining <= 0;
     }
 }
-
-
-
 public class AIController : MonoBehaviour
 {
     public float itemDelay = 0.1f;
@@ -66,6 +63,8 @@ public class AIController : MonoBehaviour
 
     private static int nextPriority = 0;
     private static readonly object priorityLock = new object();
+
+    public Animator animator;
 
     void AssignPriority()
     {
@@ -138,6 +137,8 @@ public class AIController : MonoBehaviour
             target = targetPos[Random.Range(0, targetPos.Count)].transform;
             MoveToTarget();
             ChangeState(CustomerState.WalkingToShelf, waitTime);
+            animator.CrossFade("Walk", 0);
+            animator.ResetTrigger("MotionTrigger");
         }
     }
 
@@ -146,6 +147,7 @@ public class AIController : MonoBehaviour
         if (timer.IsFinished() && isMoveDone )
         {
             ChangeState(CustomerState.PickingItem, waitTime);
+            animator.SetTrigger("MotionTrigger");
         }
     }
 
@@ -178,6 +180,8 @@ public class AIController : MonoBehaviour
                         target = counter;
                         MoveToTarget();
                         ChangeState(CustomerState.WalkingToCounter, waitTime);
+                        animator.CrossFade("Walk", 0);
+                        animator.ResetTrigger("MotionTrigger");
                     }
 
                 }
@@ -193,6 +197,8 @@ public class AIController : MonoBehaviour
         if (timer.IsFinished() && isMoveDone)
         {
             ChangeState(CustomerState.PlacingItem, waitTime);
+            animator.SetTrigger("MotionTrigger");
+            
         }
     }
 
@@ -216,6 +222,7 @@ public class AIController : MonoBehaviour
             {
                 cntPicked = 0;              
                 ChangeState(CustomerState.Idle, waitTime);
+                animator.SetTrigger("MotionTrigger");
             }
         }
     }
