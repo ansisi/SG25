@@ -49,7 +49,7 @@ public class TimeManager : MonoBehaviour
             resultUI.SetActive(true);
             isTimeStopped = true;
 
-            if (gameDay < 31)
+            if (gameDay < 25)
             {
                 gameDay += 1;
             }
