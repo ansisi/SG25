@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
         if (trashTimer <= 0)
         {
-            GenTrash();
+            //GenTrash();
             trashTimer += 20.0f;
             checkCount = 5.0f;
         }
