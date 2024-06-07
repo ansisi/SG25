@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
+  m_Name: Tunasandwich
+  m_EditorClassIdentifier: 
+  itemIndex: 25
+  ItemName: Tunasandwich
+  cost: 1800
+  IconImage: {fileID: 2800000, guid: fc1c174ad2ce6974288486530413aa96, type: 3}
+  ObjectModel: {fileID: 7847767406313468703, guid: fd44d70dd24f0a34196cc631e41976bf, type: 3}

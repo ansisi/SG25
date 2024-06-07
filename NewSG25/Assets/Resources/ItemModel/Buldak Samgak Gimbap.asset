@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
   m_Name: Buldak Samgak Gimbap
   m_EditorClassIdentifier: 
-  itemIndex: 6
+  itemIndex: 2
   ItemName: Buldak Samgak Gimbap
   cost: 1200
   IconImage: {fileID: 2800000, guid: 6b1cc7e999a8be440ac9ad734fc10a5f, type: 3}

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
-  m_Name: Milk_1L
+  m_Name: Porkcutlet
   m_EditorClassIdentifier: 
-  itemIndex: 3
-  ItemName: Milk_300ml
-  cost: 900
-  IconImage: {fileID: 2800000, guid: 9d0d776bde4858f44b38c7f34ce0b201, type: 3}
-  ObjectModel: {fileID: 8740476181190406954, guid: 6e0e75e7c48363f4894eb2f681e7b9b1, type: 3}
+  itemIndex: 18
+  ItemName: Porkcutlet
+  cost: 8000
+  IconImage: {fileID: 2800000, guid: 90aad8c29ce3e2a41b83c53cbe63b778, type: 3}
+  ObjectModel: {fileID: 5878637759871105387, guid: 175ad3c55a3ca2440abdfab1eaa69d65, type: 3}

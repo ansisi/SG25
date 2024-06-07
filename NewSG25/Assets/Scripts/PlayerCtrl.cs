@@ -30,6 +30,7 @@ public class PlayerCtrl : MonoBehaviour
 
     [SerializeField]
     private GameObject resultPanel;
+    private ShelfShopPanel shelfShopPanel;
 
     public bool isPanelOn = false;
 
@@ -39,6 +40,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         instance = this;
         rb = GetComponent<Rigidbody>();
+        shelfShopPanel = GetComponent<ShelfShopPanel>();
     }
 
     void Start()
@@ -70,6 +72,11 @@ public class PlayerCtrl : MonoBehaviour
         {
             LoadMiniGameScene();
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            shelfShopPanel.ShelfShopPanelOn();
+        }    
 
         if (!isPanelOn)
         {

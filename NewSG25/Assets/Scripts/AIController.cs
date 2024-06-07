@@ -134,12 +134,30 @@ public class AIController : MonoBehaviour
     {
         if (timer.IsFinished())
         {
-            target = targetPos[Random.Range(0, targetPos.Count)].transform;
-            MoveToTarget();
-            ChangeState(CustomerState.WalkingToShelf, waitTime);
-            animator.CrossFade("Walk", 0);
-            animator.ResetTrigger("MotionTrigger");
+            List<GameObject> activeShelves = GetActiveShelves();
+            if (activeShelves.Count > 0)
+            {
+                target = targetPos[Random.Range(0, activeShelves.Count)].transform;
+                MoveToTarget();
+                ChangeState(CustomerState.WalkingToShelf, waitTime);
+                animator.CrossFade("Walk", 0);
+                animator.ResetTrigger("MotionTrigger");
+            }
+            
         }
+    }
+
+    List<GameObject> GetActiveShelves()
+    {
+        List<GameObject> activeShelves = new List<GameObject>();
+        foreach (GameObject shelf in targetPos)
+        {
+            if (shelf.activeInHierarchy)
+            {
+                activeShelves.Add(shelf);
+            }
+        }
+        return activeShelves;
     }
 
     void WalkingToShelf()

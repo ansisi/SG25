@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
+  m_Name: Olympic con
+  m_EditorClassIdentifier: 
+  itemIndex: 16
+  ItemName: Olympic con
+  cost: 2000
+  IconImage: {fileID: 2800000, guid: 48242fbd42c73884cbd527b70d87915f, type: 3}
+  ObjectModel: {fileID: 3830929257816464514, guid: 2c31203a28648044b93366ac4458cada, type: 3}

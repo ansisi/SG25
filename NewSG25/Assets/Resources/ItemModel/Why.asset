@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
-  m_Name: Milk_500ml
+  m_Name: Why
   m_EditorClassIdentifier: 
-  itemIndex: 2
-  ItemName: Milk_300ml
-  cost: 500
-  IconImage: {fileID: 2800000, guid: 9d0d776bde4858f44b38c7f34ce0b201, type: 3}
-  ObjectModel: {fileID: 6076957678102948696, guid: a073b5a4f300ebe4e8604c68c4386812, type: 3}
+  itemIndex: 26
+  ItemName: Why
+  cost: 2000
+  IconImage: {fileID: 2800000, guid: 8864ede4d206b33448537dec49e65cf7, type: 3}
+  ObjectModel: {fileID: 8671630174328383766, guid: a0a0f33f6efb46b45be1fcf240fd91de, type: 3}

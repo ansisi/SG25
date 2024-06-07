@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
+  m_Name: EggSandwich
+  m_EditorClassIdentifier: 
+  itemIndex: 12
+  ItemName: EggSandwich
+  cost: 1800
+  IconImage: {fileID: 2800000, guid: 2770f166cca7b204b97e31c42afb8ef1, type: 3}
+  ObjectModel: {fileID: 5104173508564468916, guid: 68d18c8cccbb4454a992120d585bbe7f, type: 3}

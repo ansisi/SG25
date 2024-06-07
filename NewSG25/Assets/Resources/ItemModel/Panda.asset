@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
   m_Name: Panda
   m_EditorClassIdentifier: 
-  itemIndex: 5
+  itemIndex: 17
   ItemName: Panda
   cost: 1500
   IconImage: {fileID: 2800000, guid: 54d3236d91a653544828af51129ce198, type: 3}

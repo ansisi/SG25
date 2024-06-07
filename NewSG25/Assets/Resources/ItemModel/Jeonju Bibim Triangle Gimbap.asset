@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
+  m_Name: Jeonju Bibim Triangle Gimbap
+  m_EditorClassIdentifier: 
+  itemIndex: 13
+  ItemName: Jeonju Bibim Triangle Gimbap
+  cost: 1200
+  IconImage: {fileID: 2800000, guid: 466c4ab1cc2e9ae4db102494ee91c506, type: 3}
+  ObjectModel: {fileID: 1911599904241495993, guid: 1a0714c87ef49a24396504f40b6bfd57, type: 3}

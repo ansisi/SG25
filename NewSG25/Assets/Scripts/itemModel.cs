@@ -8,7 +8,10 @@ public class itemModel : ScriptableObject
 {
     public enum ITEMTYPE
     {
-        WATER
+        WATER,
+        SNACK,
+        FROZEN,
+        BREAD
     }
 
     public int itemIndex;

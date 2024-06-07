@@ -24,9 +24,6 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         Timer();
-
-
-
     }
 
     public void Timer()
@@ -51,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckTrashCount()
     {
-        Debug.Log("쓰레기 체크 : " + trashCounter);
+        //Debug.Log("쓰레기 체크 : " + trashCounter);
     }
 
     public void TrashCount(int count)

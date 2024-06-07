@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f88b2293c241b47982033149c33b31, type: 3}
   m_Name: Barleytea
   m_EditorClassIdentifier: 
-  itemIndex: 5
+  itemIndex: 1
   ItemName: Barleytea
   cost: 1500
   IconImage: {fileID: 2800000, guid: 26d7e510c34166f44915794539ff8740, type: 3}
