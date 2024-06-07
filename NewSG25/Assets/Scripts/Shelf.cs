@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(Shelf))]
@@ -49,16 +47,16 @@ public class Shelf : MonoBehaviour
 
     void RamdomitemInit()
     {
-        for (int i = 0; i < itemModels.Length ; i++)
+        for (int i = 0; i < itemModels.Length; i++)
         {
             itemModels[i] = ShopManager.Instance.GetRamdomModel();
 
-        }        
+        }
     }
 
     void itemObjectInit()
     {
-       
+
         for (int i = 0; i < itemModels.Length; i++)
         {
             itemList[i] = null;
@@ -80,19 +78,36 @@ public class Shelf : MonoBehaviour
     {
         int randomNum = Random.Range(0, itemModels.Length);
 
-        if(itemModels[randomNum] != null)
+        if (itemModels[randomNum] != null)
         {
             GameObject temp = itemModels[randomNum].ObjectModel;
 
             Destroy(itemList[randomNum]);
-            itemModels[randomNum] = null;            
+            itemModels[randomNum] = null;
 
             return temp;
         }
         else
         {
             return null;
-        } 
+        }
+    }
+
+    public int AddItemToShelf(itemModel item, int count)
+    {
+        int addedCount = 0;
+        for (int i = 0; i < itemModels.Length && addedCount < count; i++)
+        {
+            if (itemModels[i] == null)
+            {
+                itemModels[i] = item;
+                GameObject temp = Instantiate(item.ObjectModel, itemPosList[i].position, itemPosList[i].rotation, itemPosList[i]);
+                itemList[i] = temp;
+                addedCount++;
+            }
+        }
+        return addedCount;
     }
 }
+
 

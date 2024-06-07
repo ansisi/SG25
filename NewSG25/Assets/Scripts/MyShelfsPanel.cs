@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using Unity.VisualScripting;
 
-public class MyShelfsPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IDropHandler, IEndDragHandler
+public class MyShelfsPanel : MonoBehaviour
 {
     [SerializeField]
     public itemModel[] itemModels;
@@ -16,87 +17,69 @@ public class MyShelfsPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
     public GameObject shelfListContent;
 
     public GameObject itemPanel;
+    public TextMeshProUGUI itemName;
+    public TextMeshProUGUI itemCount;
+    public TextMeshProUGUI itemTotalCost;
+    public TextMeshProUGUI noMoneyText;
+    public Image selectedItemImage;
 
-    private GameObject draggedItem;
-    private Shelf targetShelf;
+    public Button paymentButton;
+    public Button cancelButton;
+    public Button countUpButton;
+    public Button countDownButton;
+
+    private int currentCount = 1;
+    private int totalCost;
+    private itemModel selectedItem;
+    private Shelf selectedShelf;
+
+    public GameObject itemShopPanel;
 
     public List<Shelf> shelves;
 
-    private Transform originalParent;
-    private Vector3 originalPosition;
-    private int originalSiblingIndex;
-    private Canvas canvas;
-
-    private GraphicRaycaster graphicRaycaster;
-    private PointerEventData pointerEventData;
-    private EventSystem eventSystem;
-
     void Start()
     {
-        canvas = GetComponentInParent<Canvas>();
-        graphicRaycaster = canvas.GetComponent<GraphicRaycaster>();
-        eventSystem = EventSystem.current;
         itemModels = Resources.LoadAll<itemModel>("");
         CreateItemList();
         CreateShelfList();
+        InitializeButtons();
     }
 
     public void CreateItemList()
     {
         for (int i = 0; i < itemModels.Length; i++)
         {
-            // Instantiate itemImagePrefab and set its parent to the current transform (for GridLayoutGroup)
             GameObject itemImage = Instantiate(itemImagePrefab, itemListContent.transform);
-
-            // Get the Image component of the instantiated prefab
             Image imageComponent = itemImage.GetComponent<Image>();
 
-            // Set the sprite from itemModels[i].IconImage
             if (imageComponent != null && itemModels[i].IconImage != null)
             {
-                // Create a sprite from the texture
                 Sprite iconSprite = Sprite.Create(itemModels[i].IconImage,
                                                   new Rect(0.0f, 0.0f, itemModels[i].IconImage.width, itemModels[i].IconImage.height),
                                                   new Vector2(0.5f, 0.5f));
                 imageComponent.sprite = iconSprite;
-            }
 
-            AddEventTrigger(itemImage);
+                TextMeshProUGUI itemText = itemImage.GetComponentInChildren<TextMeshProUGUI>();
+                if (itemText != null)
+                {
+                    itemText.text = itemModels[i].cost.ToString("N0");
+                }
+                itemModel currentItem = itemModels[i];
+                Button itemButton = itemImage.GetComponentInChildren<Button>();
+                if (itemButton != null)
+                {
+                    itemButton.onClick.AddListener(() => OnItemButtonClick(currentItem));
+                }
+            }
         }
     }
-    private void AddEventTrigger(GameObject itemImage)
-    {
-        EventTrigger trigger = itemImage.AddComponent<EventTrigger>();
 
-        // Begin Drag
-        EventTrigger.Entry beginDragEntry = new EventTrigger.Entry();
-        beginDragEntry.eventID = EventTriggerType.BeginDrag;
-        beginDragEntry.callback.AddListener((eventData) => { OnBeginDrag((PointerEventData)eventData); });
-        trigger.triggers.Add(beginDragEntry);
-
-        // Drag
-        EventTrigger.Entry dragEntry = new EventTrigger.Entry();
-        dragEntry.eventID = EventTriggerType.Drag;
-        dragEntry.callback.AddListener((eventData) => { OnDrag((PointerEventData)eventData); });
-        trigger.triggers.Add(dragEntry);
-
-        // End Drag
-        EventTrigger.Entry endDragEntry = new EventTrigger.Entry();
-        endDragEntry.eventID = EventTriggerType.EndDrag;
-        endDragEntry.callback.AddListener((eventData) => { OnEndDrag((PointerEventData)eventData); });
-        trigger.triggers.Add(endDragEntry);
-
-        // Drop
-        EventTrigger.Entry dropEntry = new EventTrigger.Entry();
-        dropEntry.eventID = EventTriggerType.Drop;
-        dropEntry.callback.AddListener((eventData) => { OnDrop((PointerEventData)eventData); });
-        trigger.triggers.Add(dropEntry);
-    }
     public void CreateShelfList()
     {
         for (int i = 0; i < shelves.Count; i++)
         {
             GameObject shelfUI = Instantiate(shelfImage, shelfListContent.transform);
+            Shelf shelfComponent = shelves[i];
 
             TextMeshProUGUI shelfText = shelfUI.GetComponentInChildren<TextMeshProUGUI>();
             if (shelfText != null)
@@ -104,95 +87,113 @@ public class MyShelfsPanel : MonoBehaviour, IBeginDragHandler, IDragHandler, IDr
                 shelfText.text = "Shelf " + (i + 1);
             }
 
-            AddShelfEventTrigger(shelfUI, shelves[i]);
-        }
-    }
-    private void AddShelfEventTrigger(GameObject shelfUI, Shelf shelf)
-    {
-        EventTrigger trigger = shelfUI.AddComponent<EventTrigger>();
-
-        EventTrigger.Entry dropEntry = new EventTrigger.Entry();
-        dropEntry.eventID = EventTriggerType.Drop;
-        dropEntry.callback.AddListener((eventData) =>
-        {
-            OnDrop((PointerEventData)eventData);
-        });
-        trigger.triggers.Add(dropEntry);
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        if (eventData.pointerDrag != null)
-        {
-            draggedItem = eventData.pointerDrag;
-            originalParent = draggedItem.transform.parent;
-            originalPosition = draggedItem.transform.localPosition;
-            originalSiblingIndex = draggedItem.transform.GetSiblingIndex();
-            draggedItem.transform.SetParent(canvas.transform, true);
-            Debug.Log("잡았삼");
-        }
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (draggedItem != null)
-        {
-            draggedItem.transform.position = eventData.position;
-            Debug.Log("드래그 중");
-        }
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        if (draggedItem != null)
-        {
-            pointerEventData = new PointerEventData(eventSystem);
-            pointerEventData.position = eventData.position;
-
-            List<RaycastResult> results = new List<RaycastResult>();
-            graphicRaycaster.Raycast(pointerEventData, results);
-
-            targetShelf = null;
-            foreach (RaycastResult result in results)
+            Button shelfButton = shelfUI.GetComponentInChildren<Button>();
+            if (shelfButton != null)
             {
-                Shelf shelf = result.gameObject.GetComponent<Shelf>();
-                if (shelf != null)
-                {
-                    targetShelf = shelf;
-                    break;
-                }
+                Shelf currentShelf = shelves[i];
+                shelfButton.onClick.AddListener(() => OnShelfButtonClick(currentShelf));
             }
+        }
+    }
 
-            if (targetShelf != null)
+    void InitializeButtons()
+    {
+        countUpButton.onClick.AddListener(OnCountUpButtonClick);
+        countDownButton.onClick.AddListener(OnCountDownButtonClick);
+        cancelButton.onClick.AddListener(OnCancelButtonClick);
+        paymentButton.onClick.AddListener(OnPaymentButtonClick);
+    }
+
+    void OnShelfButtonClick(Shelf shelf)
+    {
+        itemShopPanel.SetActive(true);
+
+        selectedShelf = shelf;
+    }
+
+    void OnItemButtonClick(itemModel item)
+    {
+        itemPanel.SetActive(true);
+
+        selectedItem = item;
+        itemName.text = item.name;
+        Sprite iconSprite = Sprite.Create(item.IconImage,
+                                          new Rect(0.0f, 0.0f, item.IconImage.width, item.IconImage.height),
+                                          new Vector2(0.5f, 0.5f));
+        selectedItemImage.sprite = iconSprite;
+        currentCount = 1;
+        UpdateItemCount();
+        UpdateTotalCost();
+    }
+
+    void OnCountUpButtonClick()
+    {
+        currentCount++;
+        UpdateItemCount();
+        UpdateTotalCost();
+    }
+
+    void OnCountDownButtonClick()
+    {
+        if (currentCount > 1)
+        {
+            currentCount--;
+            UpdateItemCount();
+            UpdateTotalCost();
+        }
+    }
+
+    void OnCancelButtonClick()
+    {
+        itemPanel.SetActive(false);
+    }
+
+    void OnPaymentButtonClick()
+    {
+        if (GameManager.Instance.currentMoney >= totalCost)
+        {
+            int addedCount = selectedShelf.AddItemToShelf(selectedItem, currentCount);
+            if (addedCount > 0)
             {
-                itemModel droppedItem = draggedItem.GetComponent<itemModel>();
-                itemPanel.SetActive(true);
+                int actualCost = selectedItem.cost * addedCount;
+                GameManager.Instance.MoneyDecrease(actualCost);
+                itemPanel.SetActive(false);
 
-                Debug.Log("진열대에 드랍");
+                if (addedCount < currentCount)
+                {
+                    noMoneyText.text = "진열대가 꽉 찼습니다!";
+                    noMoneyText.gameObject.SetActive(true);
+                    Invoke("TextInvoke", 2.0f);
+                }
             }
             else
             {
-                ResetDraggedItem();
+                noMoneyText.text = "진열대가 꽉 찼습니다!";
+                noMoneyText.gameObject.SetActive(true);
+                Invoke("TextInvoke", 2.0f);
             }
-
-            draggedItem = null;
         }
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (draggedItem != null && targetShelf == null)
+        else
         {
-            ResetDraggedItem();
+            noMoneyText.text = "돈이 없어여~~~~";
+            noMoneyText.gameObject.SetActive(true);
+            Invoke("TextInvoke", 2.0f);
         }
     }
 
-    private void ResetDraggedItem()
+    void UpdateItemCount()
     {
-        draggedItem.transform.SetParent(originalParent, true);
-        draggedItem.transform.localPosition = originalPosition;
-        draggedItem.transform.SetSiblingIndex(originalSiblingIndex);
-        Debug.Log("원래 위치로 돌아감");
+        itemCount.text = currentCount.ToString();
+    }
+
+    void UpdateTotalCost()
+    {
+        totalCost = selectedItem.cost * currentCount;
+        itemTotalCost.text = totalCost.ToString("N0");
+    }
+
+    void TextInvoke()
+    {
+        noMoneyText.gameObject.SetActive(false);
     }
 }
-
