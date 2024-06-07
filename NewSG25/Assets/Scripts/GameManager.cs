@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public float checkCount;
     public int trashCounter;
 
+    public SatisfactionManager satisfactionManager;
+
     private void Awake()
     {     
         Instance = this;           
@@ -35,9 +37,9 @@ public class GameManager : MonoBehaviour
 
         if (trashTimer <= 0)
         {
-            //GenTrash();
-            trashTimer += 20.0f;
-            checkCount = 5.0f;
+            GenTrash();
+            trashTimer += 40.0f;
+            checkCount = 30.0f;
         }
 
         if (checkCount <= 0)
@@ -58,7 +60,6 @@ public class GameManager : MonoBehaviour
 
     public void GenTrash()
     {
-
         for (int i = 0; i < 5; i++)
         {
             // 맵 크기
@@ -74,10 +75,24 @@ public class GameManager : MonoBehaviour
 
             GameObject temp = Instantiate(trashObject);
             temp.transform.position = randomPosition;
-
+            Debug.Log("쓰레기 생성~");
             trashCounter++;
+
+            // 쓰레기 생성 후 타이머 시작
+            StartCoroutine(HandleTrashTimer(temp));
         }
-        
+    }
+
+    private IEnumerator HandleTrashTimer(GameObject trash)
+    {
+        yield return new WaitForSeconds(30.0f); // 쓰레기 처리까지의 시간(30초로 가정)
+
+        // 쓰레기가 아직 처리되지 않았으면 만족도 감소
+        if (trash != null)
+        {
+            satisfactionManager.DecreaseSatisfaction(); // 만족도 감소
+            Destroy(trash);
+        }
     }
 
     public void MoneyIncrease(int amount)
