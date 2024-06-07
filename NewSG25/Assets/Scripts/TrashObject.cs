@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrashObject : MonoBehaviour
 {
-    public float lifeTime = 5.0f;
+    public float lifeTime = 30.0f;
 
     // Start is called before the first frame update
     void Start()
