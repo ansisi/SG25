@@ -18,9 +18,15 @@ public class GameManager : MonoBehaviour
     public SatisfactionManager satisfactionManager;
 
     private void Awake()
-    {     
-        Instance = this;           
+    {
+        Instance = this;
         currentMoney = money;
+
+        // satisfactionManager가 null인지 확인하고 초기화
+        if (satisfactionManager == null)
+        {
+            satisfactionManager = FindObjectOfType<SatisfactionManager>();
+        }
     }
 
     public void Update()

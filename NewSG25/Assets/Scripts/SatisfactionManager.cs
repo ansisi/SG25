@@ -31,8 +31,12 @@ public class SatisfactionManager : MonoBehaviour
             UpdateSatisfactionUI();
         }
 
-        satisfationText.text = satisfactionSlider.value.ToString();
+        if (satisfationText != null && satisfactionSlider != null)
+        {
+            satisfationText.text = satisfactionSlider.value.ToString();
+        }
     }
+
 
     private void UpdateSatisfactionUI()
     {

@@ -75,6 +75,7 @@ public class AIController : MonoBehaviour
         }
     }
 
+
     void Start()
     {
         timer = new Timer();
@@ -172,25 +173,32 @@ public class AIController : MonoBehaviour
     void PickingItem()
     {
         if (timer.IsFinished())
-        {           
+        {
             Shelf shelf = target.GetComponent<Shelf>();
-            
+
             if (shelf != null)
             {
                 GameObject itemPicked = shelf.RandomPickItem();
 
-                if(itemPicked == null)
+                if (itemPicked == null)
                 {
+                    // 아이템이 없을 경우 만족도 감소
+                    if (GameManager.Instance != null && GameManager.Instance.satisfactionManager != null)
+                    {
+                        GameManager.Instance.satisfactionManager.DecreaseSatisfaction();
+                    }
+                    //
+
+                    // 선반에 아이템이 없으면 1초 기다렸다가 재시도
                     timer.Set(1.0f);
                 }
-
-                if (itemPicked != null )
+                else
                 {
                     GoToHand(arm, itemPicked);
 
                     if (cntPicked < cntToPick)
                     {
-                        cntPicked++;                       
+                        cntPicked++;
                         timer.Set(itemDelay);
                     }
                     else
@@ -201,15 +209,12 @@ public class AIController : MonoBehaviour
                         animator.CrossFade("Walk", 0);
                         animator.ResetTrigger("MotionTrigger");
                     }
-
                 }
-               
             }
-         
         }
     }
 
-    
+
     void WalkingToCounter()
     {
         if (timer.IsFinished() && isMoveDone)
