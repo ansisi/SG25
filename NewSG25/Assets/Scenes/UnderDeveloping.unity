@@ -14052,7 +14052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847d6f682c5fd44aa47853cebb919ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trashObject: {fileID: 0}
+  trashObject: {fileID: 3947291880788911699, guid: b69615ec35324504585fe7386e9ca6cd, type: 3}
   money: 10000
   energy: 100
   currentMoney: 0
@@ -14060,6 +14060,7 @@ MonoBehaviour:
   trashTimer: 0
   checkCount: 0
   trashCounter: 0
+  satisfactionManager: {fileID: 0}
 --- !u!4 &1425488246
 Transform:
   m_ObjectHideFlags: 0
