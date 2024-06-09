@@ -6,15 +6,13 @@ using TMPro;
 
 public class ShelfShopPanel : MonoBehaviour
 {
-    public GameObject[] shelfButtons; 
-    public List<Shelf> shelves; 
-    public TextMeshProUGUI playerMoneyText; 
+    public GameObject[] shelfButtons;
+    public List<Shelf> shelves;
+    public TextMeshProUGUI playerMoneyText;
     private int playerMoney;
     private int baseUnlockCost = 5000;
 
-    public GameObject shelfShopPanel;
-    public GameObject ShelfShopPanel1;
-    public GameObject ShelfShopPanel2;
+    public GameObject[] shelfShopPanels;
 
     void Start()
     {
@@ -28,14 +26,7 @@ public class ShelfShopPanel : MonoBehaviour
     {
         for (int i = 0; i < shelves.Count; i++)
         {
-            if (i < 2)
-            {
-                shelves[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                shelves[i].gameObject.SetActive(false);
-            }
+            shelves[i].gameObject.SetActive(i < 2);
         }
     }
 
@@ -63,7 +54,7 @@ public class ShelfShopPanel : MonoBehaviour
             UpdatePlayerMoneyText();
             shelves[index].gameObject.SetActive(true);
             buttonText.text = "SOLD OUT";
-            buttonText.transform.parent.GetComponent<Button>().interactable = false; 
+            buttonText.transform.parent.GetComponent<Button>().interactable = false;
         }
         else
         {
@@ -73,23 +64,39 @@ public class ShelfShopPanel : MonoBehaviour
 
     public void NextPanel()
     {
-        ShelfShopPanel1.SetActive(false);
-        ShelfShopPanel2.SetActive(true);
+        SwitchPanel(1);
     }
+
     public void PreviousPanel()
     {
-        ShelfShopPanel1.SetActive(true); 
-        ShelfShopPanel2.SetActive(false);
+        SwitchPanel(-1);
+    }
+
+    void SwitchPanel(int direction)
+    {
+        for (int i = 0; i < shelfShopPanels.Length; i++)
+        {
+            if (shelfShopPanels[i].activeSelf)
+            {
+                shelfShopPanels[i].SetActive(false);
+                int nextIndex = (i + direction + shelfShopPanels.Length) % shelfShopPanels.Length;
+                shelfShopPanels[nextIndex].SetActive(true);
+                break;
+            }
+        }
     }
 
     public void ShelfShopPanelOn()
     {
-        ShelfShopPanel1.SetActive(true);
+        shelfShopPanels[0].SetActive(true);
     }
+
     public void ClosePanel()
     {
-        ShelfShopPanel1.SetActive(false);
-        ShelfShopPanel2.SetActive(false);
+        foreach (var panel in shelfShopPanels)
+        {
+            panel.SetActive(false);
+        }
     }
 
     void UpdatePlayerMoneyText()

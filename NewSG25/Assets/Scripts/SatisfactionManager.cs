@@ -1,6 +1,6 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class SatisfactionManager : MonoBehaviour
 {
@@ -9,11 +9,13 @@ public class SatisfactionManager : MonoBehaviour
     [SerializeField] private GameObject upsetUI; // 26-50% UI
     [SerializeField] private GameObject neutralUI; // 51-75% UI
     [SerializeField] private GameObject happyUI; // 76-100% UI
-    [SerializeField] private TextMeshProUGUI satisfationText;
+    [SerializeField] private TextMeshProUGUI satisfactionText; // 만족도를 표시할 텍스트 UI 요소
 
     private void Start()
     {
         // 만족도를 100으로 초기화
+        satisfactionSlider.minValue = 0; // 최소값 설정
+        satisfactionSlider.maxValue = 100; // 최대값 설정
         satisfactionSlider.value = 100;
 
         // 슬라이더의 OnValueChanged 이벤트에 UpdateSatisfactionUI 메서드를 등록
@@ -25,18 +27,19 @@ public class SatisfactionManager : MonoBehaviour
 
     private void Update()
     {
+        // 초기화가 되었는지 확인
         if (!isInitialized)
         {
             isInitialized = true;
             UpdateSatisfactionUI();
         }
 
-        if (satisfationText != null && satisfactionSlider != null)
+        // 텍스트 업데이트
+        if (satisfactionText != null && satisfactionSlider != null)
         {
-            satisfationText.text = satisfactionSlider.value.ToString();
+            satisfactionText.text = ((int)satisfactionSlider.value).ToString(); // 만족도 값을 텍스트로 변환하여 할당
         }
     }
-
 
     private void UpdateSatisfactionUI()
     {
@@ -81,7 +84,7 @@ public class SatisfactionManager : MonoBehaviour
 
     public void DecreaseSatisfaction()
     {
-        satisfactionSlider.value -= 10; // 만족도 감소
+        satisfactionSlider.value -= 1; // 만족도 감소
         Debug.Log("만족도 감소: " + satisfactionSlider.value);
 
         // 최소값 제한

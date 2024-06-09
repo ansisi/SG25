@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public float trashTimer;
     public float checkCount;
     public int trashCounter;
+    public CheckoutSystem checkoutSystem;
 
     public SatisfactionManager satisfactionManager;
 

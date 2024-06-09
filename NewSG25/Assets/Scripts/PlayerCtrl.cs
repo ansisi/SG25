@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCtrl : MonoBehaviour
 {
+    public CheckoutSystem checkoutSystem;
+
+
     [Header("Movement")]
     public float moveSpeed;
     private Vector2 curMovementInput;
@@ -33,8 +36,7 @@ public class PlayerCtrl : MonoBehaviour
     private ShelfShopPanel shelfShopPanel;
 
     public bool isPanelOn = false;
-
-    //private HealthManager healthManager; // HealthManager 인스턴스
+    public Item selectedItem; // itemModel -> Item으로 수정
 
     private void Awake()
     {
@@ -49,34 +51,22 @@ public class PlayerCtrl : MonoBehaviour
         Cursor.visible = false;
 
         cameraContainer.localPosition = Vector3.zero;
-
-        // HealthManager 인스턴스 가져오기
-       // healthManager = HealthManager.Instance;
-
-
-        //input system 웅크리기
-        InputActionMap playerControls = new InputActionMap();
-        playerControls.AddAction("Crouch", binding: "<Keyboard>/ctrl");
-        playerControls.FindAction("Crouch").performed += ctx => OnCrouchInput(ctx);
-        playerControls.Enable();
     }
 
-    void FixedUpdate()
-    {
-        Move();
-    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            LoadMiniGameScene();
-        }
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             shelfShopPanel.ShelfShopPanelOn();
-        }    
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            AttemptPurchase();
+        }
+
 
         if (!isPanelOn)
         {
@@ -92,39 +82,34 @@ public class PlayerCtrl : MonoBehaviour
                     // Raycast로 쓰레기 오브젝트를 검출하고 Trash 태그를 가지고 있다면 삭제
                     if (hit.collider.CompareTag("Trash"))
                     {
-                        Destroy(hit.collider.gameObject);                      
+                        Destroy(hit.collider.gameObject);
                     }
                 }
             }
         }
     }
 
-
-
-    private void Move()
+    void AttemptPurchase()
     {
-        Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-
-        if (isCrouching)
+        // 선택된 아이템이 있는지 확인
+        if (selectedItem != null)
         {
-            dir *= moveSpeed * 0.5f;
-
-            //웅크렸을 때 시야 낮춤
-            cameraContainer.localPosition = new Vector3(cameraContainer.localPosition.x, 0.5f, cameraContainer.localPosition.z);
-
-
+            // 결제 시스템이 있는지 확인
+            if (checkoutSystem != null)
+            {
+                // 결제 시도
+                checkoutSystem.selectedItems = new List<Item> { selectedItem };
+                checkoutSystem.ProcessPayment();
+            }
+            else
+            {
+                Debug.LogWarning("Checkout system not found!");
+            }
         }
         else
         {
-            dir *= moveSpeed;
-
-            //서있을 때 시야 원래대로
-            cameraContainer.localPosition = new Vector3(cameraContainer.localPosition.x, 1.0f, cameraContainer.localPosition.z);
+            Debug.LogWarning("No item selected for purchase!");
         }
-
-        dir.y = rb.velocity.y;
-
-        rb.velocity = dir;
     }
 
     void CameraLook()
@@ -152,15 +137,6 @@ public class PlayerCtrl : MonoBehaviour
             curMovementInput = Vector2.zero;
         }
     }
-    // 웅크리기 입력을 받는 메서드
-    public void OnCrouchInput(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            // 웅크리기 토글
-            isCrouching = !isCrouching;
-        }
-    }
 
     public void PanelOn()
     {
@@ -179,10 +155,4 @@ public class PlayerCtrl : MonoBehaviour
 
         isPanelOn = false;
     }
-    private void LoadMiniGameScene()
-    {
-        SceneManager.LoadScene("DrinkMiniGameScene"); // "MiniGameScene"을 미니게임 씬의 이름으로 변경
-    }
-
-
 }

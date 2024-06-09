@@ -37,13 +37,13 @@ public class Timer
         return timeRemaining <= 0;
     }
 }
+
 public class AIController : MonoBehaviour
 {
     public float itemDelay = 0.1f;
     public float waitTime = 0.5f;
     public bool isFinishedCalcPrice = false;
     public int totalAmount = 0;
-
 
     public CustomerState currentState;
     private Timer timer;
@@ -74,7 +74,6 @@ public class AIController : MonoBehaviour
             nextPriority = (nextPriority + 1) % 100;
         }
     }
-
 
     void Start()
     {
@@ -144,7 +143,6 @@ public class AIController : MonoBehaviour
                 animator.CrossFade("Walk", 0);
                 animator.ResetTrigger("MotionTrigger");
             }
-            
         }
     }
 
@@ -163,7 +161,7 @@ public class AIController : MonoBehaviour
 
     void WalkingToShelf()
     {
-        if (timer.IsFinished() && isMoveDone )
+        if (timer.IsFinished() && isMoveDone)
         {
             ChangeState(CustomerState.PickingItem, waitTime);
             animator.SetTrigger("MotionTrigger");
@@ -213,37 +211,36 @@ public class AIController : MonoBehaviour
             }
         }
     }
-
-
     void WalkingToCounter()
     {
         if (timer.IsFinished() && isMoveDone)
         {
             ChangeState(CustomerState.PlacingItem, waitTime);
             animator.SetTrigger("MotionTrigger");
-            
         }
     }
 
     void PlacingItem()
     {
-        Vector3 offSet = new Vector3 (0f, 1f, 0f);
+        Vector3 offSet = new Vector3(0f, 1f, 0f);
 
         if (timer.IsFinished())
         {
             if (myItem != null && myItem.Count != 0)
             {
-                offSet += new Vector3 (1 * myItem.Count - 2.5f, 0f, 0f);
-                myItem[myItem.Count-1].transform.position = counter.transform.position + offSet;
-                myItem[myItem.Count - 1].transform.parent = null;              
-                myItem[myItem.Count - 1].transform.rotation = Quaternion.Euler(0f,0f,0f);
+                offSet += new Vector3(1 * myItem.Count - 2.5f, 0f, 0f);
+                myItem[myItem.Count - 1].transform.position = counter.transform.position + offSet;
+                myItem[myItem.Count - 1].transform.parent = null;
+                myItem[myItem.Count - 1].transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 myItem[myItem.Count - 1].AddComponent<Rigidbody>();
                 myItem.RemoveAt(myItem.Count - 1);
                 timer.Set(0.1f);
+
+                Debug.Log("결제가 완료되지 않았습니다.");
             }
             else
             {
-                cntPicked = 0;              
+                cntPicked = 0;
                 ChangeState(CustomerState.Idle, waitTime);
                 animator.SetTrigger("MotionTrigger");
             }
@@ -255,6 +252,7 @@ public class AIController : MonoBehaviour
         if (isFinishedCalcPrice)
         {
             ChangeState(CustomerState.GivingMoney, waitTime);
+            Debug.Log("결제를 기다리는 중");
         }
     }
 
@@ -270,7 +268,7 @@ public class AIController : MonoBehaviour
     {
         target = exitPoint;
         MoveToTarget();
-       
+
         if (timer.IsFinished() && isMoveDone)
         {
             Destroy(gameObject);
@@ -288,7 +286,7 @@ public class AIController : MonoBehaviour
     }
 
     public void GoToHand(Transform handPos, GameObject item)
-    {       
+    {
         Vector3 offSet = Vector3.zero;
 
         if (myItem.Count > 0)
@@ -299,12 +297,13 @@ public class AIController : MonoBehaviour
             }
         }
 
-        GameObject temp = (GameObject)Instantiate(item);
+        GameObject temp = Instantiate(item);
         temp.transform.position = handPos.transform.position + offSet;
         temp.transform.parent = handPos;
 
         myItem.Add(temp);
-       
     }
-
 }
+
+
+
