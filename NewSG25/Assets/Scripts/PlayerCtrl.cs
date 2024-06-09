@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    public CheckoutSystem checkoutSystem;
+    public CheckoutSystem checkoutSystem; // 결제 시스템
 
 
     [Header("Movement")]
@@ -57,11 +57,13 @@ public class PlayerCtrl : MonoBehaviour
     void Update()
     {
 
+        //선반 상점 패널 열기
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             shelfShopPanel.ShelfShopPanelOn();
         }
 
+        //마우스 우클릭 결제 시도-> 왜 안됨?;; 
         if (Input.GetMouseButtonDown(1))
         {
             AttemptPurchase();
@@ -89,6 +91,7 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
+    //결제 시도
     void AttemptPurchase()
     {
         // 선택된 아이템이 있는지 확인
