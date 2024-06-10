@@ -56,4 +56,16 @@ public class FirstPersonController : MonoBehaviour
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
         playerRigidbody.MovePosition(playerRigidbody.position + move * Time.fixedDeltaTime);
     }
+
+    public void PanelOn()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void PanelOff()
+    {
+        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.visible = false;
+    }
 }

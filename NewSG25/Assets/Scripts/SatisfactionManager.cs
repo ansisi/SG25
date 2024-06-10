@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SatisfactionManager : MonoBehaviour
@@ -38,6 +39,11 @@ public class SatisfactionManager : MonoBehaviour
         if (satisfactionText != null && satisfactionSlider != null)
         {
             satisfactionText.text = ((int)satisfactionSlider.value).ToString(); // 만족도 값을 텍스트로 변환하여 할당
+        }
+
+        if (satisfactionSlider.value <= 0)
+        {
+            SceneManager.LoadScene("BadEndingScene");
         }
     }
 

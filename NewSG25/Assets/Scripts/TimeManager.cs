@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -9,7 +10,6 @@ public class TimeManager : MonoBehaviour
     public GameObject resultUI;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI dateText;
-    public TextMeshProUGUI energyText;
 
     public float startHour = 9f;
     public int startDay = 1;
@@ -20,12 +20,12 @@ public class TimeManager : MonoBehaviour
     private int gameDay;
     public bool isTimeStopped = false;
 
-    public PlayerCtrl playerCtrl;
+    public FirstPersonController playerCtrl;
 
     void Start()
     {       
 
-        playerCtrl = FindFirstObjectByType<PlayerCtrl>();
+        playerCtrl = FindFirstObjectByType<FirstPersonController>();
 
         resultUI.SetActive(false);
 
@@ -44,7 +44,7 @@ public class TimeManager : MonoBehaviour
 
         gameHour += Time.deltaTime / gameTime;
 
-        if (gameHour >= endHour)
+        if (gameDay < 25 && gameHour >= endHour)
         {
             resultUI.SetActive(true);
             isTimeStopped = true;
@@ -53,14 +53,14 @@ public class TimeManager : MonoBehaviour
             {
                 gameDay += 1;
             }
-            else
-            {
-                gameDay = 1;
-            }
-
+            
             gameHour = 9f;
 
-            PlayerCtrl.instance.PanelOn();
+            playerCtrl.PanelOn();
+        }
+        else if (gameDay >= 25 && gameHour >= endHour)
+        {
+            SceneManager.LoadScene("HappyEndingScene");
         }
         else
         {
@@ -87,7 +87,7 @@ public class TimeManager : MonoBehaviour
 
             isTimeStopped = false;
 
-            PlayerCtrl.instance.PanelOff();
+            playerCtrl.PanelOff();
         }
     }
 
