@@ -176,7 +176,7 @@ public class AIController : MonoBehaviour
 
             if (shelf != null)
             {
-                GameObject itemPicked = shelf.RandomPickItem();
+                ItemDataStruct itemPicked = shelf.RandomPickItem();
 
                 if (itemPicked == null)
                 {
@@ -287,7 +287,7 @@ public class AIController : MonoBehaviour
         }
     }
 
-    public void GoToHand(Transform handPos, GameObject item)
+    public void GoToHand(Transform handPos, ItemDataStruct item)
     {
         Vector3 offSet = Vector3.zero;
 
@@ -299,7 +299,14 @@ public class AIController : MonoBehaviour
             }
         }
 
-        GameObject temp = Instantiate(item);
+        GameObject temp = Instantiate(item.gameObject);
+        ItemData tempItemData = temp.AddComponent<ItemData>();
+        tempItemData.itemIndex = item.ItemData.itemIndex;
+        tempItemData.ItemName = item.ItemData.ItemName;
+        tempItemData.cost = item.ItemData.cost;
+        tempItemData.IconImage = item.ItemData.IconImage;
+        tempItemData.ObjectModel = item.ItemData.ObjectModel;
+
         temp.transform.position = handPos.transform.position + offSet;
         temp.transform.parent = handPos;  
 

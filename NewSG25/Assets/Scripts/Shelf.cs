@@ -2,6 +2,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+public class ItemDataStruct
+{
+    public ItemData ItemData;
+    public GameObject gameObject;
+}
+
 #if UNITY_EDITOR
 [CustomEditor(typeof(Shelf))]
 public class ShelfEditor : Editor
@@ -80,14 +86,24 @@ public class Shelf : MonoBehaviour
         return itemModels[randomNum].ObjectModel;
     }
 
-    public GameObject RandomPickItem()
+    public ItemDataStruct RandomPickItem()
     {
+        ItemDataStruct temp = new ItemDataStruct();
+
         int randomNum = Random.Range(0, itemModels.Length);
 
         if (itemModels[randomNum] != null)
         {
-            GameObject temp = itemModels[randomNum].ObjectModel;
+            temp.gameObject = itemModels[randomNum].ObjectModel;
+            ItemData itemData = new ItemData();
+            itemData.itemIndex = itemModels[randomNum].itemIndex;
+            itemData.ItemName = itemModels[randomNum].ItemName;
+            itemData.cost = itemModels[randomNum].cost;
+            if (itemModels[randomNum].IconImage != null)
+                itemData.IconImage = itemModels[randomNum].IconImage;
+            itemData.ObjectModel = itemModels[randomNum].ObjectModel;
 
+            temp.ItemData = itemData;
             Destroy(itemList[randomNum]);
             itemModels[randomNum] = null;
 
@@ -112,6 +128,7 @@ public class Shelf : MonoBehaviour
                 itemData.itemIndex = item.itemIndex;
                 itemData.ItemName = item.ItemName;
                 itemData.cost = item.cost;
+                if(item.IconImage != null)
                 itemData.IconImage = item.IconImage;
                 itemData.ObjectModel = item.ObjectModel;
                 itemList[i] = temp;
