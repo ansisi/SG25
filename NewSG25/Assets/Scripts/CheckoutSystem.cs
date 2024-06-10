@@ -6,7 +6,7 @@ using TMPro;
 public class CheckoutSystem : MonoBehaviour
 {
     // 선택된 아이템 목록
-    public List<itemModel> selectedItems = new List<itemModel>();
+    public List<ItemData> selectedItems = new List<ItemData>();
     // 플레이어의 돈
     //public int playerMoney = 0;
 
@@ -24,8 +24,9 @@ public class CheckoutSystem : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Item"))
                 {
-                    //selectedItems.Add(gameObject.GetComponent<itemModel>());
+                    selectedItems.Add(hit.collider.gameObject.GetComponent<ItemData>());                   
                     ProcessPayment();
+                    Destroy(hit.collider.gameObject);
                 }
             }
         }
@@ -34,9 +35,10 @@ public class CheckoutSystem : MonoBehaviour
         // 결제를 처리하는 메서드
         public void ProcessPayment()
         {
-            Debug.Log("하품하지마세요");
+            Debug.Log("ProcessPayment");
+
             // 선택된 모든 아이템의 가격을 합산
-            foreach (itemModel item in selectedItems)
+            foreach (ItemData item in selectedItems)
             {
                 totalCost += item.cost;
             }
@@ -47,7 +49,11 @@ public class CheckoutSystem : MonoBehaviour
                 // 결제 진행
                 GameManager.Instance.currentMoney -= totalCost;
                 //int change = GameManager.Instance.currentMoney;
-                totalCostText.text = totalCost.ToString("N0") + "원";
+                if(totalCostText != null)
+                {
+                    totalCostText.text = totalCost.ToString("N0") + "원";
+                }
+
 
                 // 결제 완료 후 선택된 아이템 목록 초기화
                 selectedItems.Clear();

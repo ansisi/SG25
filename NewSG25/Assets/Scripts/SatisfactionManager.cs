@@ -84,7 +84,7 @@ public class SatisfactionManager : MonoBehaviour
 
     public void DecreaseSatisfaction()
     {
-        satisfactionSlider.value -= 1; // 만족도 감소
+        satisfactionSlider.value -= 10; // 만족도 감소
         Debug.Log("만족도 감소: " + satisfactionSlider.value);
 
         // 최소값 제한

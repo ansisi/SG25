@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TrashDespawnTimer : MonoBehaviour
 {
-    public float despawnTime = 5f; // 쓰레기 삭제 시간 (초)
+    public float despawnTime = 30; // 쓰레기 삭제 시간 (초)
 
     public static event Action<GameObject> OnTrashDespawned; // 쓰레기가 삭제될 때 발생하는 이벤트
 

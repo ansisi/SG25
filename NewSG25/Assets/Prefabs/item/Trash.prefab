@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9049744408800422856}
   - component: {fileID: 3297741488869900785}
+  - component: {fileID: 7859566085746872086}
   m_Layer: 0
   m_Name: Trash
   m_TagString: Trash
@@ -45,7 +46,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67420188c4e8404f98a8f1a36a086d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 95.11
+  lifeTime: 30
+--- !u!65 &7859566085746872086
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947291880788911699}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3749177, y: 0.41364443, z: 0.45967457}
+  m_Center: {x: 0.033549607, y: 0.29317778, z: 0.015891984}
 --- !u!1001 &867965657870230288
 PrefabInstance:
   m_ObjectHideFlags: 0
