@@ -8,7 +8,6 @@ public class FirstPersonController : MonoBehaviour
     public float moveSpeed = 5.0f;
     public Transform cameraTransform;
     public Rigidbody playerRigidbody;
-
     public float xRotation = 0.0f;
 
     void Start()
@@ -30,6 +29,22 @@ public class FirstPersonController : MonoBehaviour
 
         // 플레이어 바디의 좌우 회전 처리
         transform.Rotate(Vector3.up * mouseX);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            // 마우스 왼쪽 버튼이 클릭되었을 때
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Raycast로 쓰레기 오브젝트를 검출하고 Trash 태그를 가지고 있다면 삭제
+                if (hit.collider.CompareTag("Trash"))
+                {
+                    Destroy(hit.collider.gameObject);
+                }
+            }
+        }
     }
 
     void FixedUpdate()

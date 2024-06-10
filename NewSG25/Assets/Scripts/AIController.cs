@@ -241,7 +241,7 @@ public class AIController : MonoBehaviour
             else
             {
                 cntPicked = 0;
-                ChangeState(CustomerState.Idle, waitTime);
+                ChangeState(CustomerState.WaitingCalcPrice, waitTime);
                 animator.SetTrigger("MotionTrigger");
             }
         }
@@ -252,6 +252,8 @@ public class AIController : MonoBehaviour
         if (isFinishedCalcPrice)
         {
             ChangeState(CustomerState.GivingMoney, waitTime);
+            
+
             Debug.Log("결제를 기다리는 중");
         }
     }
@@ -299,7 +301,7 @@ public class AIController : MonoBehaviour
 
         GameObject temp = Instantiate(item);
         temp.transform.position = handPos.transform.position + offSet;
-        temp.transform.parent = handPos;
+        temp.transform.parent = handPos;  
 
         myItem.Add(temp);
     }

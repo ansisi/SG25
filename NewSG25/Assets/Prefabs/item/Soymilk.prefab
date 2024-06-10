@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -6789499095709637963}
   m_Layer: 0
   m_Name: Soymilk
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

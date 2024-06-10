@@ -36,7 +36,7 @@ public class PlayerCtrl : MonoBehaviour
     private ShelfShopPanel shelfShopPanel;
 
     public bool isPanelOn = false;
-    public Item selectedItem; // itemModel -> Item으로 수정
+    public itemModel selectedItem; // itemModel -> Item으로 수정
 
     private void Awake()
     {
@@ -63,55 +63,13 @@ public class PlayerCtrl : MonoBehaviour
             shelfShopPanel.ShelfShopPanelOn();
         }
 
-        //마우스 우클릭 결제 시도-> 왜 안됨?;; 
-        if (Input.GetMouseButtonDown(1))
-        {
-            AttemptPurchase();
-        }
+        
 
 
         if (!isPanelOn)
         {
             CameraLook();
-            if (Input.GetMouseButtonDown(0))
-            {
-                // 마우스 왼쪽 버튼이 클릭되었을 때
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
-                {
-                    // Raycast로 쓰레기 오브젝트를 검출하고 Trash 태그를 가지고 있다면 삭제
-                    if (hit.collider.CompareTag("Trash"))
-                    {
-                        Destroy(hit.collider.gameObject);
-                    }
-                }
-            }
-        }
-    }
-
-    //결제 시도
-    void AttemptPurchase()
-    {
-        // 선택된 아이템이 있는지 확인
-        if (selectedItem != null)
-        {
-            // 결제 시스템이 있는지 확인
-            if (checkoutSystem != null)
-            {
-                // 결제 시도
-                checkoutSystem.selectedItems = new List<Item> { selectedItem };
-                checkoutSystem.ProcessPayment();
-            }
-            else
-            {
-                Debug.LogWarning("Checkout system not found!");
-            }
-        }
-        else
-        {
-            Debug.LogWarning("No item selected for purchase!");
+            
         }
     }
 

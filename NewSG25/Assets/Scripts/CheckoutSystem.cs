@@ -1,41 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CheckoutSystem : MonoBehaviour
 {
     // 선택된 아이템 목록
-    public List<Item> selectedItems = new List<Item>();
+    public List<itemModel> selectedItems = new List<itemModel>();
     // 플레이어의 돈
-    public int playerMoney = 0;
+    //public int playerMoney = 0;
+
+    public int totalCost;
     // 잔액을 표시할 텍스트
-    public TextMesh changeText;
+    public TextMeshProUGUI totalCostText;
 
-    // 결제를 처리하는 메서드
-    public void ProcessPayment()
+    private void Update()
     {
-        int totalPrice = 0;
-
-        // 선택된 모든 아이템의 가격을 합산
-        foreach (Item item in selectedItems)
+        if (Input.GetMouseButtonDown(0))
         {
-            totalPrice += item.price;
-        }
-
-        // 플레이어의 돈이 결제할 총액 이상인지 확인
-        if (playerMoney >= totalPrice)
-        {
-            // 결제 진행
-            playerMoney -= totalPrice;
-            int change = playerMoney;
-            changeText.text = "Change: " + change.ToString() + "원";
-
-            // 결제 완료 후 선택된 아이템 목록 초기화
-            selectedItems.Clear();
-        }
-        else
-        {
-            Debug.Log("Not enough money");
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Item"))
+                {
+                    //selectedItems.Add(gameObject.GetComponent<itemModel>());
+                    ProcessPayment();
+                }
+            }
         }
     }
-}
+
+        // 결제를 처리하는 메서드
+        public void ProcessPayment()
+        {
+            Debug.Log("하품하지마세요");
+            // 선택된 모든 아이템의 가격을 합산
+            foreach (itemModel item in selectedItems)
+            {
+                totalCost += item.cost;
+            }
+
+            // 플레이어의 돈이 결제할 총액 이상인지 확인
+            if (GameManager.Instance.currentMoney >= totalCost)
+            {
+                // 결제 진행
+                GameManager.Instance.currentMoney -= totalCost;
+                //int change = GameManager.Instance.currentMoney;
+                totalCostText.text = totalCost.ToString("N0") + "원";
+
+                // 결제 완료 후 선택된 아이템 목록 초기화
+                selectedItems.Clear();
+            }
+            else
+            {
+                Debug.Log("Not enough money");
+            }
+        }
+    }

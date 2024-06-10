@@ -64,6 +64,12 @@ public class Shelf : MonoBehaviour
             temp.transform.parent = itemPosList[i].transform;
             temp.transform.localPosition = Vector3.zero;
             temp.transform.localRotation = Quaternion.identity;
+            ItemData itemDataComponent = temp.AddComponent<ItemData>();
+            itemDataComponent.itemIndex = itemModels[i].itemIndex;
+            itemDataComponent.ItemName = itemModels[i].ItemName;
+            itemDataComponent.cost = itemModels[i].cost;
+            itemDataComponent.IconImage = itemModels[i].IconImage;
+            itemDataComponent.ObjectModel = itemModels[i].ObjectModel;
             itemList[i] = temp;
         }
     }
@@ -102,6 +108,12 @@ public class Shelf : MonoBehaviour
             {
                 itemModels[i] = item;
                 GameObject temp = Instantiate(item.ObjectModel, itemPosList[i].position, itemPosList[i].rotation, itemPosList[i]);
+                ItemData itemData = temp.AddComponent<ItemData>();
+                itemData.itemIndex = item.itemIndex;
+                itemData.ItemName = item.ItemName;
+                itemData.cost = item.cost;
+                itemData.IconImage = item.IconImage;
+                itemData.ObjectModel = item.ObjectModel;
                 itemList[i] = temp;
                 addedCount++;
             }
