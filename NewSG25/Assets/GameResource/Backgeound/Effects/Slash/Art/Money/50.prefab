@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1755394273295583549}
   m_Layer: 0
   m_Name: 50
-  m_TagString: Untagged
+  m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af51236ec9645ac43a52eb66fee34d23, type: 2}
+  - {fileID: 2100000, guid: 063a58c7828be594c9a45987dba2c447, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,10 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 851786834535698791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c04c3533a49f54a8f27daac2c55551, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d6070bc2c07e8e4ea5e79e39d5888af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: {fileID: 11400000, guid: 13fe1493be697f146939f7a0b4d51453, type: 2}
+  money: {fileID: 11400000, guid: 62c830d1b59cdc343a56c6ebd7fdc4cb, type: 2}
 --- !u!65 &-1755394273295583549
 BoxCollider:
   m_ObjectHideFlags: 0

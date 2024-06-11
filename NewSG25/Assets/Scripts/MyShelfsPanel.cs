@@ -8,6 +8,8 @@ using Unity.VisualScripting;
 
 public class MyShelfsPanel : MonoBehaviour
 {
+    FirstPersonController firstPersonController;
+
     [SerializeField]
     public itemModel[] itemModels;
     public GameObject itemImagePrefab;

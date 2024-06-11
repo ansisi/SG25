@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -49,6 +49,7 @@ public class AIController : MonoBehaviour
     private Timer timer;
     public NavMeshAgent agent;
     public bool isMoveDone = false;
+    public Money[] moneyPrefabs;
 
     public Transform target;
     public Transform counter;
@@ -57,6 +58,8 @@ public class AIController : MonoBehaviour
 
     public List<GameObject> targetPos = new List<GameObject>();
     public List<GameObject> myItem = new List<GameObject>();
+    public List<GameObject> counterItem = new List<GameObject>();
+    public List<GameObject> moneyToGive = new List<GameObject>();
 
     public int cntToPick = 2;
     private int cntPicked = 0;
@@ -137,7 +140,7 @@ public class AIController : MonoBehaviour
             List<GameObject> activeShelves = GetActiveShelves();
             if (activeShelves.Count > 0)
             {
-                target = targetPos[Random.Range(0, activeShelves.Count)].transform;
+                target = targetPos[UnityEngine.Random.Range(0, activeShelves.Count)].transform;
                 MoveToTarget();
                 ChangeState(CustomerState.WalkingToShelf, waitTime);
                 animator.CrossFade("Walk", 0);
@@ -229,11 +232,19 @@ public class AIController : MonoBehaviour
             if (myItem != null && myItem.Count != 0)
             {
                 offSet += new Vector3(1 * myItem.Count - 2.5f, 0f, 0f);
-                myItem[myItem.Count - 1].transform.position = counter.transform.position + offSet;
-                myItem[myItem.Count - 1].transform.parent = null;
-                myItem[myItem.Count - 1].transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                myItem[myItem.Count - 1].AddComponent<Rigidbody>();
+
+                GameObject itemToPlace = myItem[myItem.Count - 1];
+
+                itemToPlace.transform.position = counter.transform.position + offSet;
+                itemToPlace.transform.parent = null;
+                itemToPlace.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+                itemToPlace.AddComponent<Rigidbody>();
+
+                counterItem.Add(itemToPlace);
+
                 myItem.RemoveAt(myItem.Count - 1);
+
                 timer.Set(0.1f);
 
                 Debug.Log("결제가 완료되지 않았습니다.");
@@ -249,25 +260,41 @@ public class AIController : MonoBehaviour
 
     void WaitingCalcPrice()
     {
-        if (isFinishedCalcPrice)
+        if (counterItem.Count <= 0)
         {
-            ChangeState(CustomerState.GivingMoney, waitTime);
-            
+            isFinishedCalcPrice = true;
 
-            Debug.Log("결제를 기다리는 중");
+            ChangeState(CustomerState.GivingMoney, waitTime);
         }
+
+        //if (isFinishedCalcPrice)
+        //{
+        //    ChangeState(CustomerState.GivingMoney, waitTime);
+
+
+        //    Debug.Log("결제를 기다리는 중");
+        //}
     }
 
     void GivingMoney()
     {
-        //if (애니메이션 종료시 확인 Bool)
+        if (isFinishedCalcPrice)
         {
-            ChangeState(CustomerState.GivingMoney, waitTime);
-        }
+            
+            if (moneyToGive.Count <= 0)
+            {
+                GiveMoney(totalAmount);
+                totalAmount = 0;
+                ChangeState(CustomerState.LeavingStore, waitTime);
+                
+            }
+        }   
     }
 
     void LeavingStore()
     {
+        
+        
         target = exitPoint;
         MoveToTarget();
 
@@ -300,6 +327,7 @@ public class AIController : MonoBehaviour
         }
 
         GameObject temp = Instantiate(item.gameObject);
+
         ItemData tempItemData = temp.AddComponent<ItemData>();
         tempItemData.itemIndex = item.ItemData.itemIndex;
         tempItemData.ItemName = item.ItemData.ItemName;
@@ -308,9 +336,30 @@ public class AIController : MonoBehaviour
         tempItemData.ObjectModel = item.ItemData.ObjectModel;
 
         temp.transform.position = handPos.transform.position + offSet;
-        temp.transform.parent = handPos;  
+        temp.transform.parent = handPos;
 
         myItem.Add(temp);
+    }
+
+    void GiveMoney(int amount)
+    {
+        Array.Sort(moneyPrefabs, (a, b) => b.money.value.CompareTo(a.money.value));
+
+        Vector3 spawnPosition = new Vector3(counter.position.x,counter.position.y + 0.55f,counter.position.z );
+
+        foreach (var moneyPrefab in moneyPrefabs)
+        {
+            if (amount >= moneyPrefab.money.value)
+            {
+                int count = amount / moneyPrefab.money.value;
+                amount -= count * moneyPrefab.money.value;
+                for (int i = 0; i < count; i++)
+                {
+                    GameObject moneyInstance = Instantiate(moneyPrefab.money.moneyPrefab, spawnPosition, Quaternion.identity);
+                    moneyToGive.Add(moneyInstance);
+                }
+            }
+        }
     }
 }
 
