@@ -30,9 +30,9 @@ public class ShelfEditor : Editor
 public class Shelf : MonoBehaviour
 {
     [SerializeField]
-    public itemModel[] itemModels = new itemModel[4];
+    public itemModel[] itemModels = new itemModel[12];
     [SerializeField]
-    public GameObject[] itemList = new GameObject[4];
+    public GameObject[] itemList = new GameObject[12];
     [SerializeField]
     public List<Transform> itemPosList = new List<Transform>();
 

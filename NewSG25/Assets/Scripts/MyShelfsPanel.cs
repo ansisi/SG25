@@ -39,12 +39,20 @@ public class MyShelfsPanel : MonoBehaviour
 
     public List<Shelf> shelves;
 
+    private FirstPersonController playerCtrl;
+
     void Start()
     {
+        playerCtrl = FindObjectOfType<FirstPersonController>();
         itemModels = Resources.LoadAll<itemModel>("");
         CreateItemList();
         CreateShelfList();
         InitializeButtons();
+    }
+
+    private void Update()
+    {
+        playerCtrl.PanelOn();
     }
 
     public void CreateItemList()
@@ -96,6 +104,18 @@ public class MyShelfsPanel : MonoBehaviour
                 shelfButton.onClick.AddListener(() => OnShelfButtonClick(currentShelf));
             }
         }
+    }
+
+    public void GoMyshelfsPanel()
+    {
+        itemShopPanel.SetActive(false);
+    }
+
+    public void PanelCancel()
+    {
+        playerCtrl.PanelOff();
+        itemShopPanel.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     void InitializeButtons()

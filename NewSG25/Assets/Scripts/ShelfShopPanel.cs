@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class ShelfShopPanel : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class ShelfShopPanel : MonoBehaviour
     public TextMeshProUGUI playerMoneyText;
     private int playerMoney;
     private int baseUnlockCost = 5000;
-
+    private FirstPersonController playerCtrl;
     public GameObject[] shelfShopPanels;
 
     void Start()
@@ -21,6 +20,13 @@ public class ShelfShopPanel : MonoBehaviour
         InitializeShelves();
         InitializeShelfButtons();
         gameObject.SetActive(false);
+        playerCtrl = FindObjectOfType<FirstPersonController>();
+
+    }
+
+    private void Update()
+    {
+        playerCtrl.PanelOn();
     }
 
     void InitializeShelves()
@@ -94,10 +100,9 @@ public class ShelfShopPanel : MonoBehaviour
 
     public void ClosePanel()
     {
-        foreach (var panel in shelfShopPanels)
-        {
-            panel.SetActive(false);
-        }
+        playerCtrl.PanelOff();
+        gameObject.SetActive(false);
+
     }
 
     void UpdatePlayerMoneyText()

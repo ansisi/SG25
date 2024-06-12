@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class FirstPersonController : MonoBehaviour
 {
-    public float mouseSensitivity = 100.0f;
+    public float mouseSensitivity = 300.0f;
     public float moveSpeed = 5.0f;
     public Transform cameraTransform;
     public Rigidbody playerRigidbody;
     public float xRotation = 0.0f;
+
+    public GameObject shelfShopPanel;
+    public GameObject myShelfsPanel;
 
     void Start()
     {
@@ -45,6 +48,15 @@ public class FirstPersonController : MonoBehaviour
                 }
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            shelfShopPanel.SetActive(true);
+        }
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            myShelfsPanel.SetActive(true);
+        }
     }
 
     void FixedUpdate()
@@ -61,11 +73,13 @@ public class FirstPersonController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        mouseSensitivity = 0f;
     }
 
     public void PanelOff()
     {
         Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false;
+        mouseSensitivity = 300f;
     }
 }
