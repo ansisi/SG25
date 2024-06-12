@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Olympic con
   m_EditorClassIdentifier: 
   itemIndex: 16
-  ItemName: Olympic con
-  cost: 2000
+  ItemName: "\uC62C\uB9BC\uD53D\uCF58"
+  sellCost: 2100
+  buyCost: 1470
   IconImage: {fileID: 2800000, guid: 48242fbd42c73884cbd527b70d87915f, type: 3}
   ObjectModel: {fileID: 3830929257816464514, guid: 2c31203a28648044b93366ac4458cada, type: 3}

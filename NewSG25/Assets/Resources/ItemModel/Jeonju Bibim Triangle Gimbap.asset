@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Jeonju Bibim Triangle Gimbap
   m_EditorClassIdentifier: 
   itemIndex: 13
-  ItemName: Jeonju Bibim Triangle Gimbap
-  cost: 1200
+  ItemName: "\uC804\uC8FC\uBE44\uBE54 \uC0BC\uAC01\uAE40\uBC25"
+  sellCost: 1300
+  buyCost: 910
   IconImage: {fileID: 2800000, guid: 466c4ab1cc2e9ae4db102494ee91c506, type: 3}
   ObjectModel: {fileID: 1911599904241495993, guid: 1a0714c87ef49a24396504f40b6bfd57, type: 3}

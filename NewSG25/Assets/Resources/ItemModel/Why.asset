@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Why
   m_EditorClassIdentifier: 
   itemIndex: 26
-  ItemName: Why
-  cost: 2000
+  ItemName: "\uC65C?"
+  sellCost: 2500
+  buyCost: 1750
   IconImage: {fileID: 2800000, guid: 8864ede4d206b33448537dec49e65cf7, type: 3}
   ObjectModel: {fileID: 8671630174328383766, guid: a0a0f33f6efb46b45be1fcf240fd91de, type: 3}

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Sweet red bean bread
   m_EditorClassIdentifier: 
   itemIndex: 23
-  ItemName: Sweet red bean bread
-  cost: 2500
+  ItemName: "SG\uB2E8\uD325\uBEE5"
+  sellCost: 2300
+  buyCost: 1610
   IconImage: {fileID: 2800000, guid: 2fdff087e9eb032449a3092fc5494ff0, type: 3}
   ObjectModel: {fileID: 1116605543335346117, guid: c1a19d49d558f4f4e94d6216e83025c7, type: 3}

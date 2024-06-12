@@ -16,7 +16,8 @@ public class itemModel : ScriptableObject
 
     public int itemIndex;
     public string ItemName;
-    public int cost;
+    public int sellCost;
+    public int buyCost;
     public Texture2D IconImage;
     public GameObject ObjectModel;
 

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Soymilk
   m_EditorClassIdentifier: 
   itemIndex: 21
-  ItemName: Soymilk
-  cost: 1500
+  ItemName: "SG\uB450\uC720"
+  sellCost: 1700
+  buyCost: 1190
   IconImage: {fileID: 2800000, guid: 9d0d776bde4858f44b38c7f34ce0b201, type: 3}
   ObjectModel: {fileID: 3941122230571892209, guid: 5bf774d97cd341145bef1292dc3fd8c7, type: 3}

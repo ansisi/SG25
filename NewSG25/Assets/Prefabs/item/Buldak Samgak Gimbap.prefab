@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5560201039645861271}
   m_Layer: 0
   m_Name: Buldak Samgak Gimbap
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

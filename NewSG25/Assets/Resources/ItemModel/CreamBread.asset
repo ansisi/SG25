@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CreamBread
   m_EditorClassIdentifier: 
   itemIndex: 11
-  ItemName: CreamBread
-  cost: 2000
+  ItemName: "\uD06C\uB9BC\uBE75"
+  sellCost: 2300
+  buyCost: 1610
   IconImage: {fileID: 2800000, guid: f3bd4be8cd7a9a04f841a9ab747222fc, type: 3}
   ObjectModel: {fileID: 3665226333963053927, guid: a24681012f9ade74e90bd1587c7ca234, type: 3}

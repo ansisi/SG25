@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Panda
   m_EditorClassIdentifier: 
   itemIndex: 17
-  ItemName: Panda
-  cost: 1500
+  ItemName: "\uD310\uB2E4"
+  sellCost: 2200
+  buyCost: 1540
   IconImage: {fileID: 2800000, guid: 54d3236d91a653544828af51129ce198, type: 3}
   ObjectModel: {fileID: 6252016478323415020, guid: 12575f94fbb61de4983f142889779dff, type: 3}

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Tuna Mayo Triangle Gimbap
   m_EditorClassIdentifier: 
   itemIndex: 24
-  ItemName: Tuna Mayo Triangle Gimbap
-  cost: 1200
+  ItemName: "\uCC38\uCE58\uB9C8\uC694 \uC0BC\uAC01\uAE40\uBC25"
+  sellCost: 1300
+  buyCost: 910
   IconImage: {fileID: 2800000, guid: 6c40bd27514221f4dbc81595f30f89d1, type: 3}
   ObjectModel: {fileID: 5936300806578762059, guid: 4eedf221622ebd0449f9df7f3768f7c3, type: 3}

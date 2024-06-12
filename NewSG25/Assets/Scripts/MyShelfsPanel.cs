@@ -72,7 +72,7 @@ public class MyShelfsPanel : MonoBehaviour
                 TextMeshProUGUI itemText = itemImage.GetComponentInChildren<TextMeshProUGUI>();
                 if (itemText != null)
                 {
-                    itemText.text = itemModels[i].cost.ToString("N0");
+                    itemText.text = itemModels[i].buyCost.ToString("N0");
                 }
                 itemModel currentItem = itemModels[i];
                 Button itemButton = itemImage.GetComponentInChildren<Button>();
@@ -138,7 +138,7 @@ public class MyShelfsPanel : MonoBehaviour
         itemPanel.SetActive(true);
 
         selectedItem = item;
-        itemName.text = item.name;
+        itemName.text = item.ItemName;
         Sprite iconSprite = Sprite.Create(item.IconImage,
                                           new Rect(0.0f, 0.0f, item.IconImage.width, item.IconImage.height),
                                           new Vector2(0.5f, 0.5f));
@@ -177,7 +177,7 @@ public class MyShelfsPanel : MonoBehaviour
             int addedCount = selectedShelf.AddItemToShelf(selectedItem, currentCount);
             if (addedCount > 0)
             {
-                int actualCost = selectedItem.cost * addedCount;
+                int actualCost = selectedItem.buyCost * addedCount;
                 GameManager.Instance.MoneyDecrease(actualCost);
                 itemPanel.SetActive(false);
 
@@ -210,7 +210,7 @@ public class MyShelfsPanel : MonoBehaviour
 
     void UpdateTotalCost()
     {
-        totalCost = selectedItem.cost * currentCount;
+        totalCost = selectedItem.buyCost * currentCount;
         itemTotalCost.text = totalCost.ToString("N0");
     }
 

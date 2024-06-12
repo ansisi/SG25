@@ -8,11 +8,6 @@ public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI currentMoneyText;
 
-    private void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

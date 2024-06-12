@@ -16,7 +16,7 @@ public class ShelfShopPanel : MonoBehaviour
     void Start()
     {
         playerMoney = GameManager.Instance.currentMoney;
-        UpdatePlayerMoneyText();
+        
         InitializeShelves();
         InitializeShelfButtons();
         gameObject.SetActive(false);
@@ -26,6 +26,7 @@ public class ShelfShopPanel : MonoBehaviour
 
     private void Update()
     {
+        UpdatePlayerMoneyText();
         playerCtrl.PanelOn();
     }
 
@@ -58,6 +59,7 @@ public class ShelfShopPanel : MonoBehaviour
         if (playerMoney >= unlockCost)
         {
             playerMoney -= unlockCost;
+            GameManager.Instance.MoneyDecrease(unlockCost);
             UpdatePlayerMoneyText();
             shelves[index].gameObject.SetActive(true);
             buttonText.text = "SOLD OUT";

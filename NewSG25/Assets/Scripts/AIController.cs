@@ -8,6 +8,7 @@ public enum CustomerState
     Idle,
     WalkingToShelf,
     PickingItem,
+    WaitCounter,
     WalkingToCounter,
     PlacingItem,
     WaitingCalcPrice,
@@ -62,6 +63,7 @@ public class AIController : MonoBehaviour
     public List<GameObject> myItem = new List<GameObject>();
     public List<GameObject> counterItem = new List<GameObject>();
     public List<GameObject> moneyToGive = new List<GameObject>();
+    public List<Transform> counterLine = new List<Transform>();
 
     public int cntToPick = 2;
     private int cntPicked = 0;
@@ -86,7 +88,10 @@ public class AIController : MonoBehaviour
         playerCtrl = FindObjectOfType<PlayerCtrl>();
         timer = new Timer();
         agent = GetComponent<NavMeshAgent>();
+        SearchShelfs();
         AssignPriority();
+        counter = GameObject.Find("Counter").transform;
+        exitPoint = GameObject.Find("Exit").transform;
         currentState = CustomerState.Idle;
     }
 
@@ -113,6 +118,9 @@ public class AIController : MonoBehaviour
             case CustomerState.PickingItem:
                 PickingItem();
                 break;
+            case CustomerState.WaitCounter:
+                WaitCounter();
+                break;
             case CustomerState.WalkingToCounter:
                 WalkingToCounter();
                 break;
@@ -129,24 +137,21 @@ public class AIController : MonoBehaviour
                 LeavingStore();
                 break;
         }
+    }
 
-        if (Input.GetMouseButtonDown(0))
+    void SearchShelfs()
+    {
+        for (int i = 1; i <= 12; i++)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            GameObject shelf = GameObject.Find("Shelf" + i);
+            if (shelf != null)
             {
-                if (hit.collider.CompareTag("Money"))
-                {
-                    Money money = hit.collider.gameObject.GetComponent<Money>();
-                    playerCtrl.ReceiveMoneyFromAIExplicitly(money.money.value);
-                    Destroy(hit.collider.gameObject);
-                }
+                targetPos.Add(shelf);
             }
         }
     }
 
-      void ChangeState(CustomerState nextState, float waitTime = 0.0f)
+    void ChangeState(CustomerState nextState, float waitTime = 0.0f)
     {
         currentState = nextState;
         timer.Set(waitTime);
@@ -221,11 +226,42 @@ public class AIController : MonoBehaviour
                     {
                         target = counter;
                         MoveToTarget();
-                        ChangeState(CustomerState.WalkingToCounter, waitTime);
+                        ChangeState(CustomerState.WaitCounter, waitTime);
                         animator.CrossFade("Walk", 0);
                         animator.ResetTrigger("MotionTrigger");
                     }
                 }
+            }
+        }
+    }
+
+    void WaitCounter()
+    {
+        AIController[] allAIs = FindObjectsOfType<AIController>();
+
+        bool isCounterOccupied = false;
+        foreach (var ai in allAIs)
+        {
+            if (ai != this && ai.currentState == CustomerState.LeavingStore || ai.currentState == CustomerState.WaitingCalcPrice || ai.currentState == CustomerState.GivingMoney)
+            {
+                isCounterOccupied = true;
+                break;
+            }
+        }
+
+        if (!isCounterOccupied)
+        {
+            ChangeState(CustomerState.WalkingToCounter, waitTime);
+            animator.CrossFade("Walk", 0);
+            animator.ResetTrigger("MotionTrigger");
+        }
+        else
+        {
+            Transform availablePosition = GetAvailableCounterLinePosition();
+            if (availablePosition != null)
+            {
+                target = availablePosition;
+                MoveToTarget();
             }
         }
     }
@@ -243,7 +279,7 @@ public class AIController : MonoBehaviour
     {
         Vector3 offSet = new Vector3(0f, 1f, 0f);
 
-        if (timer.IsFinished())
+        if (timer.IsFinished() && isMoveDone)
         {
             if (myItem != null && myItem.Count != 0)
             {
@@ -257,7 +293,15 @@ public class AIController : MonoBehaviour
 
                 itemToPlace.AddComponent<Rigidbody>();
 
+                ItemData itemData = itemToPlace.GetComponent<ItemData>();
+                if (itemData != null)
+                {
+                    totalAmount += itemData.sellCost;
+                }
+
                 counterItem.Add(itemToPlace);
+
+                itemToPlace.tag = "Item";
 
                 myItem.RemoveAt(myItem.Count - 1);
 
@@ -267,8 +311,9 @@ public class AIController : MonoBehaviour
             }
             else
             {
-                cntPicked = 0;
+                cntPicked = 0;    
                 ChangeState(CustomerState.WaitingCalcPrice, waitTime);
+                
                 animator.SetTrigger("MotionTrigger");
             }
         }
@@ -276,11 +321,27 @@ public class AIController : MonoBehaviour
 
     void WaitingCalcPrice()
     {
-        if (counterItem.Count <= 0)
+        bool allItemsDisabled = true;
+
+        foreach (var item in counterItem)
         {
+            if (item.activeSelf)
+            {
+                allItemsDisabled = false;
+                break;
+            }
+        }
+
+        if (allItemsDisabled)
+        {
+            for (int i = 0; i < counterItem.Count; i++)
+            {
+                Destroy(counterItem[i]);
+                counterItem.Clear();
+            }   
             isFinishedCalcPrice = true;
             ChangeState(CustomerState.GivingMoney, waitTime);
-            Debug.Log("결제를 기다리는 중");
+            Debug.Log("모든 아이템이 비활성화되어 결제를 기다립니다.");
         }
     }
 
@@ -292,8 +353,9 @@ public class AIController : MonoBehaviour
             {
                 GiveMoney(totalAmount);
                 totalAmount = 0;
-                ChangeState(CustomerState.LeavingStore, waitTime);
+                Debug.Log("도둑");
             }
+            ChangeState(CustomerState.LeavingStore, waitTime);
         }
     }
 
@@ -333,7 +395,7 @@ public class AIController : MonoBehaviour
         ItemData tempItemData = temp.AddComponent<ItemData>();
         tempItemData.itemIndex = item.ItemData.itemIndex;
         tempItemData.ItemName = item.ItemData.ItemName;
-        tempItemData.cost = item.ItemData.cost;
+        tempItemData.sellCost = item.ItemData.sellCost;
         tempItemData.IconImage = item.ItemData.IconImage;
         tempItemData.ObjectModel = item.ItemData.ObjectModel;
 
@@ -364,5 +426,26 @@ public class AIController : MonoBehaviour
         }
     }
 
-   
+    Transform GetAvailableCounterLinePosition()
+    {
+        foreach (Transform position in counterLine)
+        {
+            bool positionOccupied = false;
+            AIController[] allAIs = FindObjectsOfType<AIController>();
+            foreach (var ai in allAIs)
+            {
+                if (ai != this && ai.target == position)
+                {
+                    positionOccupied = true;
+                    break;
+                }
+            }
+
+            if (!positionOccupied)
+            {
+                return position;
+            }
+        }
+        return null;
+    }
 }

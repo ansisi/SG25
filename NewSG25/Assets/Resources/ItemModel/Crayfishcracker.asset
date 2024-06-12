@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Crayfishcracker
   m_EditorClassIdentifier: 
   itemIndex: 10
-  ItemName: Crayfishcracker
-  cost: 1500
+  ItemName: "\uAC00\uC7AC\uAE61"
+  sellCost: 1500
+  buyCost: 1050
   IconImage: {fileID: 2800000, guid: 1486ba295b86886428ab4b10cae74999, type: 3}
   ObjectModel: {fileID: 122198152988999447, guid: 70c3a36891d518d4cbc5d626af8e1fad, type: 3}

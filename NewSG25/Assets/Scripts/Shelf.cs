@@ -62,7 +62,6 @@ public class Shelf : MonoBehaviour
 
     void itemObjectInit()
     {
-
         for (int i = 0; i < itemModels.Length; i++)
         {
             itemList[i] = null;
@@ -73,7 +72,7 @@ public class Shelf : MonoBehaviour
             ItemData itemDataComponent = temp.AddComponent<ItemData>();
             itemDataComponent.itemIndex = itemModels[i].itemIndex;
             itemDataComponent.ItemName = itemModels[i].ItemName;
-            itemDataComponent.cost = itemModels[i].cost;
+            itemDataComponent.sellCost = itemModels[i].sellCost;
             itemDataComponent.IconImage = itemModels[i].IconImage;
             itemDataComponent.ObjectModel = itemModels[i].ObjectModel;
             itemList[i] = temp;
@@ -98,7 +97,7 @@ public class Shelf : MonoBehaviour
             ItemData itemData = new ItemData();
             itemData.itemIndex = itemModels[randomNum].itemIndex;
             itemData.ItemName = itemModels[randomNum].ItemName;
-            itemData.cost = itemModels[randomNum].cost;
+            itemData.sellCost = itemModels[randomNum].sellCost;
             if (itemModels[randomNum].IconImage != null)
                 itemData.IconImage = itemModels[randomNum].IconImage;
             itemData.ObjectModel = itemModels[randomNum].ObjectModel;
@@ -127,7 +126,7 @@ public class Shelf : MonoBehaviour
                 ItemData itemData = temp.AddComponent<ItemData>();
                 itemData.itemIndex = item.itemIndex;
                 itemData.ItemName = item.ItemName;
-                itemData.cost = item.cost;
+                itemData.sellCost = item.sellCost;
                 if(item.IconImage != null)
                 itemData.IconImage = item.IconImage;
                 itemData.ObjectModel = item.ObjectModel;

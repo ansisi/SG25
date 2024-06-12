@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Barleysnack
   m_EditorClassIdentifier: 
   itemIndex: 0
-  ItemName: Barleysnack
-  cost: 1500
+  ItemName: "\uBCF4\uB9AC\uACFC\uC790"
+  sellCost: 1500
+  buyCost: 1050
   IconImage: {fileID: 2800000, guid: 1b3a0b69dbe2ede4b8f3a87b8c4a542b, type: 3}
   ObjectModel: {fileID: 2901998739226664349, guid: 7eed65fa9e3df0c4e980eec8d742ba1f, type: 3}

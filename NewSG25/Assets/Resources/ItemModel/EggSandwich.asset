@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: EggSandwich
   m_EditorClassIdentifier: 
   itemIndex: 12
-  ItemName: EggSandwich
-  cost: 1800
+  ItemName: "\uB2EC\uAC40\uC0CC\uB4DC\uC704\uCE58"
+  sellCost: 2800
+  buyCost: 1960
   IconImage: {fileID: 2800000, guid: 2770f166cca7b204b97e31c42afb8ef1, type: 3}
   ObjectModel: {fileID: 5104173508564468916, guid: 68d18c8cccbb4454a992120d585bbe7f, type: 3}

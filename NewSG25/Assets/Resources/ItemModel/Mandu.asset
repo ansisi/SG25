@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Mandu
   m_EditorClassIdentifier: 
   itemIndex: 14
-  ItemName: Mandu
-  cost: 4000
+  ItemName: "\uB9CC\uB450"
+  sellCost: 3500
+  buyCost: 2450
   IconImage: {fileID: 2800000, guid: 4093588f38205b14cbd91f32d6d57747, type: 3}
   ObjectModel: {fileID: 3589081268819709788, guid: fdd60d7ff09b950408dc6667097f215a, type: 3}

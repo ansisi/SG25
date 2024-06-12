@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5751530063440496467}
   m_Layer: 0
   m_Name: AI_Customer
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4923805c011c24c9be6add76fff1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkoutSystem: {fileID: 0}
+  playerCtrl: {fileID: 0}
   itemDelay: 0.1
   waitTime: 0.5
   isFinishedCalcPrice: 0
@@ -148,25 +150,21 @@ MonoBehaviour:
   - {fileID: -838990645387026779, guid: e5df110e55fbe0e4fa830022325640cc, type: 3}
   - {fileID: 1879971731315462614, guid: 2a1255617902040439ad4de17f3d269b, type: 3}
   target: {fileID: 0}
-  counter: {fileID: 0}
+  counter: {fileID: 4983928037338432846, guid: eeba15f1a871d014d9125742a14e3c3a, type: 3}
   arm: {fileID: 3531301912966499917}
-  exitPoint: {fileID: 0}
-  targetPos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  exitPoint: {fileID: 6957529267667648773, guid: cff75683f22aaa34692a98f04bea3305, type: 3}
+  targetPos: []
   myItem: []
   counterItem: []
   moneyToGive: []
+  counterLine:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   cntToPick: 1
   animator: {fileID: 4731831462516405935}
 --- !u!195 &5751530063440496467

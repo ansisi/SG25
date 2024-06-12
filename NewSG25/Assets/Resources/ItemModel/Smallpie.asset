@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Smallpie
   m_EditorClassIdentifier: 
   itemIndex: 20
-  ItemName: Smallpie
-  cost: 4000
+  ItemName: "\uC2A4\uBAB0\uD30C\uC774"
+  sellCost: 3500
+  buyCost: 2450
   IconImage: {fileID: 2800000, guid: 1a272388a5d567d4392c041ee8908502, type: 3}
   ObjectModel: {fileID: 6352326329465350645, guid: d594c146571fc11459eda07d04973efb, type: 3}

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Chalk purple
   m_EditorClassIdentifier: 
   itemIndex: 7
-  ItemName: Chalk purple
-  cost: 4500
+  ItemName: "\uBCF4\uB77C\uC0C9 \uBD84\uD544"
+  sellCost: 4500
+  buyCost: 3150
   IconImage: {fileID: 2800000, guid: e338567f264c63f45b9c21fe635c3247, type: 3}
   ObjectModel: {fileID: 7433879313238713617, guid: eaa7496404fa7eb4d9ee798f1d14783c, type: 3}

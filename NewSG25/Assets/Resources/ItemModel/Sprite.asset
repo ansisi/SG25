@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Sprite
   m_EditorClassIdentifier: 
   itemIndex: 22
-  ItemName: Sprite
-  cost: 1500
+  ItemName: "SG\uC0AC\uC774\uB2E4 \uB808\uBAAC\uB9DB"
+  sellCost: 2200
+  buyCost: 1540
   IconImage: {fileID: 2800000, guid: ecb566ab046c1f840b6959294ea416df, type: 3}
   ObjectModel: {fileID: 8911867760449118634, guid: 73145760653babd4395f83ac09717e09, type: 3}

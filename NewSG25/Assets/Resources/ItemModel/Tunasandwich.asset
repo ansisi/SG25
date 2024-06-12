@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Tunasandwich
   m_EditorClassIdentifier: 
   itemIndex: 25
-  ItemName: Tunasandwich
-  cost: 1800
+  ItemName: "\uCC38\uCE58\uC0CC\uB4DC\uC704\uCE58"
+  sellCost: 2800
+  buyCost: 1960
   IconImage: {fileID: 2800000, guid: fc1c174ad2ce6974288486530413aa96, type: 3}
   ObjectModel: {fileID: 7847767406313468703, guid: fd44d70dd24f0a34196cc631e41976bf, type: 3}

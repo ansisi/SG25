@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -5964624633621433307}
   m_Layer: 0
   m_Name: Porkcutlet
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

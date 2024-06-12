@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5991188950293054678}
   m_Layer: 0
   m_Name: Milk_1L
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

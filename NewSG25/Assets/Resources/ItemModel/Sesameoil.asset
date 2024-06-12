@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Sesameoil
   m_EditorClassIdentifier: 
   itemIndex: 19
-  ItemName: Sesameoil
-  cost: 5000
+  ItemName: "SG\uCC38\uAE30\uB984"
+  sellCost: 3500
+  buyCost: 2450
   IconImage: {fileID: 2800000, guid: 65e9e25ba2bb70f42aa94a0e0391d30c, type: 3}
   ObjectModel: {fileID: 2050461404719321971, guid: 0c5e6cc871b7e51408b42b07ffa912d0, type: 3}
