@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Trash
   - Money
+  - Customer
   layers:
   - Default
   - TransparentFX
