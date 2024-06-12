@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -33,13 +32,8 @@ public class CheckoutSystem : MonoBehaviour
                 {
                     ItemData itemData = hit.collider.gameObject.GetComponent<ItemData>();
 
-                    // 이미 선택된 아이템인지 확인
-                    if (!selectedItems.Contains(itemData))
-                    {
-                        selectedItems.Add(itemData);
-                        ProcessPayment();
-                    }
-
+                    selectedItems.Add(itemData);
+                    ProcessPayment();
                     hit.collider.gameObject.SetActive(false);
                 }
 
@@ -55,6 +49,7 @@ public class CheckoutSystem : MonoBehaviour
                 }
             }
         }
+
     }
 
     // 결제를 처리하는 메서드
@@ -75,26 +70,23 @@ public class CheckoutSystem : MonoBehaviour
         {
             totalCostText.text = totalCost.ToString("N0") + "원";
         }
-
-        // 일정 시간 후에 선택된 아이템 목록을 초기화
-        StartCoroutine(ResetSelectedItemsAfterDelay(3f));
     }
 
-    private IEnumerator ResetSelectedItemsAfterDelay(float delay)
+    public void ResetValues()
     {
-        yield return new WaitForSeconds(delay);
-
-        selectedItems.Clear();
         totalCost = 0;
         takeMoney = 0;
 
         if (totalCostText != null)
         {
-            totalCostText.text = totalCost.ToString("N0");
+            totalCostText.text = "0원";
         }
+
         if (takeMoneyText != null)
         {
-            takeMoneyText.text = takeMoney.ToString("N0");
+            takeMoneyText.text = "0";
         }
+
+        selectedItems.Clear();
     }
 }

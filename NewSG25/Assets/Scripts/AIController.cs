@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -311,9 +310,9 @@ public class AIController : MonoBehaviour
             }
             else
             {
-                cntPicked = 0;    
+                cntPicked = 0;
                 ChangeState(CustomerState.WaitingCalcPrice, waitTime);
-                
+
                 animator.SetTrigger("MotionTrigger");
             }
         }
@@ -338,7 +337,7 @@ public class AIController : MonoBehaviour
             {
                 Destroy(counterItem[i]);
                 counterItem.Clear();
-            }   
+            }
             isFinishedCalcPrice = true;
             ChangeState(CustomerState.GivingMoney, waitTime);
             Debug.Log("모든 아이템이 비활성화되어 결제를 기다립니다.");
@@ -367,7 +366,11 @@ public class AIController : MonoBehaviour
         if (timer.IsFinished() && isMoveDone)
         {
             if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            {
                 Destroy(gameObject);
+                checkoutSystem.ResetValues();
+            }
+
         }
     }
 

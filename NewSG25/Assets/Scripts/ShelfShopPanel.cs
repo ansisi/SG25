@@ -8,14 +8,13 @@ public class ShelfShopPanel : MonoBehaviour
     public GameObject[] shelfButtons;
     public List<Shelf> shelves;
     public TextMeshProUGUI playerMoneyText;
-    private int playerMoney;
     private int baseUnlockCost = 5000;
     private FirstPersonController playerCtrl;
     public GameObject[] shelfShopPanels;
 
     void Start()
     {
-        playerMoney = GameManager.Instance.currentMoney;
+        
         
         InitializeShelves();
         InitializeShelfButtons();
@@ -26,8 +25,8 @@ public class ShelfShopPanel : MonoBehaviour
 
     private void Update()
     {
-        UpdatePlayerMoneyText();
         playerCtrl.PanelOn();
+        playerMoneyText.text = GameManager.Instance.currentMoney.ToString("N0");
     }
 
     void InitializeShelves()
@@ -56,11 +55,10 @@ public class ShelfShopPanel : MonoBehaviour
 
     void UnlockShelf(int index, int unlockCost, TextMeshProUGUI buttonText)
     {
-        if (playerMoney >= unlockCost)
+        if (GameManager.Instance.currentMoney >= unlockCost)
         {
-            playerMoney -= unlockCost;
-            GameManager.Instance.MoneyDecrease(unlockCost);
-            UpdatePlayerMoneyText();
+            GameManager.Instance.currentMoney -= unlockCost;
+            //GameManager.Instance.MoneyDecrease(unlockCost);
             shelves[index].gameObject.SetActive(true);
             buttonText.text = "SOLD OUT";
             buttonText.transform.parent.GetComponent<Button>().interactable = false;
@@ -105,10 +103,5 @@ public class ShelfShopPanel : MonoBehaviour
         playerCtrl.PanelOff();
         gameObject.SetActive(false);
 
-    }
-
-    void UpdatePlayerMoneyText()
-    {
-        playerMoneyText.text = "Money: " + playerMoney;
     }
 }
