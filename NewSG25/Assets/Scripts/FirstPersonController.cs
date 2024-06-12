@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class FirstPersonController : MonoBehaviour
 
     public GameObject shelfShopPanel;
     public GameObject myShelfsPanel;
+    public GameObject OptionPanel;
 
     void Start()
     {
@@ -56,6 +58,10 @@ public class FirstPersonController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q))
         {
             myShelfsPanel.SetActive(true);
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            OptionPanel.SetActive(true);
         }
     }
 

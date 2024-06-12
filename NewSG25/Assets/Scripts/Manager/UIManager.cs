@@ -11,9 +11,10 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+            GameQuit();
 
-        currentMoneyText.text = GameManager.Instance.currentMoney.ToString("N0");
+        if (currentMoneyText != null)
+            currentMoneyText.text = GameManager.Instance.currentMoney.ToString("N0");
     }
 
     public void GameStartButton()
@@ -21,8 +22,18 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("UnderDeveloping");
     }
 
+    public void HelpButton()
+    {
+        SceneManager.LoadScene("GuideScene");
+    }
+
     public void PanelClose()
     {
         gameObject.SetActive(false);
+    }
+
+    public void GameQuit()
+    {
+        Application.Quit();
     }
 }
