@@ -20,6 +20,7 @@ public class ShelfShopPanel : MonoBehaviour
         UpdatePlayerMoneyText();
         InitializeShelves();
         InitializeShelfButtons();
+        gameObject.SetActive(false);
     }
 
     void InitializeShelves()

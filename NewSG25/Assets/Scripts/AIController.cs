@@ -280,29 +280,29 @@ public class AIController : MonoBehaviour
     {
         if (isFinishedCalcPrice)
         {
-            
+
             if (moneyToGive.Count <= 0)
             {
                 GiveMoney(totalAmount);
                 totalAmount = 0;
                 ChangeState(CustomerState.LeavingStore, waitTime);
-                
+
             }
-        }   
+        }
     }
 
     void LeavingStore()
     {
-        
-        
         target = exitPoint;
-        MoveToTarget();
+        agent.SetDestination(target.position);
 
         if (timer.IsFinished() && isMoveDone)
         {
+            if(!agent.pathPending && agent.remainingDistance < 0.5f)
             Destroy(gameObject);
         }
     }
+
 
     void MoveToTarget()
     {
@@ -345,7 +345,7 @@ public class AIController : MonoBehaviour
     {
         Array.Sort(moneyPrefabs, (a, b) => b.money.value.CompareTo(a.money.value));
 
-        Vector3 spawnPosition = new Vector3(counter.position.x,counter.position.y + 0.55f,counter.position.z );
+        Vector3 spawnPosition = new Vector3(counter.position.x, counter.position.y + 0.55f, counter.position.z);
 
         foreach (var moneyPrefab in moneyPrefabs)
         {
