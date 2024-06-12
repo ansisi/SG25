@@ -2,9 +2,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using System.Collections;
 
 public class TimeManager : MonoBehaviour
 {
+    public static TimeManager Instance { get; private set; }
+
     public GameObject resultUI;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI dateText;
@@ -23,11 +27,24 @@ public class TimeManager : MonoBehaviour
 
     private void Start()
     {
-        playerCtrl = FindFirstObjectByType<FirstPersonController>();
+        playerCtrl = FindObjectOfType<FirstPersonController>();
         resultUI.SetActive(false);
         gameHour = startHour;
         gameDay = startDay;
         UpdateTimeText();
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -54,6 +71,8 @@ public class TimeManager : MonoBehaviour
                 gameDay += 1;
                 gameHour = 9f;
                 playerCtrl.PanelOn();
+
+                
             }
             else
             {
@@ -90,6 +109,16 @@ public class TimeManager : MonoBehaviour
         isTimeStopped = isActive;
     }
 
+    internal void NextDayLogic()
+    {
+        resultUI.SetActive(false);
+        isTimeStopped = false;
+        gameDay += 1;
+        gameHour = startHour;
+        playerCtrl.PanelOff();
+        UpdateTimeText();
+    }
+
     private bool AreCustomersAtCheckout()
     {
         GameObject[] customers = GameObject.FindGameObjectsWithTag("Customer");
@@ -99,9 +128,19 @@ public class TimeManager : MonoBehaviour
             float distanceToCheckout = Vector3.Distance(customer.transform.position, checkoutTransform.position);
             if (distanceToCheckout <= 2.0f) // 거리 기준 예시
             {
+                // 10초 후에 다음 날로 이동
+                StartCoroutine(MoveToNextDayAfterDelay(10.0f));
                 return true;
+
             }
         }
         return false;
+    }
+
+    IEnumerator MoveToNextDayAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        NextDayLogic();
     }
 }

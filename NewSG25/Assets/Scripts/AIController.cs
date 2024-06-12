@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -40,6 +40,8 @@ public class Timer
 
 public class AIController : MonoBehaviour
 {
+    public CheckoutSystem checkoutSystem;
+    public PlayerCtrl playerCtrl;
     public float itemDelay = 0.1f;
     public float waitTime = 0.5f;
     public bool isFinishedCalcPrice = false;
@@ -78,8 +80,10 @@ public class AIController : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
+        checkoutSystem = FindObjectOfType<CheckoutSystem>();
+        playerCtrl = FindObjectOfType<PlayerCtrl>();
         timer = new Timer();
         agent = GetComponent<NavMeshAgent>();
         AssignPriority();
@@ -125,9 +129,24 @@ public class AIController : MonoBehaviour
                 LeavingStore();
                 break;
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.CompareTag("Money"))
+                {
+                    Money money = hit.collider.gameObject.GetComponent<Money>();
+                    playerCtrl.ReceiveMoneyFromAIExplicitly(money.money.value);
+                    Destroy(hit.collider.gameObject);
+                }
+            }
+        }
     }
 
-    void ChangeState(CustomerState nextState, float waitTime = 0.0f)
+      void ChangeState(CustomerState nextState, float waitTime = 0.0f)
     {
         currentState = nextState;
         timer.Set(waitTime);
@@ -183,14 +202,10 @@ public class AIController : MonoBehaviour
 
                 if (itemPicked == null)
                 {
-                    // 아이템이 없을 경우 만족도 감소
                     if (GameManager.Instance != null && GameManager.Instance.satisfactionManager != null)
                     {
                         GameManager.Instance.satisfactionManager.DecreaseSatisfaction();
                     }
-                    //
-
-                    // 선반에 아이템이 없으면 1초 기다렸다가 재시도
                     timer.Set(1.0f);
                 }
                 else
@@ -214,6 +229,7 @@ public class AIController : MonoBehaviour
             }
         }
     }
+
     void WalkingToCounter()
     {
         if (timer.IsFinished() && isMoveDone)
@@ -263,30 +279,20 @@ public class AIController : MonoBehaviour
         if (counterItem.Count <= 0)
         {
             isFinishedCalcPrice = true;
-
             ChangeState(CustomerState.GivingMoney, waitTime);
+            Debug.Log("결제를 기다리는 중");
         }
-
-        //if (isFinishedCalcPrice)
-        //{
-        //    ChangeState(CustomerState.GivingMoney, waitTime);
-
-
-        //    Debug.Log("결제를 기다리는 중");
-        //}
     }
 
     void GivingMoney()
     {
         if (isFinishedCalcPrice)
         {
-
             if (moneyToGive.Count <= 0)
             {
                 GiveMoney(totalAmount);
                 totalAmount = 0;
                 ChangeState(CustomerState.LeavingStore, waitTime);
-
             }
         }
     }
@@ -298,16 +304,14 @@ public class AIController : MonoBehaviour
 
         if (timer.IsFinished() && isMoveDone)
         {
-            if(!agent.pathPending && agent.remainingDistance < 0.5f)
-            Destroy(gameObject);
+            if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                Destroy(gameObject);
         }
     }
-
 
     void MoveToTarget()
     {
         isMoveDone = false;
-
         if (targetPos != null)
         {
             agent.SetDestination(target.position);
@@ -317,7 +321,6 @@ public class AIController : MonoBehaviour
     public void GoToHand(Transform handPos, ItemDataStruct item)
     {
         Vector3 offSet = Vector3.zero;
-
         if (myItem.Count > 0)
         {
             for (int i = 0; i < myItem.Count; i++)
@@ -327,7 +330,6 @@ public class AIController : MonoBehaviour
         }
 
         GameObject temp = Instantiate(item.gameObject);
-
         ItemData tempItemData = temp.AddComponent<ItemData>();
         tempItemData.itemIndex = item.ItemData.itemIndex;
         tempItemData.ItemName = item.ItemData.ItemName;
@@ -343,9 +345,9 @@ public class AIController : MonoBehaviour
 
     void GiveMoney(int amount)
     {
-        Array.Sort(moneyPrefabs, (a, b) => b.money.value.CompareTo(a.money.value));
+        System.Array.Sort(moneyPrefabs, (a, b) => b.money.value.CompareTo(a.money.value));
 
-        Vector3 spawnPosition = new Vector3(counter.position.x, counter.position.y + 0.55f, counter.position.z);
+        Vector3 spawnPosition = new Vector3(counter.position.x, counter.position.y + -0.1f, counter.position.z);
 
         foreach (var moneyPrefab in moneyPrefabs)
         {
@@ -361,7 +363,6 @@ public class AIController : MonoBehaviour
             }
         }
     }
+
+   
 }
-
-
-

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    public CheckoutSystem checkoutSystem; // 결제 시스템
-
+    public CheckoutSystem checkoutSystem;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -36,7 +36,16 @@ public class PlayerCtrl : MonoBehaviour
     private ShelfShopPanel shelfShopPanel;
 
     public bool isPanelOn = false;
-    public itemModel selectedItem; // itemModel -> Item으로 수정
+    public itemModel selectedItem;
+
+    private bool receivedMoney = false;
+    private float receivedMoneyTimer = 0f;
+
+    public void ReceiveMoneyFromAIExplicitly(int amount)
+    {
+        Debug.Log("플레이어가 AI로부터 돈을 받았습니다: " + amount);
+        MoveToNextDay();
+    }
 
     private void Awake()
     {
@@ -49,35 +58,43 @@ public class PlayerCtrl : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
         cameraContainer.localPosition = Vector3.zero;
     }
 
-
     void Update()
     {
-
-        //선반 상점 패널 열기
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             shelfShopPanel.ShelfShopPanelOn();
         }
 
-        
-
-
         if (!isPanelOn)
         {
             CameraLook();
-            
         }
+
+        // 돈을 클릭했을 때 즉시 다음 날로 이동
+        if (Input.GetMouseButtonDown(0) && receivedMoney)
+        {
+            MoveToNextDay();
+        }
+    }
+
+
+    internal void ReceiveMoneyFromAI(int value)
+    {
+        receivedMoney = true;
+    }
+
+    private void MoveToNextDay()
+    {
+        FindObjectOfType<TimeManager>().NextDayLogic();
     }
 
     void CameraLook()
     {
         camCurXRot += mouseDelta.y * lookSensitivity;
         camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
-
         cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
     }
@@ -101,19 +118,15 @@ public class PlayerCtrl : MonoBehaviour
 
     public void PanelOn()
     {
-
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true; // 결과 패널이 활성화될 때 커서 보이기
-
+        Cursor.visible = true;
         isPanelOn = true;
     }
 
     public void PanelOff()
     {
-
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false; // 결과 패널이 비활성화될 때 커서 숨기기
-
+        Cursor.visible = false;
         isPanelOn = false;
     }
 }
