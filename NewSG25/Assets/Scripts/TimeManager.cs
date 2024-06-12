@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,7 +11,7 @@ public class TimeManager : MonoBehaviour
 
     public float startHour = 9f;
     public int startDay = 1;
-    public float gameTime = 60f;    //60f =  현실 시간 1초 -> 게임시간 60초 (현실 시간 1분 = 게임 시간 1시간)
+    public float gameTime = 60f;    //60f = 현실 시간 1초 -> 게임시간 60초 (현실 시간 1분 = 게임 시간 1시간)
     public float endHour = 26f;
 
     private float gameHour;
@@ -21,21 +19,18 @@ public class TimeManager : MonoBehaviour
     public bool isTimeStopped = false;
 
     public FirstPersonController playerCtrl;
+    [SerializeField] private Transform checkoutTransform; // 계산대 위치
 
-    void Start()
-    {       
-
+    private void Start()
+    {
         playerCtrl = FindFirstObjectByType<FirstPersonController>();
-
         resultUI.SetActive(false);
-
         gameHour = startHour;
         gameDay = startDay;
-
         UpdateTimeText();
     }
 
-    void Update()
+    private void Update()
     {
         if (isTimeStopped)
         {
@@ -44,23 +39,26 @@ public class TimeManager : MonoBehaviour
 
         gameHour += Time.deltaTime / gameTime;
 
-        if (gameDay < 25 && gameHour >= endHour)
+        if (gameHour >= endHour)
         {
-            resultUI.SetActive(true);
-            isTimeStopped = true;
+            if (AreCustomersAtCheckout())
+            {
+                Debug.Log("손님이 계산대에 있습니다. 시간이 넘어가지 않습니다.");
+                return;
+            }
 
             if (gameDay < 25)
             {
+                resultUI.SetActive(true);
+                isTimeStopped = true;
                 gameDay += 1;
+                gameHour = 9f;
+                playerCtrl.PanelOn();
             }
-            
-            gameHour = 9f;
-
-            playerCtrl.PanelOn();
-        }
-        else if (gameDay >= 25 && gameHour >= endHour)
-        {
-            SceneManager.LoadScene("HappyEndingScene");
+            else
+            {
+                SceneManager.LoadScene("HappyEndingScene");
+            }
         }
         else
         {
@@ -68,14 +66,12 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-
     private void UpdateTimeText()
     {
         int hours = Mathf.FloorToInt(gameHour) % 24;
         int minutes = Mathf.FloorToInt((gameHour - Mathf.Floor(gameHour)) * 60);
 
         timeText.text = string.Format("{0:D2}:{1:D2}", hours, minutes);
-
         dateText.text = string.Format("Day {0}", gameDay);
     }
 
@@ -84,9 +80,7 @@ public class TimeManager : MonoBehaviour
         if (resultUI.activeSelf)
         {
             resultUI.SetActive(false);
-
             isTimeStopped = false;
-
             playerCtrl.PanelOff();
         }
     }
@@ -94,5 +88,20 @@ public class TimeManager : MonoBehaviour
     public void TimeStop(bool isActive)
     {
         isTimeStopped = isActive;
+    }
+
+    private bool AreCustomersAtCheckout()
+    {
+        GameObject[] customers = GameObject.FindGameObjectsWithTag("Customer");
+
+        foreach (GameObject customer in customers)
+        {
+            float distanceToCheckout = Vector3.Distance(customer.transform.position, checkoutTransform.position);
+            if (distanceToCheckout <= 2.0f) // 거리 기준 예시
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
