@@ -10,9 +10,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            GameQuit();
-
         if (currentMoneyText != null)
             currentMoneyText.text = GameManager.Instance.currentMoney.ToString("N0");
     }
