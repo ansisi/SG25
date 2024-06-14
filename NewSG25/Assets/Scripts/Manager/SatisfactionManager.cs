@@ -88,6 +88,21 @@ public class SatisfactionManager : MonoBehaviour
     // 추가된 변수
     private bool isInitialized = false;
 
+    public void IncreaseSatisfaction()
+    {
+        satisfactionSlider.value += 5; // 만족도 감소
+        Debug.Log("만족도 감소: " + satisfactionSlider.value);
+
+        // 최소값 제한
+        if (satisfactionSlider.value > 100)
+        {
+            satisfactionSlider.value = 100;
+        }
+
+        // 만족도 감소 후 UI 업데이트
+        UpdateSatisfactionUI();
+    }
+
     public void DecreaseSatisfaction()
     {
         satisfactionSlider.value -= 10; // 만족도 감소

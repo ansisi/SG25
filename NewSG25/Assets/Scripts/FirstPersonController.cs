@@ -15,10 +15,13 @@ public class FirstPersonController : MonoBehaviour
     public GameObject myShelfsPanel;
     public GameObject OptionPanel;
 
+    private SatisfactionManager satisfactionManager;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         cameraTransform.localRotation = Quaternion.Euler(10, 0.0f, 0.0f);
+        satisfactionManager = FindObjectOfType<SatisfactionManager>();
     }
 
     void Update()
@@ -46,6 +49,7 @@ public class FirstPersonController : MonoBehaviour
                 // Raycast로 쓰레기 오브젝트를 검출하고 Trash 태그를 가지고 있다면 삭제
                 if (hit.collider.CompareTag("Trash"))
                 {
+                    satisfactionManager.IncreaseSatisfaction();
                     Destroy(hit.collider.gameObject);
                 }
             }
