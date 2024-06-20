@@ -1988,7 +1988,7 @@ MonoBehaviour:
   dateText: {fileID: 706208312}
   startHour: 9
   startDay: 1
-  gameTime: 60
+  gameTime: 1
   endHour: 26
   isTimeStopped: 0
   playerCtrl: {fileID: 0}
